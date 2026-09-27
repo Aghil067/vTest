@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" fill="none">
+  <path d="M6 24L22 44M14 44L44 8" stroke="#20A95B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="56" y="40" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="36" letter-spacing="-1" fill="#142219">Vtest</text>
+  <rect x="185" y="12" width="8" height="8" rx="1.5" fill="#20A95B"/>
+</svg>

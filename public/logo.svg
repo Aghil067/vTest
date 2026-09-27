@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" fill="none">
+  <!-- Green checkmark tick mark -->
+  <g>
+    <path
+      d="M6 24 L22 44"
+      stroke="url(#cg1)"
+      stroke-width="9"
+      stroke-linecap="round"
+    />
+    <path
+      d="M14 44 L44 8"
+      stroke="url(#cg2)"
+      stroke-width="9"
+      stroke-linecap="round"
+    />
+    <defs>
+      <linearGradient id="cg1" x1="6" y1="24" x2="22" y2="44" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#4ADE80"/>
+        <stop offset="100%" stop-color="#2ECC71"/>
+      </linearGradient>
+      <linearGradient id="cg2" x1="14" y1="44" x2="44" y2="8" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#2ECC71"/>
+        <stop offset="100%" stop-color="#1A9E50"/>
+      </linearGradient>
+    </defs>
+  </g>
+
+  <!-- "Test" wordmark — white for dark backgrounds -->
+  <text
+    x="56"
+    y="40"
+    font-family="Inter, system-ui, -apple-system, sans-serif"
+    font-weight="900"
+    font-size="36"
+    letter-spacing="-1"
+    fill="#FFFFFF"
+  >V</text>
+  <text
+    x="84"
+    y="40"
+    font-family="Inter, system-ui, -apple-system, sans-serif"
+    font-weight="900"
+    font-size="36"
+    letter-spacing="-1"
+    fill="#FFFFFF"
+  >test</text>
+
+  <!-- Green square accent on last t -->
+  <rect x="185" y="12" width="8" height="8" rx="1.5" fill="#2ECC71"/>
+</svg>

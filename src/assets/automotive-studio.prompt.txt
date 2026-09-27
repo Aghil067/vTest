@@ -1,0 +1,6 @@
+Asset: public/automotive-studio.png
+Generation method: built-in ImageGen tool
+Purpose: Decorative automotive marketing hero; CSS supplies camera drift, inspection sweep, and sensor highlights. This is a photographic image animation, not a rotatable 3D vehicle model.
+
+Final prompt:
+Use case: ads-marketing. Create a photorealistic premium automotive website hero asset, landscape 1536x1024. A realistic unbranded graphite silver modern performance sedan, entire car visible, front three-quarter view facing left, wheels on a matte near-black studio floor. Position car centrally, large, with space around its silhouette. Accurate real production-car proportions, intricately realistic alloy wheels and tires, glass windshield, detailed white LED headlights, highly realistic paint and panel reflections. Dark automotive inspection studio background almost black #060c0a, subtle emerald green reflected light strips on right and behind car, soft white overhead lighting shapes body beautifully. Elegant engineering editorial photography, luxury automotive advertising quality, crisp and photographic not cartoon, not line drawing. No text, no logos, no watermarks, no fake UI, no charts. Grounded car, slight floor reflection.

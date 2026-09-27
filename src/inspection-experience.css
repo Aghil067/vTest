@@ -1,0 +1,38 @@
+.marketing-site .page > .inspection-experience { padding:72px 0 0; background:var(--site-bg); border-top:1px solid var(--stroke); }
+.inspection-intro { display:flex; align-items:flex-end; justify-content:space-between; gap:32px; padding-bottom:40px; }
+.marketing-site .inspection-intro h2 { font-size:clamp(32px,4vw,56px); margin:16px 0 0; line-height:1.08; font-weight:550; letter-spacing:-.045em; }
+.marketing-site .inspection-intro > p { max-width:320px; margin:0 0 4px; font-size:14px; }
+.inspection-track { height:350svh; position:relative; }
+.inspection-sticky { position:sticky; top:100px; padding-block:12px 32px; }
+.inspection-stage { position:relative; min-height:540px; height:calc(100svh - 150px); max-height:710px; overflow:hidden; border-radius:24px; background:#09120f; border:1px solid #294d39; box-shadow:0 24px 65px #0626131a; }
+.inspection-photo { position:absolute; inset:0 0 0 auto; width:73%; height:100%; object-fit:cover; opacity:.75; }
+.inspection-canvas { position:absolute; right:0; top:0; width:73%; height:calc(100% - 105px); }
+.inspection-canvas canvas { display:block; width:100%; height:100%; transition:opacity .6s ease; }
+.inspection-stage:has(.inspection-canvas.is-ready) .inspection-photo { opacity:0; }
+.inspection-copy { position:absolute; z-index:2; left:clamp(24px,3.3vw,48px); top:17%; width:29%; }
+.marketing-site .inspection-copy h3 { font-size:clamp(24px,2.8vw,38px); line-height:1.16; letter-spacing:-.04em; font-weight:500; margin:22px 0 18px; }
+.marketing-site .inspection-copy p { color:#afc7b8; font-size:13px; line-height:1.85; }
+.inspection-copy a { display:inline-flex; gap:10px; align-items:center; color:#76e5a5; font-size:12px; margin-top:24px; }
+.inspection-scroll-hint { position:absolute; z-index:2; top:28px; right:30px; color:#87b399; font:9px 'JetBrains Mono',monospace; letter-spacing:.1em; }
+.inspection-chapters { position:absolute; z-index:2; bottom:0; left:0; right:0; list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); background:#0d1c14; border-top:1px solid #294d39; }
+.inspection-chapters li { padding:20px clamp(12px,1.6vw,24px); border-right:1px solid #294d39; opacity:.5; transition:opacity .3s,background .3s; }
+.inspection-chapters li:last-child { border:0; }
+.inspection-chapters li.is-active { opacity:1; background:#162f20; }
+.inspection-chapters span { display:block; color:#83e9ac; font:9px 'JetBrains Mono',monospace; letter-spacing:.13em; }
+.inspection-chapters strong { display:block; color:#edf9f1; font-size:13px; font-weight:500; margin-top:9px; }
+.inspection-chapters p { display:none; }
+.inspection-progress { position:absolute; z-index:3; bottom:0; left:0; right:0; height:2px; background:#244831; }
+.inspection-progress > div { height:100%; background:#70f0a1; transform:scaleX(0); transform-origin:left; box-shadow:0 0 14px #56e893; }
+@media(max-width:899px),(prefers-reduced-motion:reduce) {
+ .inspection-track { height:auto; }
+ .inspection-sticky { position:relative; top:0; }
+ .inspection-stage { height:auto; min-height:0; }
+ .inspection-intro { display:block; }
+ .marketing-site .inspection-intro > p { margin-top:20px; max-width:440px; }
+ .inspection-photo { position:relative; display:block; width:100%; height:280px; opacity:1; }
+ .inspection-canvas,.inspection-copy,.inspection-scroll-hint,.inspection-progress { display:none; }
+ .inspection-chapters { position:relative; grid-template-columns:1fr; }
+ .inspection-chapters li,.inspection-chapters li.is-active { opacity:1; padding:24px; border-right:0; border-bottom:1px solid #294d39; background:transparent; }
+ .inspection-chapters strong { font-size:20px; margin-block:12px; }
+ .marketing-site .inspection-chapters p { display:block; font-size:13px; line-height:1.8; color:#afc7b8; margin:0; }
+}
