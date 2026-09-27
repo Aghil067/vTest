@@ -34,8 +34,6 @@ services:
   - type: web
     name: vtest-website
     env: static
-    plan: free
-    region: oregon
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     routes:
