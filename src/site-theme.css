@@ -1,63 +1,24 @@
 /* One semantic palette for all public routes; photographic scenes own a dark palette. */
 .marketing-site { --site-bg:#09120f; --site-surface:#0d1813; --site-surface-alt:#101e17; --surface:#13241b; --stroke:#2b4034; --heading:#f3f7f4; --copy:#c3d1c8; --muted:#96ada0; --accent:#69e59b; --accent-soft:#213e2b; --field-bg:#0b1610; --field-border:#3b5545; --button-ink:#082113; --card-shadow:0 16px 44px #00000024; background:var(--site-bg); color:var(--heading); }
+/* Light surfaces and typography share tokens; image/3D panels override them locally. */
 html.light .marketing-site, [data-theme="light"] .marketing-site {
-  --site-bg: #ffffff;
-  --site-surface: #ffffff;
-  --site-surface-alt: #f8fafc;
-  --surface: #ffffff;
-  --stroke: #e2e8f0;
-  --heading: #000000;
-  --copy: #0f172a;
-  --muted: #334155;
-  --accent: #15803d;
-  --accent-soft: #dcfce7;
-  --field-bg: #ffffff;
-  --field-border: #cbd5e1;
-  --button-ink: #ffffff;
-  --card-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  --site-bg:#f3f8f3; --site-surface:#fbfdf9; --site-surface-alt:#eaf3eb;
+  --surface:#ffffff; --stroke:#cedfd1; --heading:#153b2b; --copy:#3e5c4c;
+  --muted:#577162; --accent:#087546; --accent-soft:#dceee0;
+  --field-bg:#ffffff; --field-border:#b7cdbd; --button-ink:#ffffff;
+  --card-shadow:0 8px 30px #214d3010;
+  --box-glow-border:#379b65; --box-glow-shadow:0 8px 28px #214d3018;
 }
-
-html.light body, [data-theme="light"] body {
-  background: #ffffff !important;
-  color: #0f172a !important;
-}
-
-html.light .marketing-site :is(h1, h2, h3, h4, h5, h6, strong, b),
-[data-theme="light"] .marketing-site :is(h1, h2, h3, h4, h5, h6, strong, b) {
-  color: #000000 !important;
-}
-
-html.light .marketing-site p,
-[data-theme="light"] .marketing-site p {
-  color: #0f172a !important;
-}
-
-html.light .marketing-site :is(
-  .text-slate-200, .text-slate-300, .text-slate-400, .text-slate-500,
-  .text-gray-200, .text-gray-300, .text-gray-400, .text-gray-500,
-  .text-zinc-200, .text-zinc-300, .text-zinc-400, .text-zinc-500,
-  .text-neutral-200, .text-neutral-300, .text-neutral-400, .text-neutral-500
-):not(.btn-primary):not(.btn-primary-lg):not([class*="bg-green"]):not([class*="bg-emerald"]):not(.photo-surface *) {
-  color: #0f172a !important;
-}
-
-html.light .marketing-site :is(.text-white):not(.btn-primary):not(.btn-primary-lg):not([class*="bg-green"]):not([class*="bg-emerald"]):not(.photo-surface *),
-[data-theme="light"] .marketing-site :is(.text-white):not(.btn-primary):not(.btn-primary-lg):not([class*="bg-green"]):not([class*="bg-emerald"]):not(.photo-surface *) {
-  color: #000000 !important;
-}
-
-html.light .marketing-site :is(.text-white\/90, .text-white\/80, .text-white\/70, .text-white\/60),
-[data-theme="light"] .marketing-site :is(.text-white\/90, .text-white\/80, .text-white\/70, .text-white\/60) {
-  color: #0f172a !important;
-}
-
-html.light .marketing-site :is(.bg-green-900\/20,.bg-green-900\/30,.bg-green-950\/30,.bg-green-950\/40),
-[data-theme="light"] .marketing-site :is(.bg-green-900\/20,.bg-green-900\/30,.bg-green-950\/30,.bg-green-950\/40) { background-color:var(--accent-soft) !important; border-color:color-mix(in srgb,var(--accent) 30%,transparent) !important; }
-html.light .marketing-site :is(.text-green-400,.text-green-300),
-[data-theme="light"] .marketing-site :is(.text-green-400,.text-green-300) { color:var(--accent) !important; }
-html.light .gradient-text,[data-theme="light"] .gradient-text,
-html.light .gradient-text-hero,[data-theme="light"] .gradient-text-hero { background:linear-gradient(135deg,#0d7a46 0%,#15803d 100%) !important; -webkit-background-clip:text !important; -webkit-text-fill-color:transparent !important; background-clip:text !important; }
-.marketing-site .photo-surface { --site-bg:#09120f; --surface:#13241b; --heading:#f5faf7; --copy:#d3e2d9; --muted:#a1baac; --accent:#69e59b; --stroke:#345442; color:var(--heading); }
+html.light body, [data-theme="light"] body { background:#f3f8f3; color:#153b2b; }
+html.light .marketing-site :is(h1,h2,h3,h4,h5,h6,strong,b),
+[data-theme="light"] .marketing-site :is(h1,h2,h3,h4,h5,h6,strong,b) { color:var(--heading); }
+html.light .marketing-site p,[data-theme="light"] .marketing-site p { color:var(--copy); }
+html.light .marketing-site :is(.text-slate-200,.text-slate-300,.text-slate-400,.text-slate-500,.text-gray-300,.text-gray-400),
+[data-theme="light"] .marketing-site :is(.text-slate-200,.text-slate-300,.text-slate-400,.text-slate-500,.text-gray-300,.text-gray-400) { color:var(--copy); }
+html.light .marketing-site :is(.bg-green-900\/20,.bg-green-900\/30,.bg-green-950\/30,.bg-green-950\/40,.bg-emerald-950\/40) { background-color:var(--accent-soft); border-color:var(--stroke); }
+html.light .marketing-site :is(.text-green-400,.text-green-300,.text-emerald-400,.text-emerald-300) { color:var(--accent); }
+html.light .marketing-site :is(.gradient-text,.gradient-text-hero) { background:none; color:var(--accent); -webkit-text-fill-color:currentColor; }
+.marketing-site .photo-surface { --site-bg:#09120f; --surface:#13241b; --heading:#f5faf7; --copy:#d3e2d9; --muted:#a1baac; --accent:#69e59b; --stroke:#345442; --accent-soft:#213e2b; --button-ink:#082113; --field-border:#466a54; color:var(--heading); }
 .marketing-site :is(h1,h2,h3,h4,h5,h6) { color:var(--heading); }
 .marketing-site p { color:var(--copy); }
 .marketing-site :is(.text-green-400,.text-green-300) { color:var(--accent); }
@@ -83,7 +44,7 @@ html:not(.light) .marketing-site .form-error { color:#ffa2a2; }
 .marketing-site .home-hero__stats strong { color:var(--heading); }
 .marketing-site .home-hero__stats span,.marketing-site .home-hero__disciplines,.marketing-site .eyebrow { color:var(--muted); }
 .marketing-site .vehicle-stage { border-radius:0; margin-right:0; background:#000; }
-.marketing-site .vehicle-stage__shade { background:linear-gradient(90deg,#000,transparent 18%),linear-gradient(0deg,#000,transparent 32%); }
+.marketing-site .vehicle-stage__shade { background:linear-gradient(90deg,#000 0%,#000 3%,#0008 8%,transparent 15%),linear-gradient(0deg,#000,transparent 32%); }
 .marketing-site .site-header { background:color-mix(in srgb,var(--site-bg) 94%,transparent) !important; border-color:var(--stroke) !important; }
 .marketing-site .site-header nav :is(a,button) { color:var(--heading) !important; letter-spacing:0; }
 .marketing-site .site-header nav :is(a,button):hover { color:var(--accent) !important; }

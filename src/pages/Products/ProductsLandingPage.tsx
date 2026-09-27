@@ -88,7 +88,7 @@ export function ProductsLandingPage() {
             {/* Software card */}
             <div className="relative overflow-hidden rounded-2xl bg-[var(--surface)] border border-[var(--stroke)] text-[var(--heading)] p-8 sm:p-10 flex flex-col justify-between group shadow-sm hover:shadow-lg transition-all duration-300">
               <div className="space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-[var(--accent-soft)] border border-[var(--accent)]/30 flex items-center justify-center text-[var(--accent)]">
+                <div className="w-14 h-14 rounded-2xl bg-[var(--accent-soft)] border border-[var(--accent)] flex items-center justify-center text-[var(--accent)]">
                   <Monitor className="w-7 h-7" />
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-black tracking-tight">Software Products</h3>
@@ -123,7 +123,7 @@ export function ProductsLandingPage() {
             {/* Hardware card */}
             <div className="relative overflow-hidden rounded-2xl bg-[var(--surface)] border border-[var(--stroke)] text-[var(--heading)] p-8 sm:p-10 flex flex-col justify-between group shadow-sm hover:shadow-lg transition-all duration-300">
               <div className="space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-[var(--accent-soft)] border border-[var(--accent)]/30 flex items-center justify-center text-[var(--accent)]">
+                <div className="w-14 h-14 rounded-2xl bg-[var(--accent-soft)] border border-[var(--accent)] flex items-center justify-center text-[var(--accent)]">
                   <HardDrive className="w-7 h-7" />
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-black tracking-tight">Hardware Products</h3>

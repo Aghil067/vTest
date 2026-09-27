@@ -56,7 +56,7 @@ export function ContactPage() {
       {/* Hero */}
       <section className="page-hero relative py-20 lg:py-24 overflow-hidden border-b border-[var(--stroke)] bg-[var(--site-bg)]">
         <div className="absolute inset-0 bg-grid opacity-25 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent)]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent)] rounded-full blur-3xl pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <Breadcrumbs
@@ -65,7 +65,7 @@ export function ContactPage() {
             className="mb-8"
           />
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--accent-soft)] border border-[var(--accent)]/30 text-[var(--accent)] mb-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--accent-soft)] border border-[var(--accent)] text-[var(--accent)] mb-6">
               <MessageSquare className="w-3.5 h-3.5" />
               <span className="text-xs font-bold uppercase tracking-wider">
                 We're Here to Help
@@ -108,7 +108,7 @@ export function ContactPage() {
                     const Icon = info.icon;
                     return (
                       <div key={i} className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)]/20">
+                        <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)]">
                           <Icon className="w-5 h-5" />
                         </div>
                         <div>

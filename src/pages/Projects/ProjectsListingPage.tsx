@@ -148,7 +148,7 @@ export function ProjectsListingPage() {
             <div className="space-y-12">
               {/* Featured Spotlight Card */}
               {featuredProject && selectedCategory === 'All Deployments' && (
-                <div className="rounded-2xl bg-[var(--site-surface-alt)] border border-[var(--stroke)] overflow-hidden shadow-sm hover:border-[var(--accent)]/50 transition-all duration-300">
+                <div className="rounded-2xl bg-[var(--site-surface-alt)] border border-[var(--stroke)] overflow-hidden shadow-sm hover:border-[var(--accent)] transition-all duration-300">
                   <div className="grid grid-cols-1 lg:grid-cols-12">
                     <div className="lg:col-span-7 relative min-h-[320px] lg:min-h-full bg-[var(--site-bg)]">
                       <img
@@ -160,7 +160,7 @@ export function ProjectsListingPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[var(--site-surface-alt)]" />
                       <div className="absolute top-4 left-4">
-                        <span className="px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase bg-[var(--surface)]/90 backdrop-blur-sm text-[var(--accent)] border border-[var(--stroke)]">
+                        <span className="px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase bg-[var(--surface)] backdrop-blur-sm text-[var(--accent)] border border-[var(--stroke)]">
                           FEATURED SPOTLIGHT &bull; {featuredProject.clientOrProjectName}
                         </span>
                       </div>
@@ -223,7 +223,7 @@ export function ProjectsListingPage() {
                 {(selectedCategory === 'All Deployments' ? remainingProjects : filteredProjects).map((project, idx) => (
                   <article
                     key={project.id}
-                    className="group rounded-2xl bg-[var(--site-surface-alt)] border border-[var(--stroke)] overflow-hidden shadow-sm hover:border-[var(--accent)]/50 transition-all duration-300 flex flex-col"
+                    className="group rounded-2xl bg-[var(--site-surface-alt)] border border-[var(--stroke)] overflow-hidden shadow-sm hover:border-[var(--accent)] transition-all duration-300 flex flex-col"
                   >
                     <div className="relative h-60 overflow-hidden bg-[var(--site-bg)]">
                       <img
@@ -235,7 +235,7 @@ export function ProjectsListingPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent opacity-80" />
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 text-xs font-mono font-bold uppercase rounded-lg bg-[var(--surface)]/90 backdrop-blur-sm text-[var(--accent)] border border-[var(--stroke)]">
+                        <span className="px-3 py-1 text-xs font-mono font-bold uppercase rounded-lg bg-[var(--surface)] backdrop-blur-sm text-[var(--accent)] border border-[var(--stroke)]">
                           {project.clientOrProjectName}
                         </span>
                       </div>

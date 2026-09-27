@@ -106,6 +106,7 @@ export const AdminLayout: React.FC = () => {
           </Link>
           <button
             onClick={() => setSidebarOpen(false)}
+            aria-label="Close navigation"
             className="md:hidden p-1.5 text-[var(--admin-muted)] hover:text-white"
           >
             <X className="w-5 h-5" />
@@ -204,6 +205,8 @@ export const AdminLayout: React.FC = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setSidebarOpen(true)}
+              aria-label="Open navigation"
+              aria-expanded={sidebarOpen}
               className={`md:hidden p-2 rounded-xl border ${
                 isDark ? 'border-[#1E3325] text-[var(--admin-copy)]' : 'border-slate-200 text-slate-600'
               }`}

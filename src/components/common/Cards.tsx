@@ -38,13 +38,13 @@ export function ProductCard({ product, className }: ProductCardProps) {
           onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/automotive-studio-900.jpg'; }}
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-[var(--surface)]/80 via-transparent to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent"
         />
 
         {/* Badges */}
         <div className="absolute top-3.5 left-3.5 flex gap-2">
           <span
-            className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)]/30 backdrop-blur-sm"
+            className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)] backdrop-blur-sm"
           >
             {product.type === 'SOFTWARE' ? 'Software' : 'Hardware'}
           </span>
@@ -125,11 +125,11 @@ export function SolutionCard({ solution, variant = 'default', className }: Solut
           onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/automotive-studio-900.jpg'; }}
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-[var(--surface)]/80 via-transparent to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent"
         />
         <div className="absolute top-3.5 left-3.5">
           <span
-            className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)]/30 backdrop-blur-sm"
+            className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)] backdrop-blur-sm"
           >
             Solution
           </span>
@@ -164,38 +164,21 @@ interface IndustryCardProps {
 
 export function IndustryCard({ industry, className }: IndustryCardProps) {
   return (
-    <Link
-      to={`/industries/${industry.slug}`}
-      className={cn('industry-card photo-surface group relative block overflow-hidden rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] transition-all duration-300 hover:shadow-xl', className)}
-      style={{ aspectRatio: '4/3' }}
-    >
-      <img
-        src={industry.image || '/automotive-studio-900.jpg'}
-        alt={industry.title}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        loading="lazy"
-        decoding="async"
-        onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/automotive-studio-900.jpg'; }}
-      />
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-[var(--black)]/90 via-[var(--black)]/40 50% to-transparent"
-      />
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[var(--accent)]/10"
-      />
-
-      <div className="absolute inset-0 flex flex-col justify-end p-6">
-        <h3 className="text-lg font-bold text-white mb-1.5">{industry.title}</h3>
-        <p
-          className="text-sm text-slate-200 opacity-90 line-clamp-2 mb-2 font-normal"
-        >
-          {industry.summary}
-        </p>
-        <div
-          className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[var(--accent)] transition-all duration-300 group-hover:gap-2.5"
-        >
-          Explore Industry <ArrowRight className="w-3.5 h-3.5" />
-        </div>
+    <Link to={`/industries/${industry.slug}`} className={cn('industry-card industry-card--editorial group', className)}>
+      <div className="industry-card__media">
+        <img src={industry.image || '/automotive-studio-900.jpg'} alt={industry.title}
+          loading="lazy" decoding="async"
+          onError={event => {
+            if (!event.currentTarget.dataset.fallback) {
+              event.currentTarget.dataset.fallback = 'true';
+              event.currentTarget.src = '/automotive-studio-900.jpg';
+            }
+          }} />
+      </div>
+      <div className="industry-card__content">
+        <h3>{industry.title}</h3>
+        <p>{industry.summary}</p>
+        <span className="industry-card__link">Explore Industry <ArrowRight size={16} aria-hidden="true" /></span>
       </div>
     </Link>
   );
@@ -262,11 +245,11 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
           onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/automotive-studio-900.jpg'; }}
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-[var(--surface)]/90 via-transparent to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent"
         />
         <div className="absolute top-3.5 left-3.5">
           <span
-            className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)]/30 backdrop-blur-sm"
+            className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)] backdrop-blur-sm"
           >
             Case Study
           </span>
@@ -332,11 +315,11 @@ export function ResourceCard({ resource, className }: ResourceCardProps) {
           onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/hero-bg.jpg'; }}
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-[var(--surface)]/70 via-transparent to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent"
         />
         <div className="absolute top-3.5 left-3.5">
           <span
-            className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)]/30 backdrop-blur-sm"
+            className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)] backdrop-blur-sm"
           >
             {typeLabel}
           </span>

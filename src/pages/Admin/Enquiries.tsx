@@ -329,7 +329,7 @@ export const AdminEnquiries: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSelectedEnquiry(null)}
-                  className="px-4 py-2 bg-white/10 hover:bg-white/15 text-white rounded-xl text-xs font-semibold cursor-pointer"
+                  className="px-4 py-2 bg-[var(--admin-surface)] border border-[var(--admin-border)] text-[var(--admin-heading)] rounded-xl text-xs font-semibold cursor-pointer"
                 >
                   Close
                 </button>

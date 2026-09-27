@@ -102,7 +102,7 @@ export function SolutionDetailPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[var(--accent-soft)] border border-[var(--accent)]/30 text-[var(--accent)]">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[var(--accent-soft)] border border-[var(--accent)] text-[var(--accent)]">
                 <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
                 <span className="text-xs font-bold tracking-wider uppercase">
                   Turnkey Architecture // Enterprise Spec
@@ -155,7 +155,7 @@ export function SolutionDetailPage() {
             <div className="lg:col-span-5">
               <div className="relative group">
                 {/* Glow aura */}
-                <div className="absolute -inset-1.5 bg-gradient-to-tr from-[var(--accent)]/30 to-emerald-600/10 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute -inset-1.5 bg-gradient-to-tr from-[var(--accent)] to-emerald-600/10 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                 <div className="relative rounded-2xl overflow-hidden border border-[var(--stroke)] bg-[var(--surface)] shadow-2xl">
                   {/* Top technical window bar */}
@@ -192,9 +192,9 @@ export function SolutionDetailPage() {
                     <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-[var(--accent)] pointer-events-none opacity-80" />
 
                     {/* Bottom floating badge */}
-                    <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl backdrop-blur-md bg-[var(--site-bg)]/85 border border-[var(--stroke)] flex items-center justify-between">
+                    <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl backdrop-blur-md bg-[var(--site-bg)] border border-[var(--stroke)] flex items-center justify-between">
                       <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-lg bg-[var(--accent)]/15 flex items-center justify-center text-[var(--accent)]">
+                        <div className="w-8 h-8 rounded-lg bg-[var(--accent)] flex items-center justify-center text-[var(--accent)]">
                           <Gauge className="w-4 h-4" />
                         </div>
                         <div>
@@ -314,7 +314,7 @@ export function SolutionDetailPage() {
                     </div>
 
                     {/* Vtest Resolution Card */}
-                    <div className="p-6 rounded-2xl border border-[var(--accent)]/30 bg-[var(--accent-soft)] space-y-3">
+                    <div className="p-6 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] space-y-3">
                       <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--accent)]">
                         <span className="w-2 h-2 rounded-full bg-[var(--accent)]" />
                         Vtest Engineered Resolution
@@ -357,7 +357,7 @@ export function SolutionDetailPage() {
                           key={cap}
                           className="group p-5 rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] hover:border-[var(--accent)] transition-all duration-300 hover:shadow-lg flex items-start gap-4"
                         >
-                          <div className="w-10 h-10 rounded-xl bg-[var(--accent-soft)] border border-[var(--accent)]/20 flex items-center justify-center text-[var(--accent)] flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
+                          <div className="w-10 h-10 rounded-xl bg-[var(--accent-soft)] border border-[var(--accent)] flex items-center justify-center text-[var(--accent)] flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
                             <IconComponent className="w-5 h-5" />
                           </div>
                           <div className="space-y-1">
@@ -394,7 +394,7 @@ export function SolutionDetailPage() {
                         key={tech}
                         className="p-5 rounded-2xl border border-[var(--stroke)] bg-[var(--site-surface-alt)] flex items-center gap-3.5"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center flex-shrink-0">
+                        <div className="w-8 h-8 rounded-lg bg-[var(--accent)] text-[var(--accent)] flex items-center justify-center flex-shrink-0">
                           <Cpu className="w-4 h-4" />
                         </div>
                         <div>
@@ -482,7 +482,7 @@ export function SolutionDetailPage() {
                     <span className="text-[11px] font-mono text-[var(--muted)] uppercase tracking-wider">Deployment Desk</span>
                     <h3 className="text-lg font-black text-[var(--heading)] mt-0.5">Get This Solution</h3>
                   </div>
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)]/30">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-[var(--accent-soft)] text-[var(--accent)] border border-[var(--accent)]">
                     TURNKEY
                   </span>
                 </div>

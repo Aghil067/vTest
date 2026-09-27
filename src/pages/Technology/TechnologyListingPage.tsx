@@ -192,7 +192,7 @@ export function TechnologyListingPage() {
                 <div className="p-8 sm:p-10 rounded-2xl bg-[var(--site-surface-alt)] border border-[var(--stroke)] shadow-sm">
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                     <div className="md:col-span-8 space-y-4">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent-soft)] border border-[var(--accent)]/30 text-xs font-mono font-semibold text-[var(--accent)]">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent-soft)] border border-[var(--accent)] text-xs font-mono font-semibold text-[var(--accent)]">
                         <Icon className="w-3.5 h-3.5" />
                         <span>{item.layer} &bull; Execution Level</span>
                       </div>
@@ -248,7 +248,7 @@ export function TechnologyListingPage() {
               {technologies.map((tech, idx) => (
                 <article
                   key={tech.id}
-                  className="group rounded-2xl bg-[var(--surface)] border border-[var(--stroke)] overflow-hidden shadow-sm hover:border-[var(--accent)]/50 transition-all duration-300 flex flex-col"
+                  className="group rounded-2xl bg-[var(--surface)] border border-[var(--stroke)] overflow-hidden shadow-sm hover:border-[var(--accent)] transition-all duration-300 flex flex-col"
                 >
                   <div className="relative h-60 overflow-hidden bg-[var(--site-surface-alt)]">
                     <img
@@ -260,7 +260,7 @@ export function TechnologyListingPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent opacity-80" />
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 text-xs font-mono font-bold uppercase rounded-lg bg-[var(--surface)]/90 backdrop-blur-sm text-[var(--accent)] border border-[var(--stroke)]">
+                      <span className="px-3 py-1 text-xs font-mono font-bold uppercase rounded-lg bg-[var(--surface)] backdrop-blur-sm text-[var(--accent)] border border-[var(--stroke)]">
                         {String(idx + 1).padStart(2, '0')} // DISCIPLINE
                       </span>
                     </div>

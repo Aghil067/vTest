@@ -248,6 +248,12 @@ export function GlobalHeader() {
   const location = useLocation();
 
   useEffect(() => { setMobileOpen(false); }, [location.pathname]);
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 1100px)');
+    const closeOnDesktop = () => { if (desktop.matches) setMobileOpen(false); };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => desktop.removeEventListener('change', closeOnDesktop);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -281,20 +287,20 @@ export function GlobalHeader() {
           borderBottom: `1px solid ${scrolled ? BORDER : 'transparent'}`,
         }}
       >
-        <div className="container mx-auto px-6 xl:px-12">
-          <div className="flex items-center justify-between h-18 xl:h-20">
+        <div className="container mx-auto px-6 min-[1100px]:px-12">
+          <div className="flex items-center justify-between h-18 min-[1100px]:h-20">
             {/* Logo */}
             <VtestLogo />
 
             {/* Desktop Nav */}
-            <nav className="hidden xl:flex items-center gap-5 2xl:gap-7" aria-label="Main navigation">
+            <nav className="hidden min-[1100px]:flex items-center gap-5 2xl:gap-7" aria-label="Main navigation">
               {NAV_ITEMS.map((item) => (
                 <DesktopNavItem key={item.label} item={item} isActive={isActive(item.href)} />
               ))}
             </nav>
 
             {/* Desktop CTAs */}
-            <div className="hidden xl:flex items-center gap-2.5">
+            <div className="header-desktop-actions hidden min-[1100px]:flex items-center gap-2.5">
               <ThemeToggle />
               <Link
                 to="/contact"
@@ -322,7 +328,7 @@ export function GlobalHeader() {
             </div>
 
             {/* Mobile Actions */}
-            <div className="xl:hidden flex items-center gap-2">
+            <div className="min-[1100px]:hidden flex items-center gap-2">
               <ThemeToggle />
               <button
                 className="flex items-center justify-center w-10 h-10 rounded-lg transition-all"
@@ -341,12 +347,12 @@ export function GlobalHeader() {
       </header>
 
       {/* Spacer */}
-      <div className="h-16 xl:h-18" />
+      <div className="h-16 min-[1100px]:h-18" />
 
       {/* Mobile backdrop */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-40 xl:hidden"
+          className="fixed inset-0 z-40 min-[1100px]:hidden"
           style={{ background: 'rgba(5,10,7,0.8)', backdropFilter: 'blur(4px)' }}
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
@@ -356,7 +362,7 @@ export function GlobalHeader() {
       {/* Mobile panel */}
       <div
         className={cn(
-          'fixed top-0 right-0 bottom-0 z-50 w-full max-w-xs flex flex-col xl:hidden transition-transform duration-300',
+          'fixed top-0 right-0 bottom-0 z-50 w-full max-w-xs flex flex-col min-[1100px]:hidden transition-transform duration-300',
           mobileOpen ? 'translate-x-0' : 'translate-x-full'
         )}
         style={{ background: '#0D1510', borderLeft: `1px solid ${BORDER}` }}

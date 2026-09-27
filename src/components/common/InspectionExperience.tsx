@@ -9,14 +9,24 @@ const chapters = [
   { title: 'Put braking to the test.', shortTitle: 'Brake performance', text: 'Explore the roller brake test bench, where controlled wheel movement supports braking force and balance measurements.', label: '02 / BRAKES' },
   { title: 'Read the road response.', shortTitle: 'Suspension response', text: 'Suspension test plates introduce controlled movement beneath the wheels to help assess vehicle response.', label: '03 / SUSPENSION' },
   { title: 'Bring lighting into focus.', shortTitle: 'Headlamp alignment', text: 'Headlamp alignment equipment moves into position to illustrate beam direction and lighting checks.', label: '04 / LIGHTING' },
-  { title: 'Connect every result.', shortTitle: 'Connected results', text: 'Bring equipment readings together at the operator console, connecting the inspection lane to traceable reports.', label: '05 / CONNECT' },
+  { title: 'Follow the emissions check.', shortTitle: 'Emissions analysis', text: 'Watch the analyser connect to the vehicle as the extraction system moves into position for an emissions inspection.', label: '05 / EMISSIONS' },
+  { title: 'See every wheel in line.', shortTitle: 'Wheel alignment', text: 'Wheel targets and optical measuring heads move into place, illustrating a coordinated alignment inspection.', label: '06 / ALIGNMENT' },
+  { title: 'Connect every result.', shortTitle: 'Connected results', text: 'Bring equipment readings together at the operator console, connecting the inspection lane to traceable reports.', label: '07 / CONNECT' },
+  { title: 'Ready for the next journey.', shortTitle: 'Lane release', text: 'The equipment retracts, the exit signal changes and the barrier rises to release the vehicle from the testing lane.', label: '08 / RELEASE' },
 ];
 
 export function InspectionExperience() {
   const track = useRef<HTMLDivElement>(null);
   const host = useRef<HTMLDivElement>(null);
   const bar = useRef<HTMLDivElement>(null);
+  const chapterRail = useRef<HTMLOListElement>(null);
   const [chapter, setChapter] = useState(0);
+  useEffect(() => {
+    const rail = chapterRail.current;
+    if (rail && matchMedia('(min-width: 900px) and (prefers-reduced-motion: no-preference)').matches) {
+      rail.scrollTo({ left: Math.max(0, chapter - 2) * rail.clientWidth / 4, behavior: 'instant' });
+    }
+  }, [chapter]);
   useEffect(() => {
     const element = track.current;
     const canvasHost = host.current;
@@ -34,7 +44,10 @@ export function InspectionExperience() {
       frame = 0;
       if (!visible || document.hidden || !eligible.matches) return;
       const bounds = element.getBoundingClientRect();
-      progress = Math.max(0, Math.min(1, (100 - bounds.top) / Math.max(1, bounds.height - innerHeight + 120)));
+      const sticky = element.firstElementChild as HTMLElement | null;
+      const stickyTop = sticky ? parseFloat(getComputedStyle(sticky).top) || 0 : 100;
+      const travel = bounds.height - (sticky?.offsetHeight ?? innerHeight - 120);
+      progress = Math.max(0, Math.min(1, (stickyTop - bounds.top) / Math.max(1, travel)));
       const next = Math.min(chapters.length - 1, Math.floor(progress * chapters.length));
       if (next !== active) { active = next; setChapter(next); }
       if (bar.current) bar.current.style.transform = 'scaleX(' + progress + ')';
@@ -89,7 +102,7 @@ export function InspectionExperience() {
             <Link to="/solutions">Explore solutions <ArrowUpRight size={17} /></Link>
           </div>
           <span className="inspection-scroll-hint">SCROLL TO EXPLORE ↓</span>
-          <ol className="inspection-chapters">
+          <ol className="inspection-chapters" ref={chapterRail}>
             {chapters.map((item, index) => <li key={item.label} className={index === chapter ? 'is-active' : ''}>
               <span>{item.label}</span><strong>{item.shortTitle}</strong><p>{item.text}</p>
             </li>)}

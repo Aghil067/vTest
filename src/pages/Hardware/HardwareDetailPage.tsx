@@ -108,7 +108,7 @@ export function HardwareDetailPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--stroke)] bg-[var(--site-bg)]/50">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--stroke)] bg-[var(--site-bg)]">
                 <img
                   src={product.heroImage}
                   alt={product.name}
@@ -152,7 +152,7 @@ export function HardwareDetailPage() {
                       </thead>
                       <tbody className="divide-y divide-[var(--stroke)]">
                         {product.specifications.map((spec) => (
-                          <tr key={spec.id} className="hover:bg-[var(--surface)]/60">
+                          <tr key={spec.id} className="hover:bg-[var(--surface)]">
                             <td className="py-3 px-4 font-medium text-[var(--heading)]">{spec.name}</td>
                             <td className="py-3 px-4 text-[var(--copy)] font-mono text-xs">{spec.value}</td>
                           </tr>
@@ -240,7 +240,7 @@ export function HardwareDetailPage() {
                   </Link>
                 </div>
 
-                <div className="p-4 bg-[var(--accent-soft)] border border-[var(--accent)]/30 rounded-xl">
+                <div className="p-4 bg-[var(--accent-soft)] border border-[var(--accent)] rounded-xl">
                   <div className="flex items-center gap-2 text-[var(--accent)] font-bold text-xs uppercase mb-1">
                     <ShieldCheck className="w-4 h-4 text-[var(--accent)]" />
                     Factory Calibrated

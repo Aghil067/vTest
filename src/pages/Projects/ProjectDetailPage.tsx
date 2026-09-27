@@ -120,8 +120,8 @@ export function ProjectDetailPage() {
                   alt={project.title}
                   className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)]/90 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-[var(--heading)] bg-[var(--surface)]/85 backdrop-blur-sm p-3 rounded-xl border border-[var(--stroke)]">
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-[var(--heading)] bg-[var(--surface)] backdrop-blur-sm p-3 rounded-xl border border-[var(--stroke)]">
                   <span>FIELD INTEGRATION</span>
                   <span className="text-[var(--accent)]">{project.clientOrProjectName} TEST FACILITY</span>
                 </div>
@@ -182,7 +182,7 @@ export function ProjectDetailPage() {
                     )}
 
                     {project.vtestContribution && (
-                      <div className="p-6 rounded-2xl bg-[var(--accent-soft)] border border-[var(--accent)]/30 space-y-3">
+                      <div className="p-6 rounded-2xl bg-[var(--accent-soft)] border border-[var(--accent)] space-y-3">
                         <div className="flex items-center gap-2 text-[var(--accent)]">
                           <Lightbulb className="w-5 h-5 shrink-0" />
                           <h3 className="font-bold text-[var(--heading)] text-base">The Vtest Approach</h3>

@@ -83,3 +83,47 @@
  .technology-index-item { gap:24px; padding-block:28px; }
  .project-index { gap:36px; }
 }
+
+/* Premium catalogue polish for the Technology and Projects indexes. */
+.marketing-site .page-technology-listing-page .page-hero,
+.marketing-site .page-projects-listing-page .page-hero {
+  min-height: 510px;
+  display: flex;
+  align-items: center;
+  padding-block: 56px 72px;
+  background: radial-gradient(70% 90% at 82% 30%, var(--accent-soft), transparent 65%), var(--site-bg) !important;
+}
+.marketing-site .page-technology-listing-page .page-hero > .container,
+.marketing-site .page-projects-listing-page .page-hero > .container { width:100%; }
+.marketing-site .page-technology-listing-page .page-hero h1,
+.marketing-site .page-projects-listing-page .page-hero h1 { max-width: 17ch; font-size: clamp(40px,5.3vw,76px); line-height: .98; letter-spacing: -.065em; }
+.marketing-site .page-technology-listing-page .page-hero p,
+.marketing-site .page-projects-listing-page .page-hero p { max-width: 54ch; font-size: 17px; }
+.marketing-site .page-technology-listing-page .page-hero .max-w-3xl,
+.marketing-site .page-projects-listing-page .page-hero .max-w-3xl { position:relative; z-index:2; }
+.marketing-site .page-technology-listing-page .page-hero .page-artwork,
+.marketing-site .page-projects-listing-page .page-hero .page-artwork { opacity:.72; transform:scale(1.05); }
+
+.marketing-site .page-technology-listing-page > section:not(.page-hero),
+.marketing-site .page-projects-listing-page > section:not(.page-hero) { border-color: var(--stroke); }
+.marketing-site .page-technology-listing-page .rounded-2xl,
+.marketing-site .page-projects-listing-page .rounded-2xl { border-radius: 12px; box-shadow: 0 14px 35px color-mix(in srgb, var(--heading) 7%, transparent); }
+.marketing-site .page-technology-listing-page article.rounded-2xl,
+.marketing-site .page-projects-listing-page article.rounded-2xl { transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
+.marketing-site .page-technology-listing-page article.rounded-2xl:hover,
+.marketing-site .page-projects-listing-page article.rounded-2xl:hover { transform: translateY(-4px); box-shadow: 0 20px 45px color-mix(in srgb, var(--heading) 13%, transparent); }
+.marketing-site .page-technology-listing-page article img,
+.marketing-site .page-projects-listing-page article img { filter:saturate(.9); }
+.marketing-site .page-technology-listing-page article:hover img,
+.marketing-site .page-projects-listing-page article:hover img { filter:saturate(1.08); }
+.marketing-site .page-projects-listing-page .flex.flex-wrap.items-center.justify-center.gap-2 button { border-radius:5px; letter-spacing:.03em; }
+.marketing-site .page-projects-listing-page .grid.grid-cols-1.md\:grid-cols-2 { align-items:stretch; }
+
+@media(max-width:700px) {
+ .marketing-site .page-technology-listing-page .page-hero,
+ .marketing-site .page-projects-listing-page .page-hero { min-height:0; padding-block:30px 48px; }
+ .marketing-site .page-technology-listing-page .page-hero h1,
+ .marketing-site .page-projects-listing-page .page-hero h1 { font-size:clamp(36px,11vw,52px); }
+ .marketing-site .page-technology-listing-page .page-hero p,
+ .marketing-site .page-projects-listing-page .page-hero p { font-size:15px; }
+}

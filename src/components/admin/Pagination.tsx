@@ -19,17 +19,17 @@ const Pagination: React.FC<PaginationProps> = ({
   if (totalPages <= 1) return null;
 
   return (
-    <div className="flex items-center justify-between px-4 py-3 border-t border-[#1e3325] sm:px-6">
+    <div className="flex flex-wrap gap-3 items-center justify-between px-4 py-3 border-t border-[var(--admin-border)] sm:px-6">
       <div className="text-xs text-[var(--admin-muted)]">
-        Page <span className="font-bold text-white">{currentPage}</span> of{' '}
-        <span className="font-bold text-white">{totalPages}</span>
+        Page <span className="font-bold text-[var(--admin-heading)]">{currentPage}</span> of{' '}
+        <span className="font-bold text-[var(--admin-heading)]">{totalPages}</span>
       </div>
 
       <div className="flex items-center gap-2">
         <button
           onClick={() => onPageChange(currentPage - 1)}
           disabled={!hasPrev}
-          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[#1e3325] bg-[#0A0F0C] text-xs font-medium text-[var(--admin-copy)] hover:text-white hover:border-[#2ECC71]/40 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[var(--admin-border)] bg-[var(--admin-surface)] text-xs font-medium text-[var(--admin-copy)] hover:text-[var(--admin-heading)] hover:border-[#2ECC71]/40 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
         >
           <ChevronLeft className="w-4 h-4" /> Previous
         </button>
@@ -37,7 +37,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <button
           onClick={() => onPageChange(currentPage + 1)}
           disabled={!hasNext}
-          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[#1e3325] bg-[#0A0F0C] text-xs font-medium text-[var(--admin-copy)] hover:text-white hover:border-[#2ECC71]/40 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-[var(--admin-border)] bg-[var(--admin-surface)] text-xs font-medium text-[var(--admin-copy)] hover:text-[var(--admin-heading)] hover:border-[#2ECC71]/40 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
         >
           Next <ChevronRight className="w-4 h-4" />
         </button>

@@ -1,3 +1,4 @@
+import { IndustryCard } from '@/components/common/Cards';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Monitor, HardDrive, Cpu, Brain, Wifi, Zap, BarChart3 } from 'lucide-react';
 import { useApi } from '@/hooks/useApi';
@@ -488,36 +489,7 @@ function IndustriesSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {(industries ?? []).map((industry) => (
-            <Link
-              key={industry.id}
-              to={`/industries/${industry.slug}`}
-              className="photo-surface group relative block overflow-hidden rounded-lg"
-              style={{ aspectRatio: '4/3' }}
-            >
-              <img
-                src={industry.image}
-                alt={industry.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div
-                className="absolute inset-0"
-                style={{ background: 'linear-gradient(to top, #050A0790, #050A0730 50%, transparent)' }}
-              />
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ background: `${GREEN}18` }}
-              />
-              <div className="absolute inset-0 flex flex-col justify-end p-5">
-                <h3 className="text-lg font-black text-[var(--heading)] mb-1">{industry.title}</h3>
-                <div
-                  className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300"
-                  style={{ color: 'var(--accent)' }}
-                >
-                  Learn More <ArrowRight className="w-3 h-3" />
-                </div>
-              </div>
-            </Link>
+            <IndustryCard key={industry.id} industry={industry} />
           ))}
         </div>
       </div>

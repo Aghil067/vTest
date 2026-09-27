@@ -158,6 +158,52 @@ export function mountInspectionLane(host: HTMLElement): InspectionLaneScene {
   ]);
   const hose = new THREE.Mesh(new THREE.TubeGeometry(hoseCurve, 20, .045, 6, false), steel); scene.add(hose);
   const vehicleRig = new THREE.Group(); scene.add(vehicleRig);
+  // Additional stations use the same geometry/material pool; no extra model downloads.
+  const extraction = new THREE.Group(); scene.add(extraction);
+  box(extraction, [.15, .15, 3.1], [3.45, 3.35, -1.7], steel);
+  const duct = new THREE.Mesh(new THREE.CylinderGeometry(.13, .13, 1, 12), housing);
+  duct.position.set(3.45, 2.7, -.25); extraction.add(duct);
+  const hood = new THREE.Mesh(new THREE.CylinderGeometry(.13, .38, .35, 12, 1, true), steel);
+  hood.position.set(3.45, 2, -.25); extraction.add(hood);
+  const exhaustFlow = new THREE.Group(); extraction.add(exhaustFlow);
+  const flowRings: THREE.Mesh[] = [];
+  const flowGeometry = new THREE.TorusGeometry(.2, .018, 4, 16);
+  for (let i = 0; i < 4; i++) {
+    const ring = new THREE.Mesh(flowGeometry, lightMaterial);
+    ring.rotation.x = Math.PI / 2; ring.position.set(3.45, 1.2 + i * .3, -.25);
+    flowRings.push(ring); exhaustFlow.add(ring);
+  }
+  const alignment = new THREE.Group(); scene.add(alignment);
+  const wheelTargets: THREE.Group[] = [];
+  for (const x of [-1.5, 1.5]) for (const side of [-1, 1]) {
+    const target = new THREE.Group(); target.position.set(x, .58, side * 2.3); alignment.add(target); wheelTargets.push(target);
+    box(target, [.52, .52, .08], [0, 0, 0], steel);
+    box(target, [.44, .44, .09], [0, 0, 0], screenMaterial);
+    for (const dx of [-.12, .12]) for (const dy of [-.12, .12]) box(target, [.09, .09, .11], [dx, dy, 0], lightMaterial);
+  }
+  const alignmentHeads: THREE.Group[] = [];
+  const opticalPaths: THREE.Mesh[] = [];
+  for (const side of [-1, 1]) {
+    const head = new THREE.Group(); head.position.set(-2.9, 0, side * 2.65); alignment.add(head); alignmentHeads.push(head);
+    box(head, [.65, .12, .6], [0, 0, 0], housing);
+    box(head, [.12, 1.65, .12], [0, .85, 0], steel);
+    box(head, [.75, .28, .35], [0, 1.65, 0], architecture);
+    box(head, [.16, .16, .38], [-.2, 1.65, 0], lightMaterial);
+    const optical = box(alignment, [4.4, .018, .018], [-.65, .58, side * 1.42], lightMaterial);
+    opticalPaths.push(optical);
+  }
+  const exitLane = new THREE.Group(); scene.add(exitLane);
+  box(exitLane, [4.8, .16, 3.35], [-5.1, -.25, 0], baseMaterial);
+  for (const z of [-1.5, 1.5]) box(exitLane, [4.8, .02, .045], [-5.1, -.155, z], caution);
+  const gate = new THREE.Group(); gate.position.set(-4.6, 0, -1.65); exitLane.add(gate);
+  box(gate, [.45, 1.05, .45], [0, .4, 0], housing);
+  const barrier = new THREE.Group(); barrier.position.y = .9; gate.add(barrier);
+  box(barrier, [.12, .12, 3.35], [0, 0, 1.6], steel);
+  for (let i = 0; i < 7; i++) box(barrier, [.135, .135, .2], [0, 0, .2 + i * .46], caution);
+  box(gate, [.08, 1, .08], [0, 1.25, 0], steel);
+  const signalMaterial = new THREE.MeshBasicMaterial({ color: 0xe7b85b });
+  const signal = new THREE.Mesh(new THREE.SphereGeometry(.14, 12, 8), signalMaterial);
+  signal.position.set(0, 1.85, 0); gate.add(signal);
   const gantry = new THREE.Group();
   for (const z of [-1.6, 1.6]) {
     const upright = new THREE.Mesh(new THREE.BoxGeometry(.07, 2.8, .07), lightMaterial);
@@ -179,14 +225,18 @@ export function mountInspectionLane(host: HTMLElement): InspectionLaneScene {
     group.visible = amount > .001;
     group.scale.setScalar(Math.max(.001, amount));
   };
-  const update = (value: number) => {
-    current = value;
-    const angle = .64 + value * 1.8;
+  const update = (progress: number) => {
+    current = progress;
+    // Preserve the first four scenes, then give each added station its own chapter.
+    const value = Math.min(progress * 1.6, .8);
+    const angle = .64 + progress * 1.8;
     const brake = ramp(value, .2, .38);
     const suspensionTime = THREE.MathUtils.clamp((value - .4) / .2, 0, 1);
     const suspensionReveal = ramp(value, .4, .44) * (1 - ramp(value, .56, .6));
     const lights = ramp(value, .6, .68);
-    const connected = ramp(value, .8, .88);
+    const connected = ramp(progress, .75, .82);
+    const departure = ramp(progress, .94, 1);
+    const retract = 1 - ramp(progress, .88, .93);
     const building = ramp(value, .04, .22);
     centre.visible = building > .001;
     centre.scale.y = Math.max(.001, building);
@@ -195,17 +245,33 @@ export function mountInspectionLane(host: HTMLElement): InspectionLaneScene {
     reveal(lift, ramp(value, .38, .42));
     liftDeck.position.y = liftHeight;
     liftPistons.forEach(piston => { piston.scale.y = .1 + liftHeight; piston.position.y = liftHeight / 2; });
-    vehicleRig.position.y = liftHeight;
+    vehicleRig.position.y = liftHeight - departure * .28;
+    vehicleRig.position.x = -3.3 * departure;
     vehicleRig.rotation.x = Math.sin(suspensionTime * Math.PI * 10) * .018 * raised;
     reveal(robot, ramp(value, .39, .45));
-    arm.rotation.y = Math.sin(suspensionTime * Math.PI * 2) * .65;
+    arm.rotation.y = Math.sin(suspensionTime * Math.PI * 2) * .65 + ramp(progress, .85, .92) * Math.PI / 2;
     arm.position.y = .75 + raised * .15;
     sensorLight.visible = raised > .3;
-    reveal(analyser, ramp(value, .76, .84));
-    hose.visible = value > .8;
-    hose.geometry.setDrawRange(0, Math.floor(ramp(value, .8, .9) * (hose.geometry.index?.count ?? 0) / 3) * 3);
+    const emissions = ramp(progress, .5, .55);
+    reveal(analyser, emissions);
+    hose.visible = emissions > 0 && retract > 0;
+    hose.geometry.setDrawRange(0, Math.floor(ramp(progress, .53, .6) * retract * (hose.geometry.index?.count ?? 0) / 3) * 3);
+    reveal(extraction, emissions);
+    const extension = ramp(progress, .54, .6) * retract;
+    duct.scale.y = .8 + extension * 1.2; duct.position.y = 3.35 - duct.scale.y / 2;
+    hood.position.y = 3.35 - duct.scale.y - .15;
+    exhaustFlow.visible = progress > .55 && progress < .625;
+    flowRings.forEach((ring, i) => { ring.position.y = 1.15 + ((progress * 28 + i * .3) % 1.25); });
+    const aligned = ramp(progress, .625, .675);
+    reveal(alignment, aligned * retract);
+    wheelTargets.forEach((target, i) => { target.position.z = (i % 2 === 0 ? -1 : 1) * (2.3 - aligned * .88); });
+    alignmentHeads.forEach((head, i) => { head.rotation.y = (i === 0 ? 1 : -1) * (.35 + Math.sin(ramp(progress, .675, .75) * Math.PI) * .25); });
+    opticalPaths.forEach(path => { path.scale.x = 4.4 * ramp(progress, .675, .72); });
+    reveal(exitLane, ramp(progress, .84, .9));
+    barrier.rotation.x = -ramp(progress, .89, .94) * Math.PI / 2;
+    signalMaterial.color.setHex(progress >= .94 ? 0x67efac : 0xe7b85b);
     resultBars.forEach((bar, index) => {
-      const width = .12 + ramp(value, .2 + index * .18, .32 + index * .18) * (1.4 - index * .15);
+      const width = .12 + ramp(progress, .14 + index * .2, .22 + index * .2) * (1.4 - index * .15);
       bar.scale.x = width; bar.position.x = -.8 + width / 2;
     });
     reveal(brakeBench, ramp(value, .18, .24));
@@ -215,17 +281,18 @@ export function mountInspectionLane(host: HTMLElement): InspectionLaneScene {
     reveal(lighting, lights);
     lighting.scale.multiplyScalar(1.25);
     lighting.position.x = -4.1 + lights * .95;
+    lighting.position.z = ramp(progress, .82, .9) * 2.8;
     beamMaterial.opacity = .035 + .07 * Math.sin(ramp(value, .68, .8) * Math.PI);
     reveal(consoleStation, connected);
     consoleStation.scale.multiplyScalar(1.35);
     readings.forEach((reading, index) => {
-      const height = .06 + ramp(value, .84 + index * .025, .92 + index * .025) * (.12 + index * .055);
+      const height = .06 + ramp(progress, .76 + index * .02, .81 + index * .02) * (.12 + index * .055);
       reading.scale.y = height; reading.position.y = 1.27 + height / 2;
     });
     link.visible = connected > .001; link.scale.x = 2.2 * connected;
-    const radius = 9.8 + building * 3.2;
+    const radius = 9.8 + building * 3.2 + ramp(progress, .86, 1) * 2.2;
     camera.position.set(Math.cos(angle) * radius, 4.3 + building * 1.4 + raised * .5, Math.sin(angle) * radius);
-    camera.lookAt(0, .65 + building * .25, 0); gantry.position.x = -3.05 + ramp(value, 0, .2) * 6.1; render();
+    camera.lookAt(-departure, .65 + building * .25, 0); gantry.position.x = -3.05 + ramp(value, 0, .2) * 6.1; render();
   };
   const resize = () => {
     if (disposed) return;

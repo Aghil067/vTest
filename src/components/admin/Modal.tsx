@@ -45,6 +45,9 @@ const Modal: React.FC<ModalProps> = ({
 
       {/* Modal Dialog */}
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={title}
         className={`relative w-full ${maxWidth} rounded-2xl shadow-2xl overflow-hidden z-10 my-8 max-h-[90vh] flex flex-col transition-colors border ${
           isDark
             ? 'bg-[#0f1812] border-[#1e3325] text-white'

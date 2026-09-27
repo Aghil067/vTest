@@ -8,6 +8,7 @@ import '@/motion.css';
 import '@/cinematic.css';
 import '@/site-theme.css';
 import '@/editorial.css';
+import '@/responsive.css';
 
 function ScrollToTop() {
   const { pathname, search } = useLocation();

@@ -98,7 +98,7 @@ export function IndustryDetailPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--stroke)] bg-[var(--site-bg)]/50">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border border-[var(--stroke)] bg-[var(--site-bg)]">
                 <img
                   src={industry.image}
                   alt={industry.title}

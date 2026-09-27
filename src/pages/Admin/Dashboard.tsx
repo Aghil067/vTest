@@ -131,8 +131,8 @@ export const AdminDashboard: React.FC = () => {
       <div
         className={`p-6 lg:p-8 rounded-3xl border relative overflow-hidden shadow-xl transition-all ${
           isDark
-            ? 'bg-gradient-to-r from-[#0F1812] via-[#111f16] to-[#0A1A0E] border-[#1E3325] text-white'
-            : 'bg-gradient-to-r from-emerald-700 to-emerald-900 border-emerald-800 text-white'
+            ? 'admin-dashboard-banner bg-gradient-to-r from-[#0F1812] via-[#111f16] to-[#0A1A0E] border-[#1E3325] text-white'
+            : 'admin-dashboard-banner bg-gradient-to-r from-emerald-700 to-emerald-900 border-emerald-800 text-white'
         }`}
       >
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">

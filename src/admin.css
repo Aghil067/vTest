@@ -1,5 +1,5 @@
 /* Visual consistency across every CMS workspace screen. */
-.admin-shell {
+.admin-shell,.admin-login {
   --admin-radius: 14px;
   --admin-bg: #050A07;
   --admin-card: #0A0F0C;
@@ -8,19 +8,23 @@
   --admin-heading: #F8FAFC;
   --admin-copy: #CBD5E1;
   --admin-muted: #94A3B8;
+  --admin-surface: #0F1812;
+  --admin-accent: #69E59B;
   --admin-input-bg: #0A0F0C;
   --admin-input-border: #1E3325;
 }
 
-html.light .admin-shell,
-[data-theme="light"] .admin-shell {
-  --admin-bg: #F8FAFC;
+html.light :is(.admin-shell,.admin-login),
+[data-theme="light"] :is(.admin-shell,.admin-login) {
+  --admin-bg: #EDF5EE;
   --admin-card: #FFFFFF;
-  --admin-card-hover: #F1F5F9;
+  --admin-card-hover: #E8F2EA;
   --admin-border: #E2E8F0;
-  --admin-heading: #0F172A;
-  --admin-copy: #334155;
-  --admin-muted: #64748B;
+  --admin-heading: #153B2B;
+  --admin-copy: #3E5C4C;
+  --admin-muted: #577162;
+  --admin-surface: #FFFFFF;
+  --admin-accent: #087546;
   --admin-input-bg: #FFFFFF;
   --admin-input-border: #CBD5E1;
 }
@@ -40,6 +44,38 @@ html.light .admin-shell,
 .admin-shell main td, .admin-shell main th { padding-block: 14px; }
 .admin-shell aside { box-shadow: 10px 0 32px #0000000a; }
 .admin-shell header { backdrop-filter: blur(16px); }
+.admin-shell,.admin-login { background:var(--admin-bg); color:var(--admin-heading); }
+.admin-shell .admin-dashboard-banner { --admin-heading:#f4fff7; --admin-copy:#d2ecdb; --admin-muted:#c0dfca; --admin-accent:#83efaa; }
+.admin-shell .admin-dashboard-banner p { color:var(--admin-copy); }
+.admin-shell main > div { width:100%; max-width:1500px; margin-inline:auto; }
+.admin-shell :is(.grid,.flex) > * { min-width:0; }
+.admin-shell main :is(h1,h2,h3,p,label) { overflow-wrap:break-word; }
+.admin-shell main :is(input,textarea,select) { max-width:100%; color:var(--admin-heading); }
+.admin-shell main label { color:var(--admin-copy); }
+.admin-shell main .overflow-x-auto { max-width:100%; overscroll-behavior-x:contain; }
+.admin-shell main table { width:100%; min-width:640px; }
+.admin-shell main :is(td,th) { vertical-align:middle; }
+.admin-shell [class~="text-[#2ECC71]"],.admin-login [class~="text-[#2ECC71]"] { color:var(--admin-accent); }
+.admin-shell :is(a,button):focus-visible,.admin-login :is(a,button):focus-visible { outline:2px solid var(--admin-accent); outline-offset:3px; }
+.admin-shell main [role="dialog"] { max-height:calc(100dvh - 32px); }
+html.light .admin-shell,html.light .admin-login { background:var(--admin-bg); }
+html.light .admin-shell > div > header { background:#f8fcf8f5; border-color:var(--admin-border); }
+html.light .admin-shell :is(a,button).hover\:text-white:hover { color:var(--admin-heading); }
+@media(min-width:768px) { .admin-shell > aside { position:sticky; top:0; height:100dvh; flex-shrink:0; } }
+@media(max-width:767px) {
+ .admin-shell main :is(input,select,textarea),.admin-login :is(input,select,textarea) { font-size:16px; }
+ .admin-shell main > div > .flex.justify-between { flex-wrap:wrap; gap:16px; }
+ .admin-shell main > div > .flex.justify-between h1 { font-size:24px; }
+ .admin-shell header { gap:12px; }
+ .admin-shell header > .flex { gap:8px; }
+ .admin-shell header button[title*="Mode"] > span { display:none; }
+ .admin-shell main [role="dialog"] > .p-6 { padding:20px; }
+}
+@media(max-width:400px) {
+ .admin-shell header { padding-inline:12px; }
+ .admin-shell header .flex.items-center.gap-2.text-xs > span:first-child,.admin-shell header .flex.items-center.gap-2.text-xs > svg { display:none; }
+ .admin-login > .absolute { left:16px; right:16px; }
+}
 
 /* Light mode specific admin overrides to guarantee contrast */
 html.light .admin-shell table th,
@@ -64,10 +100,6 @@ html.light .admin-shell .bg-\[\#050A07\],
 html.light .admin-shell .border-\[\#1E3325\],
 [data-theme="light"] .admin-shell .border-\[\#1E3325\] {
   border-color: #E2E8F0 !important;
-}
-html.light .admin-shell .text-white,
-[data-theme="light"] .admin-shell .text-white {
-  color: #0F172A !important;
 }
 html.light .admin-shell .text-slate-400,
 html.light .admin-shell .text-slate-500,

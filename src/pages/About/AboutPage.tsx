@@ -24,7 +24,7 @@ export function AboutPage() {
       {/* Hero */}
       <section className="page-hero relative py-20 lg:py-24 overflow-hidden border-b border-[var(--stroke)] bg-[var(--site-bg)]">
         <div className="absolute inset-0 bg-grid opacity-25 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent)]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent)] rounded-full blur-3xl pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <Breadcrumbs
@@ -33,7 +33,7 @@ export function AboutPage() {
             className="mb-8"
           />
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--accent-soft)] border border-[var(--accent)]/30 text-[var(--accent)] mb-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--accent-soft)] border border-[var(--accent)] text-[var(--accent)] mb-6">
               <span className="w-2 h-2 rounded-full bg-[var(--accent)]" />
               <span className="text-xs font-bold uppercase tracking-wider">
                 Our Story &amp; Vision
@@ -151,7 +151,7 @@ export function AboutPage() {
                     }
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--black)]/90 via-[var(--black)]/30 to-transparent flex items-end p-8">
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--black)] via-[var(--black)]/30 to-transparent flex items-end p-8">
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider mb-1 text-[var(--accent)]">
                       Engineering Excellence
