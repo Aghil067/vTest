@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Clock, MessageSquare, ShieldCheck, ChevronDown } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, MessageSquare, ShieldCheck, ChevronDown, CheckCircle2 } from 'lucide-react';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { ContactForm } from '@/components/forms/Forms';
 import { SEOHead } from '@/components/common/SEOHead';
@@ -56,7 +56,7 @@ export function ContactPage() {
       {/* Hero */}
       <section className="page-hero relative py-20 lg:py-24 overflow-hidden border-b border-[var(--stroke)] bg-[var(--site-bg)]">
         <div className="absolute inset-0 bg-grid opacity-25 pointer-events-none" />
-        <div className="hidden dark:block absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-96 h-96 bg-[#2ECC71]/15 dark:bg-[#2ECC71]/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <Breadcrumbs
@@ -64,21 +64,37 @@ export function ContactPage() {
             variant="dark"
             className="mb-8"
           />
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--accent-soft)] border border-[var(--accent)] text-[var(--accent)] mb-6">
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span className="text-xs font-bold uppercase tracking-wider">
-                We're Here to Help
-              </span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8 max-w-3xl">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--accent-soft)] border border-[var(--accent)] text-[var(--accent)] mb-6">
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span className="text-xs font-bold uppercase tracking-wider">
+                  We're Here to Help
+                </span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight leading-[1.15] mb-4 text-[var(--heading)]">
+                Connect With Our{' '}
+                <span className="text-[var(--accent)]">Testing Specialists</span>
+              </h1>
+              <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-[var(--copy)] font-normal">
+                Whether you are planning a new multi-lane inspection facility, modernizing legacy test benches,
+                or requesting technical support, our team is ready to assist.
+              </p>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight leading-[1.15] mb-4 text-[var(--heading)]">
-              Connect With Our{' '}
-              <span className="text-[var(--accent)]">Testing Specialists</span>
-            </h1>
-            <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-[var(--copy)] font-normal">
-              Whether you are planning a new multi-lane inspection facility, modernizing legacy test benches,
-              or requesting technical support, our team is ready to assist.
-            </p>
+
+            <div className="hidden lg:flex lg:col-span-4 justify-end">
+              <div className="bg-[var(--surface)]/90 backdrop-blur-md border border-[var(--stroke)] rounded-2xl p-6 shadow-xl max-w-sm w-full space-y-4">
+                <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#2ECC71] uppercase tracking-wider">
+                  <Clock className="w-4 h-4" /> Global Response Time
+                </div>
+                <div className="text-sm font-bold text-[var(--heading)]">&lt; 24h Engineering Advisory</div>
+                <div className="space-y-2 text-xs text-[var(--copy)]">
+                  <div className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#2ECC71] flex-shrink-0" /> Direct Technical Escalation</div>
+                  <div className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#2ECC71] flex-shrink-0" /> Regional Equipment Sizing</div>
+                  <div className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#2ECC71] flex-shrink-0" /> Tender &amp; Compliance Support</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
