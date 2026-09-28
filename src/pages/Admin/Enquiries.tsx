@@ -100,7 +100,9 @@ export const AdminEnquiries: React.FC = () => {
         }`}
       >
         <div className="relative flex-1">
-          <Search className="w-4 h-4 text-[var(--admin-muted)] absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+            <Search className="w-4 h-4 text-[var(--admin-muted)]" />
+          </div>
           <input
             type="text"
             placeholder="Search by prospect name, organization, or email..."
