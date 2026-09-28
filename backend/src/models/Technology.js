@@ -7,6 +7,10 @@ const technologySchema = new mongoose.Schema(
       required: [true, 'Technology name is required'],
       trim: true
     },
+    title: {
+      type: String,
+      trim: true
+    },
     slug: {
       type: String,
       required: [true, 'Slug is required'],
@@ -18,6 +22,10 @@ const technologySchema = new mongoose.Schema(
       type: String,
       default: ''
     },
+    summary: {
+      type: String,
+      default: ''
+    },
     technologyCategory: {
       type: String,
       default: 'General'
@@ -26,6 +34,16 @@ const technologySchema = new mongoose.Schema(
       type: String,
       default: ''
     },
+    heroImage: {
+      type: String,
+      default: ''
+    },
+    overview: {
+      type: String,
+      default: ''
+    },
+    capabilities: [mongoose.Schema.Types.Mixed],
+    concepts: [String],
     icon: {
       type: String,
       default: ''

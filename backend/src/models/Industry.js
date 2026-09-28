@@ -7,6 +7,10 @@ const industrySchema = new mongoose.Schema(
       required: [true, 'Industry name is required'],
       trim: true
     },
+    title: {
+      type: String,
+      trim: true
+    },
     slug: {
       type: String,
       required: [true, 'Slug is required'],
@@ -18,10 +22,26 @@ const industrySchema = new mongoose.Schema(
       type: String,
       default: ''
     },
+    summary: {
+      type: String,
+      default: ''
+    },
     heroImage: {
       type: String,
       default: ''
     },
+    image: {
+      type: String,
+      default: ''
+    },
+    icon: {
+      type: String,
+      default: 'Building2'
+    },
+    challenges: [mongoose.Schema.Types.Mixed],
+    vtestCapabilities: [String],
+    useCases: [String],
+    technologies: [String],
     applications: [String],
     benefits: [String],
     relatedProducts: [

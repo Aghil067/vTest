@@ -27,6 +27,10 @@ const productSchema = new mongoose.Schema(
       enum: ['SOFTWARE', 'HARDWARE'],
       default: 'HARDWARE'
     },
+    type: {
+      type: String,
+      default: 'HARDWARE'
+    },
     category: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Category',

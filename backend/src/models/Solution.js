@@ -7,6 +7,10 @@ const solutionSchema = new mongoose.Schema(
       required: [true, 'Solution name is required'],
       trim: true
     },
+    title: {
+      type: String,
+      trim: true
+    },
     slug: {
       type: String,
       required: [true, 'Slug is required'],
@@ -18,10 +22,28 @@ const solutionSchema = new mongoose.Schema(
       type: String,
       default: ''
     },
+    summary: {
+      type: String,
+      default: ''
+    },
     heroImage: {
       type: String,
       default: ''
     },
+    image: {
+      type: String,
+      default: ''
+    },
+    icon: {
+      type: String,
+      default: 'ClipboardCheck'
+    },
+    businessContext: {
+      type: String,
+      default: ''
+    },
+    capabilities: [String],
+    technologies: [String],
     features: [String],
     benefits: [String],
     applications: [String],

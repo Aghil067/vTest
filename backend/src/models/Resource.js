@@ -16,7 +16,7 @@ const resourceSchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      enum: ['WHITEPAPER', 'BROCHURE'],
+      enum: ['WHITEPAPER', 'BROCHURE', 'CASE_STUDY', 'DATASHEET', 'GUIDE', 'ARTICLE'],
       default: 'WHITEPAPER'
     },
     description: {

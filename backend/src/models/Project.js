@@ -7,6 +7,10 @@ const projectSchema = new mongoose.Schema(
       required: [true, 'Project title is required'],
       trim: true
     },
+    title: {
+      type: String,
+      trim: true
+    },
     slug: {
       type: String,
       required: [true, 'Slug is required'],
@@ -17,6 +21,10 @@ const projectSchema = new mongoose.Schema(
     clientName: {
       type: String,
       default: 'Confidential OEM Client'
+    },
+    clientOrProjectName: {
+      type: String,
+      default: ''
     },
     industry: {
       type: String,
@@ -30,7 +38,15 @@ const projectSchema = new mongoose.Schema(
       type: String,
       default: ''
     },
+    description: {
+      type: String,
+      default: ''
+    },
     challenge: {
+      type: String,
+      default: ''
+    },
+    problem: {
       type: String,
       default: ''
     },
@@ -38,6 +54,12 @@ const projectSchema = new mongoose.Schema(
       type: String,
       default: ''
     },
+    vtestContribution: {
+      type: String,
+      default: ''
+    },
+    capabilities: [String],
+    images: [mongoose.Schema.Types.Mixed],
     implementation: {
       type: String,
       default: ''
