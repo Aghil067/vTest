@@ -47,6 +47,12 @@ services:
           type: web
           envVarKey: RENDER_EXTERNAL_URL
           suffix: /api
+      - key: VITE_API_BASE_URL
+        fromService:
+          name: vtest-backend
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
+          suffix: /api
       - key: VITE_BACKEND_URL
         fromService:
           name: vtest-backend

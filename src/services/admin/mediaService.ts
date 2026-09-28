@@ -20,18 +20,51 @@ export const mediaService = {
       unifiedStore.saveMedia(res.data.data || res.data);
       return res.data;
     } catch {
-      // Local fallback: convert file to Base64 Data URL so uploaded image works 100% everywhere!
+      // Local fallback: convert file to compressed WebP/JPEG Data URL so it never exceeds quota
       const file = formData.get('file') as File | null;
       if (file) {
-        const dataUrl = await new Promise<string>((resolve) => {
-          const reader = new FileReader();
-          reader.onloadend = () => resolve(reader.result as string);
-          reader.readAsDataURL(file);
-        });
+        let dataUrl = '';
+        try {
+          dataUrl = await new Promise<string>((resolve) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const img = new Image();
+              img.onload = () => {
+                const maxDim = 800;
+                let w = img.width;
+                let h = img.height;
+                if (w > maxDim || h > maxDim) {
+                  if (w > h) {
+                    h = Math.round((h * maxDim) / w);
+                    w = maxDim;
+                  } else {
+                    w = Math.round((w * maxDim) / h);
+                    h = maxDim;
+                  }
+                }
+                const canvas = document.createElement('canvas');
+                canvas.width = w;
+                canvas.height = h;
+                const ctx = canvas.getContext('2d');
+                if (ctx) {
+                  ctx.drawImage(img, 0, 0, w, h);
+                  resolve(canvas.toDataURL('image/jpeg', 0.8));
+                  return;
+                }
+                resolve(e.target?.result as string || '');
+              };
+              img.onerror = () => resolve(e.target?.result as string || '');
+              img.src = e.target?.result as string;
+            };
+            reader.readAsDataURL(file);
+          });
+        } catch {
+          dataUrl = '/automotive-studio.jpg';
+        }
 
         const asset = {
           _id: `media-${Date.now()}`,
-          url: dataUrl,
+          url: dataUrl || '/automotive-studio.jpg',
           filename: file.name,
           mimeType: file.type,
           sizeBytes: file.size,

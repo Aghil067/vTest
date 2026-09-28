@@ -240,22 +240,40 @@ class UnifiedStore {
     }
   }
 
+  private inMemoryFallback: Record<string, any[]> = {};
+
   private getItems<T>(key: string): T[] {
     this.init();
     try {
       const raw = localStorage.getItem(key);
-      return raw ? JSON.parse(raw) : [];
+      const items = raw ? JSON.parse(raw) : [];
+      if (this.inMemoryFallback[key] && this.inMemoryFallback[key].length > items.length) {
+        return this.inMemoryFallback[key] as T[];
+      }
+      return items;
     } catch {
-      return [];
+      return (this.inMemoryFallback[key] as T[]) || [];
     }
   }
 
   private setItems<T>(key: string, items: T[]): void {
+    this.inMemoryFallback[key] = items;
     try {
       localStorage.setItem(key, JSON.stringify(items));
       this.notify(key);
-    } catch (e) {
-      console.error('Failed to save to localStorage:', e);
+    } catch (e: any) {
+      if (key === STORAGE_KEYS.media && Array.isArray(items)) {
+        try {
+          const compact = items.slice(0, 5).map((m: any) => ({
+            ...m,
+            url: typeof m.url === 'string' && m.url.length > 50000 ? '/automotive-studio.jpg' : m.url,
+          }));
+          localStorage.setItem(key, JSON.stringify(compact));
+        } catch {
+          // Keep in memory safely
+        }
+      }
+      this.notify(key);
     }
   }
 

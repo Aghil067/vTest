@@ -6,6 +6,7 @@ import { useToast } from '@/contexts/ToastContext';
 import { useSettings } from '@/contexts/SettingsContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
+import { BrandLogo } from '@/components/common/BrandLogo';
 import { Lock, Mail, Eye, EyeOff, Loader2, ArrowLeft, ShieldCheck } from 'lucide-react';
 
 export const AdminLogin: React.FC = () => {
@@ -82,20 +83,14 @@ export const AdminLogin: React.FC = () => {
 
       <div className="w-full max-w-md relative z-10 my-12">
         {/* Branding Header */}
-        <div className="text-center mb-8">
-          <div
-            className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl border p-2 mb-4 shadow-lg ${
-              isDark ? 'bg-[#0F1812] border-[#1E3325]' : 'bg-white border-slate-200'
-            }`}
-          >
-            <svg width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 14.5L10.5 21L24 7.5" stroke="#2ECC71" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+        <div className="text-center mb-8 flex flex-col items-center">
+          <Link to="/" className="mb-4 inline-block hover:opacity-90 transition-opacity">
+            <BrandLogo className="h-12 sm:h-14 w-auto max-w-[220px] object-contain" />
+          </Link>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2ECC71]/10 border border-[#2ECC71]/25 text-[#2ECC71] text-xs font-mono font-semibold uppercase tracking-wider mb-2">
+            Admin CMS Portal
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black tracking-tight">
-            Vtest <span className="text-[#2ECC71]">Admin CMS</span>
-          </h1>
-          <p className="text-xs text-[var(--admin-muted)] mt-1 font-mono uppercase tracking-wider">
+          <p className="text-xs text-[var(--admin-muted)] font-mono uppercase tracking-wider">
             {settings?.general?.tagline || 'Automotive Inspection & Compliance Control Engine'}
           </p>
         </div>

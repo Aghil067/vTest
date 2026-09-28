@@ -70,7 +70,7 @@ const apiLimiter = rateLimit({
 app.use('/api', apiLimiter);
 
 // Health Check
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health'], (req, res) => {
   res.json({
     status: 'OK',
     service: 'Vtest Admin CMS API',
@@ -80,9 +80,8 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Fast-fail middleware: If DB is not connected (e.g. pending Atlas IP whitelist), return 503 immediately
-// so frontend client immediately uses unifiedStore without any delay!
-app.use('/api', (req, res, next) => {
+// Fast-fail middleware: If DB is not connected, return 503 so frontend client immediately falls back
+app.use(['/api', '/admin', '/auth'], (req, res, next) => {
   if (mongoose.connection.readyState !== 1) {
     return res.status(503).json({
       success: false,
@@ -93,24 +92,24 @@ app.use('/api', (req, res, next) => {
   next();
 });
 
-// Admin & Public Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/admin/dashboard', dashboardRoutes);
-app.use('/api/admin/products', productRoutes);
-app.use('/api/admin/categories', categoryRoutes);
-app.use('/api/admin/solutions', solutionRoutes);
-app.use('/api/admin/industries', industryRoutes);
-app.use('/api/admin/technology', technologyRoutes);
-app.use('/api/admin/projects', projectRoutes);
-app.use('/api/admin/resources', resourceRoutes);
-app.use('/api/admin/media', mediaRoutes);
-app.use('/api/admin/enquiries', enquiryRoutes);
-app.use('/api/admin/pages', pageRoutes);
-app.use('/api/admin/users', userRoutes);
-app.use('/api/admin/settings', settingRoutes);
+// Admin & Public Routes (supports both /api/* and direct /* paths)
+app.use(['/api/auth', '/auth'], authRoutes);
+app.use(['/api/admin/dashboard', '/admin/dashboard'], dashboardRoutes);
+app.use(['/api/admin/products', '/admin/products'], productRoutes);
+app.use(['/api/admin/categories', '/admin/categories'], categoryRoutes);
+app.use(['/api/admin/solutions', '/admin/solutions'], solutionRoutes);
+app.use(['/api/admin/industries', '/admin/industries'], industryRoutes);
+app.use(['/api/admin/technology', '/admin/technology'], technologyRoutes);
+app.use(['/api/admin/projects', '/admin/projects'], projectRoutes);
+app.use(['/api/admin/resources', '/admin/resources'], resourceRoutes);
+app.use(['/api/admin/media', '/admin/media'], mediaRoutes);
+app.use(['/api/admin/enquiries', '/admin/enquiries'], enquiryRoutes);
+app.use(['/api/admin/pages', '/admin/pages'], pageRoutes);
+app.use(['/api/admin/users', '/admin/users'], userRoutes);
+app.use(['/api/admin/settings', '/admin/settings'], settingRoutes);
 
 // Public website APIs
-app.use('/api', publicRoutes);
+app.use(['/api', '/'], publicRoutes);
 
 // Serve Frontend static assets if built (for unified single-service hosting on Render)
 const fs = require('fs');

@@ -5,6 +5,7 @@ import { useSettings } from '@/contexts/SettingsContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import '@/admin.css';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
+import { BrandLogo } from '@/components/common/BrandLogo';
 import Badge from '@/components/admin/Badge';
 import {
   LayoutDashboard,
@@ -92,14 +93,7 @@ export const AdminLayout: React.FC = () => {
           }`}
         >
           <Link to="/admin/dashboard" className="flex items-center gap-3">
-            <div className="flex items-center gap-2">
-              <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 14.5L10.5 21L24 7.5" stroke="#2ECC71" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <span className="font-black text-xl tracking-tight">
-                Vtest<span className="text-[#2ECC71]">.</span>
-              </span>
-            </div>
+            <BrandLogo className="h-9 w-auto max-w-[130px] object-contain" />
             <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#2ECC71]/15 text-[#2ECC71] border border-[#2ECC71]/30">
               CMS
             </span>

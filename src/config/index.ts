@@ -2,9 +2,27 @@
 // VTEST Website — Application Configuration
 // ==========================================
 
+const resolveApiBaseUrl = (): string => {
+  const envUrl =
+    import.meta.env.VITE_API_BASE_URL ||
+    import.meta.env.VITE_API_URL ||
+    import.meta.env.VITE_BACKEND_URL;
+
+  if (envUrl && typeof envUrl === 'string' && envUrl.trim() !== '') {
+    const trimmed = envUrl.trim().replace(/\/+$/, '');
+    return trimmed.endsWith('/api') ? trimmed : `${trimmed}/api`;
+  }
+
+  if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    return 'https://vtest-backend-ws6i.onrender.com/api';
+  }
+
+  return 'http://localhost:5000/api';
+};
+
 export const config = {
   // API Configuration
-  apiBaseUrl: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api',
+  apiBaseUrl: resolveApiBaseUrl(),
   useMockData: import.meta.env.VITE_USE_MOCK_DATA === 'true',
 
   // Site Configuration

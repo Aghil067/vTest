@@ -1,8 +1,26 @@
 import axios from 'axios';
 
+const resolveAdminApiUrl = (): string => {
+  const envUrl =
+    import.meta.env.VITE_API_URL ||
+    import.meta.env.VITE_API_BASE_URL ||
+    import.meta.env.VITE_BACKEND_URL;
+
+  if (envUrl && typeof envUrl === 'string' && envUrl.trim() !== '') {
+    const trimmed = envUrl.trim().replace(/\/+$/, '');
+    return trimmed.endsWith('/api') ? trimmed : `${trimmed}/api`;
+  }
+
+  if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    return 'https://vtest-backend-ws6i.onrender.com/api';
+  }
+
+  return 'http://localhost:5000/api';
+};
+
 export const adminApi = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
-  timeout: 5000,
+  baseURL: resolveAdminApiUrl(),
+  timeout: 10000,
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
