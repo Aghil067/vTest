@@ -63,7 +63,7 @@ const iconMap: Record<string, React.ReactNode> = {
 function VtestLogo({ className }: { className?: string }) {
   return (
     <Link to="/" className={cn('flex items-center py-1 group shrink-0', className)} aria-label="Vtest — Home">
-      <BrandLogo className="h-9 sm:h-10 w-auto max-w-[155px] sm:max-w-[170px] object-contain transition-transform duration-200 group-hover:scale-[1.03]" />
+      <BrandLogo className="h-10 sm:h-12 w-auto max-w-[190px] sm:max-w-[210px] object-contain transition-transform duration-200 group-hover:scale-[1.03]" />
     </Link>
   );
 }
@@ -142,26 +142,26 @@ function DesktopNavItem({ item, isActive }: NavItemProps) {
       <Link
         to={item.href ?? '/'}
         aria-current={isActive ? 'page' : undefined}
-        className={cn('nav-glass-btn', isActive && 'active')}
+        className="h-10 inline-flex items-center text-sm font-semibold px-2.5 py-1 rounded-lg transition-colors duration-200"
+        style={{ color: isActive ? G : 'var(--heading)', letterSpacing: '0.01em' }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = G; }}
+        onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = isActive ? G : 'var(--heading)'; }}
       >
-        <span>{item.label}</span>
+        {item.label}
       </Link>
     );
   }
 
   return (
-    <div
-      className="relative flex items-center"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+    <div className="relative flex items-center h-10" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
       onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsOpen(false); }}
-      onKeyDown={(event) => { if (event.key === 'Escape') setIsOpen(false); }}
-    >
+      onKeyDown={(event) => { if (event.key === 'Escape') setIsOpen(false); }}>
       <button
         type="button"
         onClick={() => setIsOpen(open => !open)}
         onKeyDown={(event) => { if (event.key === 'ArrowDown') { event.preventDefault(); setIsOpen(true); } }}
-        className={cn('nav-glass-btn cursor-pointer', (isOpen || isActive) && 'active')}
+        className="h-10 inline-flex items-center gap-1.5 text-sm font-semibold px-2.5 py-1 rounded-lg transition-colors duration-200 cursor-pointer"
+        style={{ color: isOpen || isActive ? G : 'var(--heading)', letterSpacing: '0.01em' }}
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
@@ -287,38 +287,38 @@ export function GlobalHeader() {
           borderBottom: `1px solid ${scrolled ? BORDER : 'transparent'}`,
         }}
       >
-        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18 min-[1100px]:h-20">
             {/* Logo */}
             <VtestLogo />
 
             {/* Desktop Nav */}
-            <nav className="hidden min-[1100px]:flex items-center gap-1 xl:gap-2 2xl:gap-3" aria-label="Main navigation">
+            <nav className="hidden min-[1100px]:flex items-center gap-3.5 xl:gap-5 2xl:gap-6" aria-label="Main navigation">
               {NAV_ITEMS.map((item) => (
                 <DesktopNavItem key={item.label} item={item} isActive={isActive(item.href)} />
               ))}
             </nav>
 
             {/* Desktop CTAs */}
-            <div className="header-desktop-actions hidden min-[1100px]:flex items-center gap-2 xl:gap-2.5 shrink-0">
+            <div className="header-desktop-actions hidden min-[1100px]:flex items-center gap-3">
               <ThemeToggle />
               <Link
                 to="/contact"
-                className={cn('nav-glass-btn shrink-0', isActive('/contact') && 'active')}
+                className="h-10 inline-flex items-center px-3.5 rounded-xl text-sm font-semibold transition-all duration-200 text-[var(--heading)] hover:text-[#2ECC71] hover:bg-[#2ECC71]/10 border border-transparent hover:border-[#2ECC71]/20"
               >
-                <span>Contact Us</span>
+                Contact Us
               </Link>
               <Link
                 to="/request-demo"
                 id="header-request-demo"
-                className="h-9 inline-flex items-center justify-center px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_14px_rgba(46,204,113,0.3)] hover:shadow-[0_0_20px_rgba(46,204,113,0.5)] hover:brightness-110 active:scale-95 text-[#050A07] shrink-0"
-                style={{ background: G, letterSpacing: '0.06em' }}
+                className="h-10 inline-flex items-center justify-center px-5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-sm hover:brightness-105 active:scale-95 text-[#050A07]"
+                style={{ background: G, letterSpacing: '0.08em' }}
               >
                 Request a Demo
               </Link>
               <Link
                 to="/admin"
-                className="h-9 inline-flex items-center gap-1.5 px-3 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 bg-white/[0.04] backdrop-blur-md border border-white/10 text-[var(--heading)] hover:border-[#2ECC71]/40 hover:text-[#2ECC71] hover:shadow-[0_0_14px_rgba(46,204,113,0.25)] shadow-xs shrink-0"
+                className="h-10 inline-flex items-center gap-2 px-3.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 bg-[var(--surface)] border border-[var(--stroke)] text-[var(--heading)] hover:border-[#2ECC71] hover:text-[#2ECC71] hover:shadow-[0_0_15px_-2px_rgba(46,204,113,0.35)] shadow-sm"
                 title="Admin CMS Portal"
               >
                 <ShieldCheck className="w-4 h-4 text-[#2ECC71]" />

@@ -16,10 +16,10 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '', showLa
       onClick={toggleTheme}
       aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
       title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-      className={`h-[38px] ${showLabel ? 'px-3' : 'w-[38px]'} inline-flex items-center justify-center gap-2 rounded-xl transition-all duration-200 border cursor-pointer backdrop-blur-md ${
+      className={`h-10 ${showLabel ? 'px-3' : 'w-10'} inline-flex items-center justify-center gap-2 rounded-xl transition-all duration-200 border cursor-pointer ${
         isDark
-          ? 'bg-white/[0.04] hover:bg-[#2ECC71]/10 border-white/10 hover:border-[#2ECC71]/40 text-[#2ECC71] hover:shadow-[0_0_14px_rgba(46,204,113,0.25)] shadow-[0_2px_6px_rgba(0,0,0,0.15)]'
-          : 'bg-black/[0.03] hover:bg-green-50 border-slate-200 text-slate-800 hover:text-black shadow-xs hover:border-green-500/40 hover:shadow-[0_0_12px_rgba(34,197,94,0.2)]'
+          ? 'bg-[#0f1812] hover:bg-[#16251b] border-[#1e3325] text-[#2ECC71] hover:text-[#4ade80]'
+          : 'bg-white hover:bg-slate-100 border-slate-200 text-slate-800 hover:text-black shadow-xs'
       } ${className}`}
     >
       {isDark ? (

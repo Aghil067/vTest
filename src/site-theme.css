@@ -47,8 +47,8 @@ html.light .marketing-site .page .page-hero, [data-theme="light"] .marketing-sit
 .marketing-site .vehicle-stage { border-radius:0; margin-right:0; background:#000; }
 .marketing-site .vehicle-stage__shade { background:linear-gradient(90deg,#000 0%,#000 3%,#0008 8%,transparent 15%),linear-gradient(0deg,#000,transparent 32%); }
 .marketing-site .site-header { background:color-mix(in srgb,var(--site-bg) 94%,transparent) !important; border-color:var(--stroke) !important; }
-.marketing-site .site-header nav :is(a,button) { color:var(--heading); letter-spacing:0; }
-.marketing-site .site-header nav :is(a,button):hover, .marketing-site .site-header nav :is(a,button).active, .marketing-site .site-header nav :is(a,button)[aria-expanded="true"] { color:var(--accent) !important; }
+.marketing-site .site-header nav :is(a,button) { color:var(--heading) !important; letter-spacing:0; }
+.marketing-site .site-header nav :is(a,button):hover { color:var(--accent) !important; }
 .marketing-site .site-header nav .absolute { background:var(--surface) !important; border-color:var(--stroke) !important; box-shadow:var(--card-shadow); border-radius:14px !important; }
 .marketing-site [role="dialog"][aria-label="Navigation menu"] { background:var(--surface) !important; border-color:var(--stroke) !important; }
 .marketing-site footer { background:var(--site-bg) !important; border-color:var(--stroke) !important; }
