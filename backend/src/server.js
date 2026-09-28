@@ -17,6 +17,14 @@ const connectDB = require('./config/db');
 
 const PORT = process.env.PORT || 5000;
 
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err);
+});
+
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled Promise Rejection:', err);
+});
+
 // Connect to MongoDB and start HTTP Server
 connectDB().finally(() => {
   const server = app.listen(PORT, '0.0.0.0', () => {
@@ -27,7 +35,11 @@ connectDB().finally(() => {
     console.log(`==================================================`);
   });
 
-  process.on('unhandledRejection', (err) => {
-    console.error('Unhandled Promise Rejection:', err);
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.error(`Port ${PORT} is already in use.`);
+    } else {
+      console.error('Server error:', err);
+    }
   });
 });
