@@ -61,10 +61,10 @@ html.light .marketing-site .page .page-hero, [data-theme="light"] .marketing-sit
 .marketing-site :is(.form-input,.form-textarea)::placeholder { color:var(--muted); }
 .marketing-site .form-label { color:var(--heading); font-weight:550; }
 .marketing-site :is(input,select,textarea):focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
-.marketing-site .marketing-card { background:var(--surface) !important; border-color:var(--stroke) !important; border-radius:18px !important; box-shadow:var(--card-shadow); overflow:hidden; }
+.marketing-site .marketing-card { background:var(--surface) !important; border-color:var(--stroke) !important; border-radius:var(--radius-panel) !important; box-shadow:none; overflow:hidden; }
 .marketing-site .marketing-card p { color:var(--copy) !important; }
 .marketing-site .marketing-card h3 { color:var(--heading); }
-.marketing-site .marketing-card > :is(.p-5,.p-6) { padding:26px; }
+.marketing-site .marketing-card > :is(.p-5,.p-6) { padding:24px; }
 .marketing-site .industry-card { border-radius:18px; border-color:var(--stroke); }
 .marketing-site .industry-card h3,.marketing-site .industry-card p { color:var(--heading); }
 .marketing-site .home-solutions .grid { gap:24px !important; border:0; perspective:1400px; }
@@ -78,7 +78,7 @@ html.light .marketing-site .page .page-hero, [data-theme="light"] .marketing-sit
 .home-solution-card__body > span:last-child { margin-top:auto; padding-top:8px; color:var(--accent) !important; }
 .marketing-site .home-categories .grid > a { background:var(--surface) !important; border-color:var(--stroke) !important; border-radius:18px !important; }
 .marketing-site .home-categories .grid > a > div:first-child { background:var(--accent-soft) !important; border-color:var(--stroke); }
-.marketing-site .home-products article,.marketing-site .home-projects article { background:var(--surface) !important; border-color:var(--stroke) !important; border-radius:18px !important; box-shadow:var(--card-shadow); }
+.marketing-site .home-products article,.marketing-site .home-projects article { background:var(--surface) !important; border-color:var(--stroke) !important; border-radius:var(--radius-panel) !important; box-shadow:var(--card-shadow); }
 .marketing-site .home-about .grid.grid-cols-2 { background:var(--stroke); border-color:var(--stroke); border-radius:18px; }
 .marketing-site .home-about .grid.grid-cols-2 > div { background:var(--surface) !important; }
 .marketing-site .home-about .grid.grid-cols-2 > div > div:first-child { color:var(--accent) !important; }
@@ -132,89 +132,19 @@ html.light .marketing-site .page .page-hero, [data-theme="light"] .marketing-sit
 .conversion-visual img { width:100%; height:100%; object-fit:cover; }
 .conversion-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(transparent 40%,#031009e8); }
 .conversion-visual figcaption { position:absolute; z-index:1; bottom:24px; left:24px; right:24px; display:flex; align-items:center; justify-content:space-between; color:#cbf4d9; font:9px 'JetBrains Mono',monospace; letter-spacing:.12em; }
-/* ============================================================
-   UNIVERSAL CARD & BOX BORDER GLOW ON HOVER
-   ============================================================ */
-:root {
-  --box-glow-border: #2ECC71;
-  --box-glow-shadow: 0 0 22px -1px rgba(46, 204, 113, 0.45), 0 10px 28px -4px rgba(0, 0, 0, 0.55);
+/* A restrained interaction treatment belongs to clickable cards, not every content box. */
+:root { --box-glow-border:#69e59b; --box-glow-shadow:0 5px 20px #00000018; }
+html.light,[data-theme="light"] { --box-glow-border:#087546; --box-glow-shadow:0 5px 20px #214d3010; }
+.marketing-site :is(.marketing-card,.industry-card,.home-solutions .grid > a,.home-categories .grid > a,.home-products article,.home-projects article) {
+  transition:border-color .2s ease,box-shadow .2s ease;
 }
-
-html.light, [data-theme="light"] {
-  --box-glow-border: #16A34A;
-  --box-glow-shadow: 0 0 20px -1px rgba(22, 163, 74, 0.38), 0 8px 24px -4px rgba(0, 0, 0, 0.1);
+@media(hover:hover) and (pointer:fine) {
+  .marketing-site :is(.marketing-card,.industry-card,.home-solutions .grid > a,.home-categories .grid > a,.home-products article,.home-projects article):hover {
+    border-color:var(--accent) !important;
+    box-shadow:var(--box-glow-shadow);
+  }
 }
-
-.marketing-site :is(
-  .card,
-  .card-hover,
-  .card-navy,
-  .marketing-card,
-  .home-solution-card,
-  .industry-card,
-  .technology-card,
-  .cat-card,
-  .product-card,
-  .home-solutions .grid > a,
-  .home-categories .grid > a,
-  .home-products article,
-  .home-projects article,
-  .home-technology .grid > div,
-  .home-trust .grid > div,
-  .catalog-page article,
-  .catalog-page .product-card,
-  .page-solutions-listing-page section:nth-of-type(3) .grid > div,
-  .page-technology-listing-page article,
-  .page-technology-listing-page .rounded-2xl.border,
-  .page-technology-listing-page .rounded-xl.border,
-  .page-technology-listing-page button.rounded-xl,
-  .page-projects-listing-page article,
-  .page-projects-listing-page .rounded-2xl.border,
-  .page-projects-listing-page .rounded-xl.border,
-  .detail-page .detail-sidebar,
-  .detail-page .sticky,
-  .detail-page .space-y-14 .grid > .border,
-  .enquiry-page .grid > div > .border,
-  .enquiry-page .grid > div > [style*="border"],
-  .box-glow-hover,
-  [data-glow-hover]
-) {
-  transition: border-color 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.marketing-site :is(
-  .card-hover,
-  .marketing-card,
-  .home-solution-card,
-  .industry-card,
-  .technology-card,
-  .cat-card,
-  .product-card,
-  .home-solutions .grid > a,
-  .home-categories .grid > a,
-  .home-products article,
-  .home-projects article,
-  .home-technology .grid > div,
-  .home-trust .grid > div,
-  .catalog-page article,
-  .catalog-page .product-card,
-  .page-solutions-listing-page section:nth-of-type(3) .grid > div,
-  .page-technology-listing-page article,
-  .page-technology-listing-page .rounded-2xl.border:not(:has(article)),
-  .page-technology-listing-page button.rounded-xl,
-  .page-projects-listing-page article,
-  .page-projects-listing-page .rounded-2xl.border:not(:has(article)),
-  .enquiry-page .grid > div > .border,
-  .enquiry-page .grid > div > [style*="border"],
-  .box-glow-hover,
-  [data-glow-hover]
-):hover,
-.marketing-site .group.border:hover,
-.marketing-site .group[class*="border-"]:hover,
-.marketing-site article[class*="border"]:hover {
-  border-color: var(--box-glow-border) !important;
-  box-shadow: var(--box-glow-shadow) !important;
-}
+.marketing-site :is(.marketing-card,.industry-card):focus-within { border-color:var(--accent) !important; }
 
 /* Ensure Solution Journey (1 to 6) items have zero box glow, zero card background, and no surrounding border box */
 .marketing-site .solution-story,

@@ -1,6 +1,7 @@
 /* Visual consistency across every CMS workspace screen. */
 .admin-shell,.admin-login {
-  --admin-radius: 14px;
+  --admin-radius: 12px;
+  font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --admin-bg: #050A07;
   --admin-card: #0A0F0C;
   --admin-card-hover: #111A14;
@@ -19,22 +20,27 @@ html.light :is(.admin-shell,.admin-login),
   --admin-bg: #EDF5EE;
   --admin-card: #FFFFFF;
   --admin-card-hover: #E8F2EA;
-  --admin-border: #E2E8F0;
+  --admin-border: #CEDFD1;
   --admin-heading: #153B2B;
   --admin-copy: #3E5C4C;
   --admin-muted: #577162;
   --admin-surface: #FFFFFF;
   --admin-accent: #087546;
   --admin-input-bg: #FFFFFF;
-  --admin-input-border: #CBD5E1;
+  --admin-input-border: #B7CDBD;
 }
 
 .admin-shell main { scroll-behavior: smooth; }
 .admin-shell main > * { min-width: 0; }
-.admin-shell main h1 { letter-spacing: -.035em; color: var(--admin-heading); }
-.admin-shell main h2, .admin-shell main h3, .admin-shell main h4 { color: var(--admin-heading); }
+.admin-shell main h1 { font-size:clamp(24px,2vw,30px); line-height:1.2; font-weight:600; letter-spacing: -.035em; color: var(--admin-heading); }
+.admin-shell main h2, .admin-shell main h3, .admin-shell main h4 { color: var(--admin-heading); font-weight:600; line-height:1.35; }
 .admin-shell main p { color: var(--admin-copy); }
-.admin-shell main :is(input,textarea,select) { min-height: 42px; border-radius: 9px; transition: border-color .18s ease, box-shadow .18s ease; }
+.admin-shell main :is(input:not([type="checkbox"]):not([type="radio"]),textarea,select) { min-height:44px; border-radius:8px; padding-block:10px; transition:border-color .18s ease,box-shadow .18s ease; }
+.admin-shell main :is(.rounded-2xl,.rounded-3xl) { border-radius:var(--admin-radius); }
+.admin-shell main label { font-size:13px; line-height:1.6; }
+.admin-shell :is(button,a) > svg { flex-shrink:0; }
+.admin-shell main [role="dialog"] > div:first-child { gap:20px; }
+.admin-shell main [role="dialog"] h3 { overflow-wrap:anywhere; }
 .admin-shell main :is(input,textarea,select):focus { outline: none; border-color: #2ecc71; box-shadow: 0 0 0 3px #2ecc7122; }
 .admin-shell main :is(button,a) { transition-timing-function: cubic-bezier(.22,1,.36,1); }
 .admin-shell main .overflow-x-auto { border-radius: var(--admin-radius); }
@@ -80,36 +86,36 @@ html.light .admin-shell :is(a,button).hover\:text-white:hover { color:var(--admi
 /* Light mode specific admin overrides to guarantee contrast */
 html.light .admin-shell table th,
 [data-theme="light"] .admin-shell table th {
-  background: #F1F5F9;
-  color: #475569;
+  background: var(--admin-card-hover);
+  color: var(--admin-muted);
 }
 html.light .admin-shell table tr:hover td,
 [data-theme="light"] .admin-shell table tr:hover td {
-  background: #F8FAFC;
+  background: var(--admin-card-hover);
 }
 html.light .admin-shell .bg-\[\#0A0F0C\],
 [data-theme="light"] .admin-shell .bg-\[\#0A0F0C\] {
-  background-color: #FFFFFF !important;
-  border-color: #E2E8F0 !important;
-  color: #0F172A !important;
+  background-color: var(--admin-card) !important;
+  border-color: var(--admin-border) !important;
+  color: var(--admin-heading) !important;
 }
 html.light .admin-shell .bg-\[\#050A07\],
 [data-theme="light"] .admin-shell .bg-\[\#050A07\] {
-  background-color: #F8FAFC !important;
+  background-color: var(--admin-bg) !important;
 }
 html.light .admin-shell .border-\[\#1E3325\],
 [data-theme="light"] .admin-shell .border-\[\#1E3325\] {
-  border-color: #E2E8F0 !important;
+  border-color: var(--admin-border) !important;
 }
 html.light .admin-shell .text-slate-400,
 html.light .admin-shell .text-slate-500,
 [data-theme="light"] .admin-shell .text-slate-400,
 [data-theme="light"] .admin-shell .text-slate-500 {
-  color: #475569 !important;
+  color: var(--admin-muted) !important;
 }
 html.light .admin-shell .text-slate-300,
 [data-theme="light"] .admin-shell .text-slate-300 {
-  color: #334155 !important;
+  color: var(--admin-copy) !important;
 }
 
 @media (max-width: 767px) {

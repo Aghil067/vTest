@@ -192,6 +192,46 @@ export function mountInspectionLane(host: HTMLElement): InspectionLaneScene {
     const optical = box(alignment, [4.4, .018, .018], [-.65, .58, side * 1.42], lightMaterial);
     opticalPaths.push(optical);
   }
+  // Four additional inspection stations extend the lane without adding model downloads.
+  const underbodyScan = new THREE.Group(); scene.add(underbodyScan);
+  for (const z of [-.7, .7]) box(underbodyScan, [5.1, .045, .055], [0, .12, z], steel);
+  const underbodyHead = new THREE.Group(); underbodyHead.position.set(-2.5, .3, 0); underbodyScan.add(underbodyHead);
+  box(underbodyHead, [.48, .14, 1.7], [0, 0, 0], housing);
+  box(underbodyHead, [.3, .025, 1.35], [0, .085, 0], lightMaterial);
+  const underbodyBeam = new THREE.Mesh(new THREE.PlaneGeometry(1.55, 1.4), new THREE.MeshBasicMaterial({ color: 0x67efac, transparent: true, opacity: .12, side: THREE.DoubleSide, depthWrite: false }));
+  underbodyBeam.rotation.x = -Math.PI / 2; underbodyBeam.position.y = .21; underbodyHead.add(underbodyBeam);
+
+  const tyreScan = new THREE.Group(); scene.add(tyreScan);
+  const tyreHeads: THREE.Mesh[] = [];
+  for (const x of [-1.5, 1.5]) for (const side of [-1, 1]) {
+    box(tyreScan, [.12, .82, .12], [x, .42, side * 1.72], steel);
+    const head = box(tyreScan, [.38, .18, .22], [x, .72, side * 1.72], housing);
+    box(head, [.26, .035, .025], [0, -.035, side * -.12], lightMaterial);
+    tyreHeads.push(head);
+  }
+
+  const weighing = new THREE.Group(); scene.add(weighing);
+  const weightPads: THREE.Mesh[] = [];
+  for (const x of [-1.5, 1.5]) for (const z of [-.95, .95]) {
+    const pad = box(weighing, [1.08, .08, .82], [x, -.015, z], housing); weightPads.push(pad);
+    box(pad, [.86, .018, .62], [0, .52, 0], lightMaterial);
+  }
+  const weightDisplay = new THREE.Group(); weightDisplay.position.set(3.2, 0, 1.5); weighing.add(weightDisplay);
+  box(weightDisplay, [.12, 1.3, .12], [0, .62, 0], steel);
+  box(weightDisplay, [.95, .65, .14], [0, 1.48, 0], housing);
+  box(weightDisplay, [.82, .5, .02], [0, 1.48, .085], screenMaterial);
+  const weightBars: THREE.Mesh[] = [];
+  for (let i = 0; i < 4; i++) weightBars.push(box(weightDisplay, [.11, .08, .025], [-.25 + i * .17, 1.38, .105], lightMaterial));
+
+  const adasTarget = new THREE.Group(); adasTarget.position.set(-3.25, 0, -2.45); scene.add(adasTarget);
+  box(adasTarget, [.12, 2.2, .12], [0, 1.1, 0], steel);
+  box(adasTarget, [.12, .12, .12], [0, 2.18, 0], housing);
+  box(adasTarget, [1.15, 1.55, .1], [0, 2.1, -.02], housing);
+  box(adasTarget, [1.02, 1.42, .025], [0, 2.1, .05], screenMaterial);
+  box(adasTarget, [.78, .035, .04], [0, 2.1, .08], lightMaterial);
+  box(adasTarget, [.035, .92, .04], [0, 2.1, .08], lightMaterial);
+  const targetRing = new THREE.Mesh(new THREE.TorusGeometry(.28, .025, 6, 20), lightMaterial);
+  targetRing.position.set(0, 2.1, .085); adasTarget.add(targetRing);
   const exitLane = new THREE.Group(); scene.add(exitLane);
   box(exitLane, [4.8, .16, 3.35], [-5.1, -.25, 0], baseMaterial);
   for (const z of [-1.5, 1.5]) box(exitLane, [4.8, .02, .045], [-5.1, -.155, z], caution);
@@ -227,16 +267,17 @@ export function mountInspectionLane(host: HTMLElement): InspectionLaneScene {
   };
   const update = (progress: number) => {
     current = progress;
-    // Preserve the first four scenes, then give each added station its own chapter.
-    const value = Math.min(progress * 1.6, .8);
+    // Keep the first four scenes, insert four new stations, then continue the existing sequence.
+    const legacyProgress = progress <= 1 / 3 ? progress * 1.5 : progress < 2 / 3 ? .5 : .5 + (progress - 2 / 3) * 1.5;
+    const value = Math.min(legacyProgress * 1.6, .8);
     const angle = .64 + progress * 1.8;
     const brake = ramp(value, .2, .38);
     const suspensionTime = THREE.MathUtils.clamp((value - .4) / .2, 0, 1);
     const suspensionReveal = ramp(value, .4, .44) * (1 - ramp(value, .56, .6));
     const lights = ramp(value, .6, .68);
-    const connected = ramp(progress, .75, .82);
-    const departure = ramp(progress, .94, 1);
-    const retract = 1 - ramp(progress, .88, .93);
+    const connected = ramp(legacyProgress, .75, .82);
+    const departure = ramp(legacyProgress, .94, 1);
+    const retract = 1 - ramp(legacyProgress, .88, .93);
     const building = ramp(value, .04, .22);
     centre.visible = building > .001;
     centre.scale.y = Math.max(.001, building);
@@ -249,29 +290,42 @@ export function mountInspectionLane(host: HTMLElement): InspectionLaneScene {
     vehicleRig.position.x = -3.3 * departure;
     vehicleRig.rotation.x = Math.sin(suspensionTime * Math.PI * 10) * .018 * raised;
     reveal(robot, ramp(value, .39, .45));
-    arm.rotation.y = Math.sin(suspensionTime * Math.PI * 2) * .65 + ramp(progress, .85, .92) * Math.PI / 2;
+    arm.rotation.y = Math.sin(suspensionTime * Math.PI * 2) * .65 + ramp(legacyProgress, .85, .92) * Math.PI / 2;
     arm.position.y = .75 + raised * .15;
     sensorLight.visible = raised > .3;
-    const emissions = ramp(progress, .5, .55);
+    const emissions = ramp(legacyProgress, .5, .55);
     reveal(analyser, emissions);
     hose.visible = emissions > 0 && retract > 0;
-    hose.geometry.setDrawRange(0, Math.floor(ramp(progress, .53, .6) * retract * (hose.geometry.index?.count ?? 0) / 3) * 3);
+    hose.geometry.setDrawRange(0, Math.floor(ramp(legacyProgress, .53, .6) * retract * (hose.geometry.index?.count ?? 0) / 3) * 3);
     reveal(extraction, emissions);
-    const extension = ramp(progress, .54, .6) * retract;
+    const extension = ramp(legacyProgress, .54, .6) * retract;
     duct.scale.y = .8 + extension * 1.2; duct.position.y = 3.35 - duct.scale.y / 2;
     hood.position.y = 3.35 - duct.scale.y - .15;
-    exhaustFlow.visible = progress > .55 && progress < .625;
+    exhaustFlow.visible = legacyProgress > .55 && legacyProgress < .625;
     flowRings.forEach((ring, i) => { ring.position.y = 1.15 + ((progress * 28 + i * .3) % 1.25); });
-    const aligned = ramp(progress, .625, .675);
+    const aligned = ramp(legacyProgress, .625, .675);
     reveal(alignment, aligned * retract);
     wheelTargets.forEach((target, i) => { target.position.z = (i % 2 === 0 ? -1 : 1) * (2.3 - aligned * .88); });
-    alignmentHeads.forEach((head, i) => { head.rotation.y = (i === 0 ? 1 : -1) * (.35 + Math.sin(ramp(progress, .675, .75) * Math.PI) * .25); });
-    opticalPaths.forEach(path => { path.scale.x = 4.4 * ramp(progress, .675, .72); });
-    reveal(exitLane, ramp(progress, .84, .9));
-    barrier.rotation.x = -ramp(progress, .89, .94) * Math.PI / 2;
-    signalMaterial.color.setHex(progress >= .94 ? 0x67efac : 0xe7b85b);
+    alignmentHeads.forEach((head, i) => { head.rotation.y = (i === 0 ? 1 : -1) * (.35 + Math.sin(ramp(legacyProgress, .675, .75) * Math.PI) * .25); });
+    opticalPaths.forEach(path => { path.scale.x = 4.4 * ramp(legacyProgress, .675, .72); });
+    reveal(exitLane, ramp(legacyProgress, .84, .9));
+    barrier.rotation.x = -ramp(legacyProgress, .89, .94) * Math.PI / 2;
+    signalMaterial.color.setHex(legacyProgress >= .94 ? 0x67efac : 0xe7b85b);
+    const underbody = ramp(progress, 1 / 3, 5 / 12) * (1 - ramp(progress, 5 / 12, .45));
+    reveal(underbodyScan, underbody);
+    underbodyHead.position.x = -2.5 + ramp(progress, 1 / 3, 5 / 12) * 5;
+    const tyreCheck = ramp(progress, 5 / 12, .5) * (1 - ramp(progress, .5, 7 / 12));
+    reveal(tyreScan, tyreCheck);
+    tyreHeads.forEach((head, index) => { head.position.z = (index % 2 === 0 ? -1 : 1) * (1.72 - tyreCheck * .36); });
+    const weighingProgress = ramp(progress, .5, 7 / 12);
+    reveal(weighing, weighingProgress * (1 - ramp(progress, 7 / 12, 2 / 3)));
+    weightPads.forEach((pad, index) => { pad.position.y = -.015 + weighingProgress * (.025 + index * .003); });
+    weightBars.forEach((bar, index) => { bar.scale.y = .25 + weighingProgress * (.45 + index * .12); });
+    const calibration = ramp(progress, 7 / 12, 2 / 3);
+    reveal(adasTarget, calibration);
+    targetRing.rotation.z = progress * Math.PI * 5;
     resultBars.forEach((bar, index) => {
-      const width = .12 + ramp(progress, .14 + index * .2, .22 + index * .2) * (1.4 - index * .15);
+      const width = .12 + ramp(legacyProgress, .14 + index * .2, .22 + index * .2) * (1.4 - index * .15);
       bar.scale.x = width; bar.position.x = -.8 + width / 2;
     });
     reveal(brakeBench, ramp(value, .18, .24));
@@ -279,18 +333,18 @@ export function mountInspectionLane(host: HTMLElement): InspectionLaneScene {
     reveal(suspension, suspensionReveal);
     plates.forEach((plate, index) => { plate.position.y = .08 + liftHeight + Math.sin(suspensionTime * Math.PI * 12 + index * Math.PI) * .035 * suspensionReveal; });
     reveal(lighting, lights);
-    lighting.scale.multiplyScalar(1.25);
+    lighting.scale.setScalar(1.25);
     lighting.position.x = -4.1 + lights * .95;
-    lighting.position.z = ramp(progress, .82, .9) * 2.8;
+    lighting.position.z = ramp(legacyProgress, .82, .9) * 2.8;
     beamMaterial.opacity = .035 + .07 * Math.sin(ramp(value, .68, .8) * Math.PI);
     reveal(consoleStation, connected);
-    consoleStation.scale.multiplyScalar(1.35);
+    consoleStation.scale.setScalar(1.35);
     readings.forEach((reading, index) => {
-      const height = .06 + ramp(progress, .76 + index * .02, .81 + index * .02) * (.12 + index * .055);
+      const height = .06 + ramp(legacyProgress, .76 + index * .02, .81 + index * .02) * (.12 + index * .055);
       reading.scale.y = height; reading.position.y = 1.27 + height / 2;
     });
     link.visible = connected > .001; link.scale.x = 2.2 * connected;
-    const radius = 9.8 + building * 3.2 + ramp(progress, .86, 1) * 2.2;
+    const radius = 9.8 + building * 3.2 + ramp(legacyProgress, .86, 1) * 2.2;
     camera.position.set(Math.cos(angle) * radius, 4.3 + building * 1.4 + raised * .5, Math.sin(angle) * radius);
     camera.lookAt(-departure, .65 + building * .25, 0); gantry.position.x = -3.05 + ramp(value, 0, .2) * 6.1; render();
   };

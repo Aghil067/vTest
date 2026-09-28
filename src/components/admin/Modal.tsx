@@ -68,7 +68,9 @@ const Modal: React.FC<ModalProps> = ({
             {title}
           </h3>
           <button
-            onClick={onClose}
+              onClick={onClose}
+              aria-label="Close dialog"
+              type="button"
             className={`p-1 rounded-lg transition-colors cursor-pointer ${
               isDark
                 ? 'text-[var(--admin-muted)] hover:text-white hover:bg-white/10'

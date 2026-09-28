@@ -1,10 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#0A0F0C"/>
-  <path
-    d="M14 34 L27 47 L50 17"
-    stroke="#2ECC71"
-    stroke-width="8"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+  <title>Vtest</title>
+  <defs>
+    <linearGradient id="rise" x1="25" y1="57" x2="48" y2="5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07564C"/>
+      <stop offset=".55" stop-color="#078D4D"/>
+      <stop offset="1" stop-color="#16BC62"/>
+    </linearGradient>
+    <linearGradient id="fold" x1="8" y1="26" x2="27" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1CD477"/>
+      <stop offset="1" stop-color="#07564C"/>
+    </linearGradient>
+  </defs>
+  <path d="M18 43 40 10C45 3 53 2 61 6L31 58H19Z" fill="url(#rise)"/>
+  <path d="M9 25C4 27 2 31 3 36L10 51C12 56 16 58 21 58H31C26 56 23 52 20 46Z" fill="url(#fold)"/>
+  <path d="M20 46C23 52 26 56 31 58C25 55 21 48 18 43L17 45Z" fill="#32D785"/>
 </svg>

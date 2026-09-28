@@ -25,20 +25,17 @@ export function ProductCard({ product, className }: ProductCardProps) {
 
   return (
     <article
-      className={cn('marketing-card group flex flex-col overflow-hidden rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] transition-all duration-300 hover:shadow-lg', className)}
+      className={cn('marketing-card catalog-card group flex flex-col overflow-hidden rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] transition-all duration-300 hover:shadow-lg', className)}
     >
       {/* Image */}
-      <div className="relative overflow-hidden h-48 bg-[var(--site-surface-alt)]">
+      <div className="catalog-card__media relative overflow-hidden bg-[var(--site-surface-alt)]">
         <img
           src={product.heroImage || '/automotive-studio-900.jpg'}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
           loading="lazy"
           decoding="async"
-          onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/automotive-studio-900.jpg'; }}
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent"
+          onError={(event) => { if (!event.currentTarget.dataset.fallbackApplied) { event.currentTarget.dataset.fallbackApplied = 'true'; event.currentTarget.src = '/automotive-studio-900.jpg'; } }}
         />
 
         {/* Badges */}
@@ -62,7 +59,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
       {/* Content */}
       <div className="flex flex-col flex-1 p-6">
         <h3
-          className="text-lg font-bold text-[var(--heading)] mb-2 transition-colors group-hover:text-[var(--accent)] line-clamp-1"
+          className="text-lg font-bold text-[var(--heading)] mb-2 transition-colors group-hover:text-[var(--accent)]"
           style={{ lineHeight: '1.3' }}
         >
           {product.name}
@@ -98,7 +95,7 @@ export function SolutionCard({ solution, variant = 'default', className }: Solut
     return (
       <Link
         to={`/solutions/${solution.slug}`}
-        className={cn('marketing-card group block p-5 rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] transition-all duration-300 hover:shadow-lg', className)}
+        className={cn('marketing-card catalog-card group block p-5 rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] transition-all duration-300 hover:shadow-lg', className)}
       >
         <h3 className="font-bold text-[var(--heading)] mb-2 group-hover:text-[var(--accent)] transition-colors">
           {solution.title}
@@ -113,19 +110,16 @@ export function SolutionCard({ solution, variant = 'default', className }: Solut
 
   return (
     <article
-      className={cn('marketing-card group overflow-hidden rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] transition-all duration-300 hover:shadow-lg', className)}
+      className={cn('marketing-card catalog-card group overflow-hidden rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] transition-all duration-300 hover:shadow-lg', className)}
     >
-      <div className="relative h-48 overflow-hidden bg-[var(--site-surface-alt)]">
+      <div className="catalog-card__media relative overflow-hidden bg-[var(--site-surface-alt)]">
         <img
           src={solution.image || '/automotive-studio-900.jpg'}
           alt={solution.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
           loading="lazy"
           decoding="async"
-          onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/automotive-studio-900.jpg'; }}
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent"
+          onError={(event) => { if (!event.currentTarget.dataset.fallbackApplied) { event.currentTarget.dataset.fallbackApplied = 'true'; event.currentTarget.src = '/automotive-studio-900.jpg'; } }}
         />
         <div className="absolute top-3.5 left-3.5">
           <span
@@ -136,7 +130,7 @@ export function SolutionCard({ solution, variant = 'default', className }: Solut
         </div>
       </div>
       <div className="p-6">
-        <h3 className="font-bold text-[var(--heading)] mb-2 text-lg group-hover:text-[var(--accent)] transition-colors line-clamp-1">
+        <h3 className="font-bold text-[var(--heading)] mb-2 text-lg group-hover:text-[var(--accent)] transition-colors">
           {solution.title}
         </h3>
         <p className="text-sm leading-relaxed mb-5 line-clamp-2 text-[var(--copy)]">
@@ -200,14 +194,14 @@ export function TechnologyCard({ technology, className }: TechnologyCardProps) {
       className={cn('marketing-card technology-card group block p-6 rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] transition-all duration-300 hover:shadow-lg', className)}
     >
       <div className="technology-card__visual mb-5 rounded-xl overflow-hidden h-40 bg-[var(--site-surface-alt)]">
-        <img src={technology.image || '/hero-bg.jpg'} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <img src={technology.image || '/hero-bg.jpg'} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-[1.025] transition-transform duration-500" />
       </div>
       <div
         className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 bg-[var(--accent-soft)] text-[var(--accent)]"
       >
         <Cpu className="w-5 h-5" aria-hidden="true" />
       </div>
-      <h3 className="font-bold text-[var(--heading)] mb-2 text-lg group-hover:text-[var(--accent)] transition-colors line-clamp-1">
+      <h3 className="font-bold text-[var(--heading)] mb-2 text-lg group-hover:text-[var(--accent)] transition-colors">
         {technology.title}
       </h3>
       <p className="text-sm leading-relaxed line-clamp-2 text-[var(--copy)] mb-4">
@@ -233,19 +227,16 @@ interface ProjectCardProps {
 export function ProjectCard({ project, className }: ProjectCardProps) {
   return (
     <article
-      className={cn('marketing-card group overflow-hidden rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] transition-all duration-300 hover:shadow-lg', className)}
+      className={cn('marketing-card catalog-card group overflow-hidden rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] transition-all duration-300 hover:shadow-lg', className)}
     >
-      <div className="relative h-52 overflow-hidden bg-[var(--site-surface-alt)]">
+      <div className="catalog-card__media relative overflow-hidden bg-[var(--site-surface-alt)]">
         <img
           src={project.heroImage || '/automotive-studio-900.jpg'}
           alt={project.clientOrProjectName}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
           loading="lazy"
           decoding="async"
-          onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/automotive-studio-900.jpg'; }}
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent"
+          onError={(event) => { if (!event.currentTarget.dataset.fallbackApplied) { event.currentTarget.dataset.fallbackApplied = 'true'; event.currentTarget.src = '/automotive-studio-900.jpg'; } }}
         />
         <div className="absolute top-3.5 left-3.5">
           <span
@@ -259,7 +250,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         <div className="text-xs font-mono font-bold uppercase tracking-wider mb-1.5 text-[var(--accent)]">
           {project.clientOrProjectName}
         </div>
-        <h3 className="font-bold text-[var(--heading)] mb-2 text-lg group-hover:text-[var(--accent)] transition-colors line-clamp-1">
+        <h3 className="font-bold text-[var(--heading)] mb-2 text-lg group-hover:text-[var(--accent)] transition-colors">
           {project.title}
         </h3>
         <p className="text-sm leading-relaxed mb-4 line-clamp-2 text-[var(--copy)]">
@@ -303,19 +294,16 @@ export function ResourceCard({ resource, className }: ResourceCardProps) {
 
   return (
     <article
-      className={cn('marketing-card group flex flex-col overflow-hidden rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] transition-all duration-300 hover:shadow-lg', className)}
+      className={cn('marketing-card catalog-card group flex flex-col overflow-hidden rounded-2xl border border-[var(--stroke)] bg-[var(--surface)] transition-all duration-300 hover:shadow-lg', className)}
     >
-      <div className="h-44 overflow-hidden bg-[var(--site-surface-alt)] relative">
+      <div className="catalog-card__media overflow-hidden bg-[var(--site-surface-alt)] relative">
         <img
           src={resource.image || '/hero-bg.jpg'}
           alt={resource.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
           loading="lazy"
           decoding="async"
-          onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/hero-bg.jpg'; }}
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent"
+          onError={(event) => { if (!event.currentTarget.dataset.fallbackApplied) { event.currentTarget.dataset.fallbackApplied = 'true'; event.currentTarget.src = '/hero-bg.jpg'; } }}
         />
         <div className="absolute top-3.5 left-3.5">
           <span
@@ -334,7 +322,7 @@ export function ResourceCard({ resource, className }: ResourceCardProps) {
             })}
           </span>
         )}
-        <h3 className="font-bold text-[var(--heading)] mb-2 text-lg group-hover:text-[var(--accent)] transition-colors line-clamp-1">
+        <h3 className="font-bold text-[var(--heading)] mb-2 text-lg group-hover:text-[var(--accent)] transition-colors">
           {resource.title}
         </h3>
         <p className="text-sm leading-relaxed flex-1 mb-5 line-clamp-2 text-[var(--copy)]">

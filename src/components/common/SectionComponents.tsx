@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const G = '#2ECC71';
-
 // ---- Section Header ----
 
 interface SectionHeaderProps {
@@ -25,17 +23,17 @@ export function SectionHeader({
   titleClassName,
 }: SectionHeaderProps) {
   return (
-    <div className={cn('max-w-3xl', centered && 'mx-auto text-center', className)}>
+    <div className={cn('section-heading max-w-3xl', centered && 'mx-auto text-center', className)}>
       {label && (
         <div className={cn('flex items-center gap-2 mb-4', centered && 'justify-center')}>
-          <div className="w-6 h-px" style={{ background: G }} />
+          <div className="w-6 h-px" style={{ background: 'var(--accent)' }} />
           <span
             className="text-xs font-bold uppercase"
             style={{ color: 'var(--accent)', letterSpacing: '0.2em' }}
           >
             {label}
           </span>
-          {centered && <div className="w-6 h-px" style={{ background: G }} />}
+          {centered && <div className="w-6 h-px" style={{ background: 'var(--accent)' }} />}
         </div>
       )}
       <h2

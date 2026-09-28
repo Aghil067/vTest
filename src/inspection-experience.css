@@ -2,7 +2,7 @@
 .inspection-intro { display:flex; align-items:flex-end; justify-content:space-between; gap:32px; padding-bottom:40px; }
 .marketing-site .inspection-intro h2 { font-size:clamp(32px,4vw,56px); margin:16px 0 0; line-height:1.08; font-weight:550; letter-spacing:-.045em; }
 .marketing-site .inspection-intro > p { max-width:320px; margin:0 0 4px; font-size:14px; }
-.inspection-track { height:490svh; position:relative; }
+.inspection-track { height:600svh; position:relative; }
 .inspection-sticky { position:sticky; top:100px; padding-block:12px 32px; }
 .inspection-stage { position:relative; min-height:540px; height:calc(100svh - 150px); max-height:710px; overflow:hidden; border-radius:24px; background:#09120f; border:1px solid #294d39; box-shadow:0 24px 65px #0626131a; }
 .inspection-photo { position:absolute; inset:0 0 0 auto; width:73%; height:100%; object-fit:cover; opacity:.75; }

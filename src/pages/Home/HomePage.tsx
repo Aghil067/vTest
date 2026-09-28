@@ -1,4 +1,5 @@
-import { IndustryCard } from '@/components/common/Cards';
+import { IndustryCard, ProjectCard } from '@/components/common/Cards';
+import { EngineeringHeading, EngineeringLink } from '@/components/common/EngineeringLayout';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Monitor, HardDrive, Cpu, Brain, Wifi, Zap, BarChart3 } from 'lucide-react';
 import { useApi } from '@/hooks/useApi';
@@ -502,158 +503,30 @@ function IndustriesSection() {
 // ==========================================
 
 function TechnologySection() {
-  const techs = [
-    { icon: <Monitor className="w-6 h-6" />, title: 'Software', desc: 'Purpose-built inspection and management platforms' },
-    { icon: <HardDrive className="w-6 h-6" />, title: 'Hardware', desc: 'Industrial-grade control and measurement devices' },
-    { icon: <Wifi className="w-6 h-6" />, title: 'IoT', desc: 'Multi-protocol equipment connectivity and edge computing' },
-    { icon: <Zap className="w-6 h-6" />, title: 'Automation', desc: 'Intelligent test sequence and workflow orchestration' },
-    { icon: <Brain className="w-6 h-6" />, title: 'Analytics', desc: 'Data-driven insights and compliance reporting' },
-    { icon: <BarChart3 className="w-6 h-6" />, title: 'Integration', desc: 'Unified connection of diverse equipment and systems' },
+  const disciplines = [
+    { icon: Monitor, title: 'Software', text: 'Purpose-built inspection and management platforms.' },
+    { icon: HardDrive, title: 'Hardware', text: 'Industrial control and measurement devices for the test lane.' },
+    { icon: Wifi, title: 'IoT', text: 'Equipment connectivity and processing at the edge.' },
+    { icon: Zap, title: 'Automation', text: 'Coordinated test sequences and operator workflows.' },
+    { icon: Brain, title: 'Analytics', text: 'Inspection data translated into clear operational insight.' },
+    { icon: BarChart3, title: 'Integration', text: 'Diverse equipment and systems, connected through one platform.' },
   ];
-
-  return (
-    <section className="home-technology py-24" style={{ background: BG_CARD }}>
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 mb-4 justify-center">
-            <div className="w-6 h-px" style={{ background: GREEN }} />
-            <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
-              Technology Capabilities
-            </span>
-            <div className="w-6 h-px" style={{ background: GREEN }} />
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-[var(--heading)]">A Complete Technology Stack</h2>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
-          {techs.map((tech, i) => (
-            <div
-              key={i}
-              className="flex flex-col items-center text-center p-6 rounded-lg transition-all duration-300 cursor-default"
-              style={{ background: BG_DARK, border: `1px solid ${BORDER}` }}
-            >
-              <div
-                className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-                style={{ background: `${GREEN}15`, color: 'var(--accent)' }}
-              >
-                {tech.icon}
-              </div>
-              <div className="font-black text-[var(--heading)] text-sm mb-2">{tech.title}</div>
-              <div className="text-xs leading-relaxed" style={{ color: 'var(--copy)' }}>{tech.desc}</div>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center">
-          <Link
-            to="/technology"
-            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest border px-8 py-4 transition-all hover:gap-3"
-            style={{ borderColor: `${GREEN}40`, color: 'var(--accent)', borderRadius: '4px' }}
-          >
-            Explore Technology Capabilities <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
+  return <section className="home-technology">
+    <div className="container">
+      <EngineeringHeading label="ENGINEERING EXPERTISE" title="Every part of the test lane, connected."><EngineeringLink to="/technology">Explore our technology</EngineeringLink></EngineeringHeading>
+      <div className="home-technology-grid">{disciplines.map(({ icon: Icon, title, text }) => <article key={title}><Icon size={25} strokeWidth={1.5} aria-hidden="true" /><h3>{title}</h3><p>{text}</p></article>)}</div>
+    </div>
+  </section>;
 }
-
-// ==========================================
-// PROJECTS / CASE STUDIES
-// ==========================================
 
 function ProjectsSection() {
   const { data: projects, loading } = useApi(() => projectApi.getProjects());
-
-  return (
-    <section className="home-projects py-24" style={{ background: BG_DARK }}>
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
-          <div>
-            <div className="inline-flex items-center gap-2 mb-4">
-              <div className="w-6 h-px" style={{ background: GREEN }} />
-              <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
-                Case Studies
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-[var(--heading)] leading-tight">
-              Selected Projects &amp; Implementations
-            </h2>
-          </div>
-          <Link
-            to="/projects"
-            className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest transition-all hover:gap-3 flex-shrink-0"
-            style={{ color: 'var(--accent)' }}
-          >
-            All Case Studies <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
-        {loading ? (
-          <CardGridSkeleton count={2} columns={2} />
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {(projects ?? []).slice(0, 2).map((project) => (
-              <article
-                key={project.id}
-                className="group overflow-hidden rounded-lg transition-all duration-300 hover:-translate-y-1"
-                style={{ background: BG_CARD2, border: `1px solid ${BORDER}` }}
-              >
-                <div className="relative h-56 overflow-hidden photo-surface">
-                  <img
-                    src={project.heroImage}
-                    alt={project.clientOrProjectName}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #0A0F0C, transparent 60%)' }} />
-                  <div className="absolute top-4 left-4">
-                    <span
-                      className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded"
-                      style={{ background: `${GREEN}18`, color: 'var(--accent)', border: `1px solid ${GREEN}30` }}
-                    >
-                      Case Study
-                    </span>
-                  </div>
-                </div>
-                <div className="p-7">
-                  <div className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--accent)' }}>
-                    {project.clientOrProjectName}
-                  </div>
-                  <h3 className="text-xl font-black text-[var(--heading)] mb-3 group-hover:text-green-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed mb-5 line-clamp-3" style={{ color: 'var(--copy)' }}>
-                    {project.summary}
-                  </p>
-                  {project.technologies && project.technologies.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-5">
-                      {project.technologies.slice(0, 3).map((tech) => (
-                        <span
-                          key={tech}
-                          className="text-xs font-medium px-2.5 py-1 rounded"
-                          style={{ background: `${GREEN}15`, color: 'var(--heading)', border: `1px solid ${GREEN}30` }}
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                  <Link
-                    to={`/projects/${project.slug}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-widest"
-                    style={{ color: 'var(--accent)' }}
-                  >
-                    View Case Study <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
-  );
+  return <section className="home-projects">
+    <div className="container">
+      <EngineeringHeading label="IN THE FIELD" title="See the engineering in practice."><EngineeringLink to="/projects">Explore all projects</EngineeringLink></EngineeringHeading>
+      {loading ? <CardGridSkeleton count={2} columns={2} /> : <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">{(projects ?? []).slice(0, 2).map(project => <ProjectCard key={project.id} project={project} />)}</div>}
+    </div>
+  </section>;
 }
 
 // ==========================================

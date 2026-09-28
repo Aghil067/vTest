@@ -1,4 +1,20 @@
-# React + TypeScript + Vite
+# Vtest website
+
+## Local development
+
+Run both services in separate terminals from the project root:
+
+```powershell
+npm run dev
+```
+
+```powershell
+npm run dev:api
+```
+
+The frontend uses Vite; the CMS API runs on port 5000 by default. The API needs the configured MongoDB connection for login and CMS operations. Starting only Vite leaves API requests failing with `ERR_CONNECTION_REFUSED`.
+
+## Frontend tooling
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 

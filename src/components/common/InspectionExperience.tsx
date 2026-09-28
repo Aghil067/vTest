@@ -9,10 +9,14 @@ const chapters = [
   { title: 'Put braking to the test.', shortTitle: 'Brake performance', text: 'Explore the roller brake test bench, where controlled wheel movement supports braking force and balance measurements.', label: '02 / BRAKES' },
   { title: 'Read the road response.', shortTitle: 'Suspension response', text: 'Suspension test plates introduce controlled movement beneath the wheels to help assess vehicle response.', label: '03 / SUSPENSION' },
   { title: 'Bring lighting into focus.', shortTitle: 'Headlamp alignment', text: 'Headlamp alignment equipment moves into position to illustrate beam direction and lighting checks.', label: '04 / LIGHTING' },
-  { title: 'Follow the emissions check.', shortTitle: 'Emissions analysis', text: 'Watch the analyser connect to the vehicle as the extraction system moves into position for an emissions inspection.', label: '05 / EMISSIONS' },
-  { title: 'See every wheel in line.', shortTitle: 'Wheel alignment', text: 'Wheel targets and optical measuring heads move into place, illustrating a coordinated alignment inspection.', label: '06 / ALIGNMENT' },
-  { title: 'Connect every result.', shortTitle: 'Connected results', text: 'Bring equipment readings together at the operator console, connecting the inspection lane to traceable reports.', label: '07 / CONNECT' },
-  { title: 'Ready for the next journey.', shortTitle: 'Lane release', text: 'The equipment retracts, the exit signal changes and the barrier rises to release the vehicle from the testing lane.', label: '08 / RELEASE' },
+  { title: 'Inspect beneath the vehicle.', shortTitle: 'Underbody scan', text: 'A low-profile sensor sweeps beneath the chassis to illustrate a clear, repeatable underbody inspection.', label: '05 / UNDERBODY' },
+  { title: 'Check every tyre.', shortTitle: 'Tyre condition', text: 'Optical sensors move along the wheel line to check tyre condition and capture consistent inspection data.', label: '06 / TYRES' },
+  { title: 'Measure vehicle weight.', shortTitle: 'Axle weighing', text: 'Integrated weighing pads capture axle loads as part of a complete vehicle safety assessment.', label: '07 / WEIGHING' },
+  { title: 'Calibrate driver assistance.', shortTitle: 'ADAS calibration', text: 'A precision target aligns with the vehicle to demonstrate camera and driver-assistance system calibration.', label: '08 / ADAS' },
+  { title: 'Follow the emissions check.', shortTitle: 'Emissions analysis', text: 'Watch the analyser connect to the vehicle as the extraction system moves into position for an emissions inspection.', label: '09 / EMISSIONS' },
+  { title: 'See every wheel in line.', shortTitle: 'Wheel alignment', text: 'Wheel targets and optical measuring heads move into place, illustrating a coordinated alignment inspection.', label: '10 / ALIGNMENT' },
+  { title: 'Connect every result.', shortTitle: 'Connected results', text: 'Bring equipment readings together at the operator console, connecting the inspection lane to traceable reports.', label: '11 / CONNECT' },
+  { title: 'Ready for the next journey.', shortTitle: 'Lane release', text: 'The equipment retracts, the exit signal changes and the barrier rises to release the vehicle from the testing lane.', label: '12 / RELEASE' },
 ];
 
 export function InspectionExperience() {
