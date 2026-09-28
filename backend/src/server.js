@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 5000;
 
 // Connect to MongoDB and start HTTP Server
 connectDB().finally(() => {
-  const server = app.listen(PORT, () => {
+  const server = app.listen(PORT, '0.0.0.0', () => {
     console.log(`==================================================`);
     console.log(`🚀 Vtest Admin CMS Backend Server Running`);
     console.log(`📡 URL: http://localhost:${PORT}`);
