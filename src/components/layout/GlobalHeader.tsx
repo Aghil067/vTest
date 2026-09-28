@@ -63,7 +63,7 @@ const iconMap: Record<string, React.ReactNode> = {
 function VtestLogo({ className }: { className?: string }) {
   return (
     <Link to="/" className={cn('flex items-center py-1 group shrink-0', className)} aria-label="Vtest — Home">
-      <BrandLogo className="h-10 sm:h-12 w-auto max-w-[190px] sm:max-w-[210px] object-contain transition-transform duration-200 group-hover:scale-[1.03]" />
+      <BrandLogo className="h-9 sm:h-10 w-auto max-w-[155px] sm:max-w-[170px] object-contain transition-transform duration-200 group-hover:scale-[1.03]" />
     </Link>
   );
 }
@@ -287,38 +287,38 @@ export function GlobalHeader() {
           borderBottom: `1px solid ${scrolled ? BORDER : 'transparent'}`,
         }}
       >
-        <div className="w-full max-w-[1680px] mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-20 min-[1100px]:h-22">
+        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-18 min-[1100px]:h-20">
             {/* Logo */}
             <VtestLogo />
 
             {/* Desktop Nav */}
-            <nav className="hidden min-[1100px]:flex items-center gap-1.5 xl:gap-2.5 2xl:gap-3.5" aria-label="Main navigation">
+            <nav className="hidden min-[1100px]:flex items-center gap-1 xl:gap-2 2xl:gap-3" aria-label="Main navigation">
               {NAV_ITEMS.map((item) => (
                 <DesktopNavItem key={item.label} item={item} isActive={isActive(item.href)} />
               ))}
             </nav>
 
             {/* Desktop CTAs */}
-            <div className="header-desktop-actions hidden min-[1100px]:flex items-center gap-3 xl:gap-3.5">
+            <div className="header-desktop-actions hidden min-[1100px]:flex items-center gap-2 xl:gap-2.5 shrink-0">
               <ThemeToggle />
               <Link
                 to="/contact"
-                className={cn('nav-glass-btn', isActive('/contact') && 'active')}
+                className={cn('nav-glass-btn shrink-0', isActive('/contact') && 'active')}
               >
                 <span>Contact Us</span>
               </Link>
               <Link
                 to="/request-demo"
                 id="header-request-demo"
-                className="h-[38px] inline-flex items-center justify-center px-5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_16px_rgba(46,204,113,0.35)] hover:shadow-[0_0_24px_rgba(46,204,113,0.6)] hover:brightness-110 active:scale-95 text-[#050A07]"
-                style={{ background: G, letterSpacing: '0.08em' }}
+                className="h-9 inline-flex items-center justify-center px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_14px_rgba(46,204,113,0.3)] hover:shadow-[0_0_20px_rgba(46,204,113,0.5)] hover:brightness-110 active:scale-95 text-[#050A07] shrink-0"
+                style={{ background: G, letterSpacing: '0.06em' }}
               >
                 Request a Demo
               </Link>
               <Link
                 to="/admin"
-                className="h-[38px] inline-flex items-center gap-2 px-3.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 bg-white/[0.04] backdrop-blur-md border border-white/10 text-[var(--heading)] hover:border-[#2ECC71]/40 hover:text-[#2ECC71] hover:shadow-[0_0_16px_rgba(46,204,113,0.3)] shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
+                className="h-9 inline-flex items-center gap-1.5 px-3 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 bg-white/[0.04] backdrop-blur-md border border-white/10 text-[var(--heading)] hover:border-[#2ECC71]/40 hover:text-[#2ECC71] hover:shadow-[0_0_14px_rgba(46,204,113,0.25)] shadow-xs shrink-0"
                 title="Admin CMS Portal"
               >
                 <ShieldCheck className="w-4 h-4 text-[#2ECC71]" />
