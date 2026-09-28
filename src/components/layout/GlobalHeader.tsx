@@ -142,26 +142,26 @@ function DesktopNavItem({ item, isActive }: NavItemProps) {
       <Link
         to={item.href ?? '/'}
         aria-current={isActive ? 'page' : undefined}
-        className="h-10 inline-flex items-center text-sm font-semibold px-2.5 py-1 rounded-lg transition-colors duration-200"
-        style={{ color: isActive ? G : 'var(--heading)', letterSpacing: '0.01em' }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = G; }}
-        onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = isActive ? G : 'var(--heading)'; }}
+        className={cn('nav-glass-btn', isActive && 'active')}
       >
-        {item.label}
+        <span>{item.label}</span>
       </Link>
     );
   }
 
   return (
-    <div className="relative flex items-center h-10" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+    <div
+      className="relative flex items-center"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsOpen(false); }}
-      onKeyDown={(event) => { if (event.key === 'Escape') setIsOpen(false); }}>
+      onKeyDown={(event) => { if (event.key === 'Escape') setIsOpen(false); }}
+    >
       <button
         type="button"
         onClick={() => setIsOpen(open => !open)}
         onKeyDown={(event) => { if (event.key === 'ArrowDown') { event.preventDefault(); setIsOpen(true); } }}
-        className="h-10 inline-flex items-center gap-1.5 text-sm font-semibold px-2.5 py-1 rounded-lg transition-colors duration-200 cursor-pointer"
-        style={{ color: isOpen || isActive ? G : 'var(--heading)', letterSpacing: '0.01em' }}
+        className={cn('nav-glass-btn cursor-pointer', (isOpen || isActive) && 'active')}
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
@@ -287,38 +287,38 @@ export function GlobalHeader() {
           borderBottom: `1px solid ${scrolled ? BORDER : 'transparent'}`,
         }}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-18 min-[1100px]:h-20">
+        <div className="w-full max-w-[1680px] mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="flex items-center justify-between h-20 min-[1100px]:h-22">
             {/* Logo */}
             <VtestLogo />
 
             {/* Desktop Nav */}
-            <nav className="hidden min-[1100px]:flex items-center gap-3.5 xl:gap-5 2xl:gap-6" aria-label="Main navigation">
+            <nav className="hidden min-[1100px]:flex items-center gap-2.5 lg:gap-3.5 xl:gap-4.5 2xl:gap-6" aria-label="Main navigation">
               {NAV_ITEMS.map((item) => (
                 <DesktopNavItem key={item.label} item={item} isActive={isActive(item.href)} />
               ))}
             </nav>
 
             {/* Desktop CTAs */}
-            <div className="header-desktop-actions hidden min-[1100px]:flex items-center gap-3">
+            <div className="header-desktop-actions hidden min-[1100px]:flex items-center gap-3 xl:gap-3.5">
               <ThemeToggle />
               <Link
                 to="/contact"
-                className="h-10 inline-flex items-center px-3.5 rounded-xl text-sm font-semibold transition-all duration-200 text-[var(--heading)] hover:text-[#2ECC71] hover:bg-[#2ECC71]/10 border border-transparent hover:border-[#2ECC71]/20"
+                className={cn('nav-glass-btn', isActive('/contact') && 'active')}
               >
-                Contact Us
+                <span>Contact Us</span>
               </Link>
               <Link
                 to="/request-demo"
                 id="header-request-demo"
-                className="h-10 inline-flex items-center justify-center px-5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-sm hover:brightness-105 active:scale-95 text-[#050A07]"
+                className="h-[38px] inline-flex items-center justify-center px-5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-[0_0_16px_rgba(46,204,113,0.35)] hover:shadow-[0_0_24px_rgba(46,204,113,0.6)] hover:brightness-110 active:scale-95 text-[#050A07]"
                 style={{ background: G, letterSpacing: '0.08em' }}
               >
                 Request a Demo
               </Link>
               <Link
                 to="/admin"
-                className="h-10 inline-flex items-center gap-2 px-3.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 bg-[var(--surface)] border border-[var(--stroke)] text-[var(--heading)] hover:border-[#2ECC71] hover:text-[#2ECC71] hover:shadow-[0_0_15px_-2px_rgba(46,204,113,0.35)] shadow-sm"
+                className="h-[38px] inline-flex items-center gap-2 px-3.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-200 bg-white/[0.04] backdrop-blur-md border border-white/10 text-[var(--heading)] hover:border-[#2ECC71]/40 hover:text-[#2ECC71] hover:shadow-[0_0_16px_rgba(46,204,113,0.3)] shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
                 title="Admin CMS Portal"
               >
                 <ShieldCheck className="w-4 h-4 text-[#2ECC71]" />

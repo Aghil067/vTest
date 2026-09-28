@@ -449,6 +449,73 @@
   }
 
   /* ----------------------------------------------------------
+     NAVBAR GLASS MORPHISM BUTTONS
+  ---------------------------------------------------------- */
+
+  .nav-glass-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    height: 2.375rem; /* 38px */
+    padding: 0 0.95rem;
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border-radius: 0.75rem; /* 12px */
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--heading);
+    box-shadow: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .nav-glass-btn:hover {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(46, 204, 113, 0.09);
+    border: 1px solid rgba(46, 204, 113, 0.42);
+    color: #2ECC71 !important;
+    box-shadow: 0 0 16px rgba(46, 204, 113, 0.28), 0 2px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .nav-glass-btn.active, .nav-glass-btn[aria-expanded="true"] {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(46, 204, 113, 0.12);
+    border: 1px solid rgba(46, 204, 113, 0.45);
+    color: #2ECC71 !important;
+    box-shadow: 0 0 16px rgba(46, 204, 113, 0.28), 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  html.light .nav-glass-btn, [data-theme="light"] .nav-glass-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+  }
+
+  html.light .nav-glass-btn:hover, [data-theme="light"] .nav-glass-btn:hover {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(22, 163, 74, 0.08);
+    border: 1px solid rgba(22, 163, 74, 0.38);
+    color: #16A34A !important;
+    box-shadow: 0 0 14px rgba(22, 163, 74, 0.2);
+    transform: translateY(-1px);
+  }
+
+  html.light .nav-glass-btn.active, [data-theme="light"] .nav-glass-btn.active {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(22, 163, 74, 0.12);
+    border: 1px solid rgba(22, 163, 74, 0.45);
+    color: #16A34A !important;
+    box-shadow: 0 0 16px rgba(22, 163, 74, 0.25);
+  }
+
+  /* ----------------------------------------------------------
      FORM INPUTS  (dark themed with white text)
   ---------------------------------------------------------- */
 
