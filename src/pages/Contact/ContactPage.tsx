@@ -89,19 +89,22 @@ export function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* Left: Form */}
             <div className="lg:col-span-7">
-              <div className="rounded-2xl p-6 sm:p-10 bg-[var(--surface)] border border-[var(--stroke)] shadow-sm">
-                <h2 className="text-2xl font-black text-[var(--heading)] mb-1 tracking-tight">Send Us a Message</h2>
-                <p className="text-sm mb-8 text-[var(--copy)]">
+              <div className="relative rounded-3xl p-6 sm:p-10 bg-[var(--surface)]/80 backdrop-blur-xl border border-white/10 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.25)] overflow-hidden">
+                <div className="absolute top-0 right-0 w-72 h-72 bg-[#2ECC71]/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+                <h2 className="relative text-2xl font-black text-[var(--heading)] mb-1 tracking-tight">Send Us a Message</h2>
+                <p className="relative text-sm mb-8 text-[var(--copy)]">
                   Fill out the form below and an applications specialist will review your request.
                 </p>
-                <ContactForm />
+                <div className="relative">
+                  <ContactForm />
+                </div>
               </div>
             </div>
 
             {/* Right: Info */}
             <div className="lg:col-span-5 space-y-6">
               {/* Contact details */}
-              <div className="rounded-2xl p-6 sm:p-8 bg-[var(--surface)] border border-[var(--stroke)] shadow-sm space-y-6">
+              <div className="rounded-3xl p-6 sm:p-8 bg-[var(--surface)]/80 backdrop-blur-xl border border-white/10 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] space-y-6">
                 <h3 className="text-lg font-black text-[var(--heading)] tracking-tight">Direct Channels</h3>
                 <div className="space-y-6">
                   {contactInfo.map((info, i) => {
@@ -133,7 +136,7 @@ export function ContactPage() {
               </div>
 
               {/* FAQ Accordion / Quick Answers */}
-              <div className="rounded-2xl p-6 sm:p-8 bg-[var(--surface)] border border-[var(--stroke)] shadow-sm space-y-4">
+              <div className="rounded-3xl p-6 sm:p-8 bg-[var(--surface)]/80 backdrop-blur-xl border border-white/10 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] space-y-4">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--accent)]">
                   <ShieldCheck className="w-4 h-4" />
                   <span>Frequently Asked Questions</span>

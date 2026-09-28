@@ -99,10 +99,8 @@ export const AdminEnquiries: React.FC = () => {
           isDark ? 'bg-[#0F1812] border-[#1E3325]' : 'bg-white border-slate-200 shadow-xs'
         }`}
       >
-        <div className="relative flex-1">
-          <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-            <Search className="w-4 h-4 text-[var(--admin-muted)]" />
-          </div>
+        <div className="relative flex-1 flex items-center h-10">
+          <Search className="w-4 h-4 text-[var(--admin-muted)] absolute left-3.5 pointer-events-none z-10 top-0 bottom-0 my-auto" />
           <input
             type="text"
             placeholder="Search by prospect name, organization, or email..."
@@ -111,7 +109,7 @@ export const AdminEnquiries: React.FC = () => {
               setSearch(e.target.value);
               setPage(1);
             }}
-            className={`w-full pl-10 pr-4 py-2 rounded-xl text-xs border focus:outline-none focus:ring-1 focus:ring-[#2ECC71] ${
+            className={`w-full h-10 pl-10 pr-4 py-2 rounded-xl text-xs border focus:outline-none focus:ring-1 focus:ring-[#2ECC71] ${
               isDark
                 ? 'bg-[#0A0F0C] border-[#1E3325] text-white placeholder-slate-500'
                 : 'bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400'

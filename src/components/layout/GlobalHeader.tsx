@@ -142,8 +142,8 @@ function DesktopNavItem({ item, isActive }: NavItemProps) {
       <Link
         to={item.href ?? '/'}
         aria-current={isActive ? 'page' : undefined}
-        className="h-10 inline-flex items-center text-sm font-semibold px-2 py-1 transition-colors duration-200"
-        style={{ color: isActive ? G : 'var(--heading)', letterSpacing: '0.02em' }}
+        className="h-10 inline-flex items-center text-sm font-semibold px-2.5 py-1 rounded-lg transition-colors duration-200"
+        style={{ color: isActive ? G : 'var(--heading)', letterSpacing: '0.01em' }}
         onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = G; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = isActive ? G : 'var(--heading)'; }}
       >
@@ -160,8 +160,8 @@ function DesktopNavItem({ item, isActive }: NavItemProps) {
         type="button"
         onClick={() => setIsOpen(open => !open)}
         onKeyDown={(event) => { if (event.key === 'ArrowDown') { event.preventDefault(); setIsOpen(true); } }}
-        className="h-10 inline-flex items-center gap-1.5 text-sm font-semibold px-2 py-1 transition-colors duration-200"
-        style={{ color: isOpen || isActive ? G : 'var(--heading)', letterSpacing: '0.02em' }}
+        className="h-10 inline-flex items-center gap-1.5 text-sm font-semibold px-2.5 py-1 rounded-lg transition-colors duration-200 cursor-pointer"
+        style={{ color: isOpen || isActive ? G : 'var(--heading)', letterSpacing: '0.01em' }}
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
@@ -287,33 +287,32 @@ export function GlobalHeader() {
           borderBottom: `1px solid ${scrolled ? BORDER : 'transparent'}`,
         }}
       >
-        <div className="container mx-auto px-6 min-[1100px]:px-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18 min-[1100px]:h-20">
             {/* Logo */}
             <VtestLogo />
 
             {/* Desktop Nav */}
-            <nav className="hidden min-[1100px]:flex items-center gap-5 2xl:gap-7" aria-label="Main navigation">
+            <nav className="hidden min-[1100px]:flex items-center gap-3.5 xl:gap-5 2xl:gap-6" aria-label="Main navigation">
               {NAV_ITEMS.map((item) => (
                 <DesktopNavItem key={item.label} item={item} isActive={isActive(item.href)} />
               ))}
             </nav>
 
             {/* Desktop CTAs */}
-            <div className="header-desktop-actions hidden min-[1100px]:flex items-center gap-2.5">
+            <div className="header-desktop-actions hidden min-[1100px]:flex items-center gap-3">
               <ThemeToggle />
               <Link
                 to="/contact"
-                className="h-10 inline-flex items-center px-3.5 text-sm font-semibold transition-colors hover:text-[#2ECC71]"
-                style={{ color: 'var(--heading)' }}
+                className="h-10 inline-flex items-center px-3.5 rounded-xl text-sm font-semibold transition-all duration-200 text-[var(--heading)] hover:text-[#2ECC71] hover:bg-[#2ECC71]/10 border border-transparent hover:border-[#2ECC71]/20"
               >
                 Contact Us
               </Link>
               <Link
                 to="/request-demo"
                 id="header-request-demo"
-                className="h-10 inline-flex items-center justify-center px-5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-sm hover:brightness-105 active:scale-95"
-                style={{ background: G, color: '#050A07', letterSpacing: '0.08em' }}
+                className="h-10 inline-flex items-center justify-center px-5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-sm hover:brightness-105 active:scale-95 text-[#050A07]"
+                style={{ background: G, letterSpacing: '0.08em' }}
               >
                 Request a Demo
               </Link>

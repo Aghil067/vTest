@@ -56,19 +56,22 @@ export function RequestQuotePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left 7 Cols: Form */}
             <div className="lg:col-span-7">
-              <div className="bg-[var(--surface)] rounded-3xl p-8 sm:p-10 border border-[var(--stroke)] shadow-sm">
-                <h2 className="text-2xl font-black text-[var(--heading)] mb-2">Configure Your Quote</h2>
-                <p className="text-sm text-[var(--copy)] mb-8">
+              <div className="relative bg-[var(--surface)]/80 backdrop-blur-xl rounded-3xl p-8 sm:p-10 border border-white/10 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.25)] overflow-hidden">
+                <div className="absolute top-0 right-0 w-72 h-72 bg-[#2ECC71]/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+                <h2 className="relative text-2xl font-black text-[var(--heading)] mb-2">Configure Your Quote</h2>
+                <p className="relative text-sm text-[var(--copy)] mb-8">
                   Provide your facility details below to receive accurate pricing and technical specifications.
                 </p>
 
-                <RequestQuoteForm />
+                <div className="relative">
+                  <RequestQuoteForm />
+                </div>
               </div>
             </div>
 
             {/* Right 5 Cols: Proposal Inclusions & SLA Highlights */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="bg-[var(--surface)] rounded-3xl p-8 border border-[var(--stroke)] shadow-sm space-y-6">
+              <div className="bg-[var(--surface)]/80 backdrop-blur-xl rounded-3xl p-8 border border-white/10 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] space-y-6">
                 <h3 className="text-xl font-black text-[var(--heading)]">Every Proposal Includes:</h3>
 
                 <div className="space-y-4">
@@ -92,7 +95,7 @@ export function RequestQuotePage() {
                 </div>
               </div>
 
-              <div className="bg-[var(--surface)] border border-[var(--stroke)] text-[var(--heading)] rounded-3xl p-8 space-y-4">
+              <div className="bg-[var(--surface)]/80 backdrop-blur-xl border border-white/10 dark:border-white/10 text-[var(--heading)] rounded-3xl p-8 space-y-4 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]">
                 <div className="flex items-center gap-2 text-green-400 font-bold text-xs uppercase">
                   <Building2 className="w-4 h-4" />
                   Government & Large Fleet Tenders
