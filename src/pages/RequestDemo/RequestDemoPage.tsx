@@ -32,36 +32,20 @@ export function RequestDemoPage() {
             className="mb-8"
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 max-w-3xl">
-              <div className="inline-flex items-center gap-2 bg-green-900/30 border border-green-700/30 rounded-full px-3.5 py-1 mb-6">
-                <Video className="w-3.5 h-3.5 text-green-400" />
-                <span className="text-green-400 text-xs font-semibold tracking-wider uppercase">
-                  Interactive Session
-                </span>
-              </div>
-              <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight mb-4 text-[var(--heading)]">
-                See Vtest in Action with a <span className="gradient-text">Tailored Demo</span>
-              </h1>
-              <p className="text-lg text-[var(--copy)] leading-relaxed">
-                Discover how our integrated software and hardware platforms accelerate lane cycle times,
-                prevent data tampering, and ensure complete regulatory conformity.
-              </p>
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 bg-green-900/30 border border-green-700/30 rounded-full px-3.5 py-1 mb-6">
+              <Video className="w-3.5 h-3.5 text-green-400" />
+              <span className="text-green-400 text-xs font-semibold tracking-wider uppercase">
+                Interactive Session
+              </span>
             </div>
-
-            <div className="hidden lg:flex lg:col-span-4 justify-end">
-              <div className="bg-[var(--surface)]/90 backdrop-blur-md border border-[var(--stroke)] rounded-2xl p-6 shadow-xl max-w-sm w-full space-y-4">
-                <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#2ECC71] uppercase tracking-wider">
-                  <ShieldCheck className="w-4 h-4" /> Live Demonstration
-                </div>
-                <div className="text-sm font-bold text-[var(--heading)]">30-Min Solutions Walkthrough</div>
-                <div className="space-y-2 text-xs text-[var(--copy)]">
-                  <div className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#2ECC71] flex-shrink-0" /> Interactive Lane Simulation</div>
-                  <div className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#2ECC71] flex-shrink-0" /> Real-Time Telemetry & Hardware</div>
-                  <div className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-[#2ECC71] flex-shrink-0" /> Custom Sizing & Architecture Q&A</div>
-                </div>
-              </div>
-            </div>
+            <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight mb-4 text-[var(--heading)]">
+              See Vtest in Action with a <span className="gradient-text">Tailored Demo</span>
+            </h1>
+            <p className="text-lg text-[var(--copy)] leading-relaxed">
+              Discover how our integrated software and hardware platforms accelerate lane cycle times,
+              prevent data tampering, and ensure complete regulatory conformity.
+            </p>
           </div>
         </div>
       </section>
