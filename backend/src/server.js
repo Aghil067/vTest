@@ -25,6 +25,20 @@ process.on('unhandledRejection', (err) => {
   console.error('Unhandled Promise Rejection:', err);
 });
 
+process.on('exit', (code) => {
+  console.log(`[Process Exit] Server process exiting with code ${code}`);
+});
+
+process.on('SIGINT', () => {
+  console.log('[Process Signal] Received SIGINT');
+  process.exit(0);
+});
+
+process.on('SIGTERM', () => {
+  console.log('[Process Signal] Received SIGTERM');
+  process.exit(0);
+});
+
 // Connect to MongoDB and start HTTP Server
 connectDB().finally(() => {
   const server = app.listen(PORT, '0.0.0.0', () => {
