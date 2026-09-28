@@ -455,9 +455,11 @@
   .nav-glass-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.35rem;
     height: 2.375rem; /* 38px */
-    padding: 0 0.95rem;
+    width: 7.25rem; /* 116px uniform width across all buttons */
+    padding: 0 0.5rem;
     font-size: 0.8125rem; /* 13px */
     font-weight: 600;
     letter-spacing: 0.01em;
@@ -469,6 +471,7 @@
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     white-space: nowrap;
     cursor: pointer;
+    text-align: center;
   }
 
   .nav-glass-btn:hover {

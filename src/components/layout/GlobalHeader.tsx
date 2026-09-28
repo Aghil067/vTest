@@ -293,7 +293,7 @@ export function GlobalHeader() {
             <VtestLogo />
 
             {/* Desktop Nav */}
-            <nav className="hidden min-[1100px]:flex items-center gap-2.5 lg:gap-3.5 xl:gap-4.5 2xl:gap-6" aria-label="Main navigation">
+            <nav className="hidden min-[1100px]:flex items-center gap-1.5 xl:gap-2.5 2xl:gap-3.5" aria-label="Main navigation">
               {NAV_ITEMS.map((item) => (
                 <DesktopNavItem key={item.label} item={item} isActive={isActive(item.href)} />
               ))}
