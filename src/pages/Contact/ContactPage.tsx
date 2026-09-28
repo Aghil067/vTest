@@ -56,7 +56,7 @@ export function ContactPage() {
       {/* Hero */}
       <section className="page-hero relative py-20 lg:py-24 overflow-hidden border-b border-[var(--stroke)] bg-[var(--site-bg)]">
         <div className="absolute inset-0 bg-grid opacity-25 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent)] rounded-full blur-3xl pointer-events-none" />
+        <div className="hidden dark:block absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <Breadcrumbs

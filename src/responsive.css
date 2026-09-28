@@ -44,7 +44,7 @@ html.light .marketing-site .inspection-intro > p { color:var(--copy); }
 }
 .marketing-site .detail-page .border:has(> table) { max-width:100%; overflow-x:auto; }
 html.light .marketing-site .site-header { background:#f8fcf8f5 !important; border-color:var(--stroke) !important; }
-html.light .marketing-site .page-hero { background:radial-gradient(ellipse at 85% 10%,#d8eddb,transparent 65%),var(--site-bg) !important; }
+html.light .marketing-site .page-hero { background:var(--site-bg) !important; }
 html.light .marketing-site .home-hero { background:linear-gradient(115deg,#f5faf4,#e4f1e6) !important; }
 /* Photographs are framed media, never a dark layer overlapping the copy. */
 html.light .marketing-site .vehicle-stage { margin:0; border:1px solid #cedfd1; border-radius:16px; box-shadow:0 16px 44px #21452e16; background:#09120f; animation:none; translate:none; scale:1; }
