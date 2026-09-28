@@ -1,4 +1,3 @@
-import { PageArtwork } from '@/components/common/PageArtwork';
 import { Link } from 'react-router-dom';
 import { Building2, ArrowRight } from 'lucide-react';
 import { useApi } from '@/hooks/useApi';
@@ -25,7 +24,7 @@ export function IndustriesListingPage() {
       {/* Hero */}
       <section className="page-hero bg-[var(--site-bg)] text-[var(--heading)] py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-green-900/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-96 h-96 bg-[#2ECC71]/15 dark:bg-[#2ECC71]/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
           <Breadcrumbs
@@ -34,33 +33,49 @@ export function IndustriesListingPage() {
             className="mb-8"
           />
 
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-green-900/30 border border-green-700/30 rounded-full px-3.5 py-1 mb-6">
-              <Building2 className="w-3.5 h-3.5 text-green-400" />
-              <span className="text-green-400 text-xs font-semibold tracking-wider uppercase">
-                Sectors & Verticals
-              </span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
-              Domain-Specific Solutions for <span className="gradient-text">Critical Testing Sectors</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-[var(--copy)] leading-relaxed mb-8">
-              Every vertical faces distinct compliance frameworks, throughput pressures, and hardware
-              specifications. Vtest solutions are purposefully architected to meet those sector requirements.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8 max-w-3xl">
+              <div className="inline-flex items-center gap-2 bg-green-900/30 border border-green-700/30 rounded-full px-3.5 py-1 mb-6">
+                <Building2 className="w-3.5 h-3.5 text-green-400" />
+                <span className="text-green-400 text-xs font-semibold tracking-wider uppercase">
+                  Sectors & Verticals
+                </span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+                Domain-Specific Solutions for <span className="gradient-text">Critical Testing Sectors</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-[var(--copy)] leading-relaxed mb-8">
+                Every vertical faces distinct compliance frameworks, throughput pressures, and hardware
+                specifications. Vtest solutions are purposefully architected to meet those sector requirements.
+              </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Link to="/request-demo" className="btn-primary">
-                Book Sector Consultation
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link to="/solutions" className="btn-secondary">
-                Explore All Solutions
-              </Link>
+              <div className="flex flex-wrap gap-4">
+                <Link to="/request-demo" className="btn-primary">
+                  Book Sector Consultation
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link to="/solutions" className="btn-secondary">
+                  Explore All Solutions
+                </Link>
+              </div>
+            </div>
+
+            <div className="hidden lg:flex lg:col-span-4 justify-end">
+              <div className="bg-[var(--surface)]/90 backdrop-blur-md border border-[var(--stroke)] rounded-2xl p-6 shadow-xl max-w-sm w-full space-y-4">
+                <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#2ECC71] uppercase tracking-wider">
+                  <Building2 className="w-4 h-4" /> Global Deployment
+                </div>
+                <div className="text-sm font-bold text-[var(--heading)]">Key Sector Verticals</div>
+                <div className="space-y-2.5 text-xs text-[var(--copy)]">
+                  <div className="flex items-center gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-[#2ECC71] flex-shrink-0" /> Automotive OEMs &amp; Factory Lanes</div>
+                  <div className="flex items-center gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-[#2ECC71] flex-shrink-0" /> Statutory Periodic Inspection (PTI)</div>
+                  <div className="flex items-center gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-[#2ECC71] flex-shrink-0" /> National Transport &amp; Road Authorities</div>
+                  <div className="flex items-center gap-2.5"><span className="w-1.5 h-1.5 rounded-full bg-[#2ECC71] flex-shrink-0" /> Commercial Fleet Maintenance Centers</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <PageArtwork kind="vehicle" />
       </section>
 
       {/* Industries Grid */}
