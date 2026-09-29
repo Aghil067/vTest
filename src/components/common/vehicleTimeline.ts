@@ -6,7 +6,7 @@ export const inspectionScenes = [
   { start: .60, title: 'Equipment integration', caption: 'Connecting test equipment to inspection workflows.' },
   { start: .72, title: 'From measurement to insight', caption: 'Compliance reporting and operational analytics.' },
   { start: .84, title: 'One connected system', caption: 'Software intelligence. Precision hardware.' },
-  { start: .94, title: 'Engineered for your operation', caption: 'Explore the Vtest technology ecosystem.' },
+  { start: .94, title: 'Engineered for your operation', caption: 'Explore the Vetest technology ecosystem.' },
 ] as const;
 
 export const clamp01 = (value: number) => Math.max(0, Math.min(1, value));

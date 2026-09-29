@@ -44,7 +44,7 @@ export function IndustryDetailPage() {
   return (
     <div className="page page-industry-detail-page detail-page">
       <SEOHead
-        title={industry.seoTitle || `${industry.title} Testing Solutions | Vtest`}
+        title={industry.seoTitle || `${industry.title} Testing Solutions | Vetest`}
         description={industry.seoDescription || industry.summary}
         canonical={`/industries/${industry.slug}`}
       />
@@ -147,11 +147,11 @@ export function IndustryDetailPage() {
                 </div>
               )}
 
-              {/* Vtest Capabilities */}
+              {/* Vetest Capabilities */}
               {industry.vtestCapabilities && industry.vtestCapabilities.length > 0 && (
                 <div>
                   <h2 className="text-2xl font-black text-[var(--heading)] mb-6 tracking-tight">
-                    How Vtest Solves These Challenges
+                    How Vetest Solves These Challenges
                   </h2>
                   <CapabilityList items={industry.vtestCapabilities} />
                 </div>
@@ -241,7 +241,7 @@ export function IndustryDetailPage() {
       {/* Bottom CTA */}
       <CTASection
         title={`Scale Your ${industry.title} Operations with Confidence`}
-        subtitle="Speak with our sector specialists to discover how Vtest optimizes throughput, data accuracy, and compliance."
+        subtitle="Speak with our sector specialists to discover how Vetest optimizes throughput, data accuracy, and compliance."
         primaryAction={{ label: 'Contact Us', href: '/contact' }}
         secondaryAction={{ label: 'Request Demo', href: `/request-demo?industry=${encodeURIComponent(industry.title)}` }}
       />

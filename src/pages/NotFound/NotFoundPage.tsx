@@ -6,8 +6,8 @@ export function NotFoundPage() {
   return (
     <div className="page page-not-found-page editorial-page">
       <SEOHead
-        title="404 — Page Not Found | Vtest"
-        description="The page you requested could not be located. Browse our testing software, hardware products, or return to the Vtest homepage."
+        title="404 — Page Not Found | Vetest"
+        description="The page you requested could not be located. Browse our testing software, hardware products, or return to the Vetest homepage."
       />
 
       <section className="page-hero min-h-[75vh] flex items-center justify-center bg-[var(--site-bg)] py-20 px-4">

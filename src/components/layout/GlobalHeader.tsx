@@ -60,9 +60,9 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 // ---- Logo ----
-function VtestLogo({ className }: { className?: string }) {
+function VetestLogo({ className }: { className?: string }) {
   return (
-    <Link to="/" className={cn('flex items-center py-1 group shrink-0', className)} aria-label="Vtest — Home">
+    <Link to="/" className={cn('flex items-center py-1 group shrink-0', className)} aria-label="Vetest — Home">
       <BrandLogo className="h-10 sm:h-12 w-auto max-w-[190px] sm:max-w-[210px] object-contain transition-transform duration-200 group-hover:scale-[1.03]" />
     </Link>
   );
@@ -290,7 +290,7 @@ export function GlobalHeader() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18 min-[1100px]:h-20">
             {/* Logo */}
-            <VtestLogo />
+            <VetestLogo />
 
             {/* Desktop Nav */}
             <nav className="hidden min-[1100px]:flex items-center gap-3.5 xl:gap-5 2xl:gap-6" aria-label="Main navigation">
@@ -373,7 +373,7 @@ export function GlobalHeader() {
       >
         {/* Mobile header */}
         <div className="flex items-center justify-between p-4" style={{ borderBottom: `1px solid ${BORDER}` }}>
-          <VtestLogo />
+          <VetestLogo />
           <button
             className="w-9 h-9 flex items-center justify-center rounded-lg transition-all"
             style={{ color: 'var(--heading)', border: `1px solid ${BORDER}` }}

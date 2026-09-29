@@ -9,7 +9,7 @@ export function PageArtwork({ kind }: { kind: ArtworkKind }) {
       <div className={`photo-surface page-artwork page-artwork--photo page-artwork--${kind}`} aria-hidden="true">
         <img src={kind === 'vehicle' ? '/automotive-studio.jpg' : '/hero-bg.jpg'} srcSet={kind === 'vehicle' ? '/automotive-studio-900.jpg 900w, /automotive-studio.jpg 1536w' : undefined} sizes="(max-width: 1023px) 90vw, 570px" alt="" width="1536" height="1024" decoding="async" />
         <div className="page-artwork__photo-shade" />
-        <span className="artwork-caption">VTEST / ENGINEERED FOR PRECISION</span>
+        <span className="artwork-caption">VETEST / ENGINEERED FOR PRECISION</span>
       </div>
     );
   }
@@ -18,7 +18,7 @@ export function PageArtwork({ kind }: { kind: ArtworkKind }) {
       <div className="artwork-orbit" />
       {kind === 'software' && (
         <div className="software-art">
-          <div className="art-panel__bar"><span className="art-dot" /> VTEST / INSPECTION INTELLIGENCE <Activity size={15} /></div>
+          <div className="art-panel__bar"><span className="art-dot" /> VETEST / INSPECTION INTELLIGENCE <Activity size={15} /></div>
           <div className="software-art__body">
             <div className="software-art__rail"><Layers /><Activity /><Network /></div>
             <div className="software-art__main">
@@ -33,14 +33,14 @@ export function PageArtwork({ kind }: { kind: ArtworkKind }) {
       )}
       {kind === 'hardware' && (
         <div className="hardware-art">
-          <div className="hardware-art__board"><div className="hardware-art__pins" /><div className="hardware-art__chip"><Cpu size={52} strokeWidth={1} /><strong>VTEST</strong><span>PRECISION AT THE EDGE</span></div><div className="hardware-art__ports">{Array.from({ length: 6 }, (_, i) => <i key={i} />)}</div></div>
+          <div className="hardware-art__board"><div className="hardware-art__pins" /><div className="hardware-art__chip"><Cpu size={52} strokeWidth={1} /><strong>VETEST</strong><span>PRECISION AT THE EDGE</span></div><div className="hardware-art__ports">{Array.from({ length: 6 }, (_, i) => <i key={i} />)}</div></div>
           <div className="artwork-caption">INDUSTRIAL CONTROL / CONNECTED BY DESIGN</div>
         </div>
       )}
       {kind === 'network' && (
         <div className="network-art">
           <div className="network-art__ring" /><div className="network-art__ring network-art__ring--inner" />
-          <div className="network-art__core"><Network size={36} strokeWidth={1.2} /><strong>VTEST</strong></div>
+          <div className="network-art__core"><Network size={36} strokeWidth={1.2} /><strong>VETEST</strong></div>
           {['SOFTWARE', 'HARDWARE', 'ANALYTICS', 'AUTOMATION'].map((label, i) => <div className={`network-art__node network-art__node--${i}`} key={label}><span className="art-dot" />{label}</div>)}
           <div className="artwork-caption">ONE INTEGRATED TECHNOLOGY ECOSYSTEM</div>
         </div>
@@ -48,7 +48,7 @@ export function PageArtwork({ kind }: { kind: ArtworkKind }) {
       {kind === 'resources' && (
         <div className="resources-art">
           <div className="resources-art__back" />
-          <div className="resources-art__sheet"><span className="art-label">VTEST / KNOWLEDGE CENTER</span><FileText size={42} strokeWidth={1} /><strong>Engineering<br />in detail.</strong><i /><i /><i /><div className="art-panel__footer">GUIDES & TECHNICAL RESOURCES <ArrowUpRight size={18} /></div></div>
+          <div className="resources-art__sheet"><span className="art-label">VETEST / KNOWLEDGE CENTER</span><FileText size={42} strokeWidth={1} /><strong>Engineering<br />in detail.</strong><i /><i /><i /><div className="art-panel__footer">GUIDES & TECHNICAL RESOURCES <ArrowUpRight size={18} /></div></div>
         </div>
       )}
     </div>

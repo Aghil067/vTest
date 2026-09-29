@@ -66,14 +66,14 @@ function AboutSection() {
             <div className="inline-flex items-center gap-2 mb-6">
               <div className="w-6 h-px" style={{ background: GREEN }} />
               <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--accent)' }}>
-                About Vtest
+                About Vetest
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-black text-[var(--heading)] leading-tight mb-6">
               Purpose-Built Technology for Vehicle Testing Professionals
             </h2>
             <p className="text-base leading-relaxed mb-8" style={{ color: 'var(--copy)' }}>
-              Vtest develops integrated technology solutions that power vehicle inspection stations,
+              Vetest develops integrated technology solutions that power vehicle inspection stations,
               automotive testing facilities, and manufacturing end-of-line operations — combining
               software intelligence with precision hardware.
             </p>
@@ -95,7 +95,7 @@ function AboutSection() {
               className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest transition-all hover:gap-3"
               style={{ color: 'var(--accent)' }}
             >
-              Learn More About Vtest <ArrowRight className="w-4 h-4" />
+              Learn More About Vetest <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
@@ -429,7 +429,7 @@ function SolutionsSection() {
                     decoding="async"
                     onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = '/automotive-studio-900.jpg'; }}
                   />
-                  <span className="home-solution-card__index">VTEST / {String(index + 1).padStart(2, '0')}</span>
+                  <span className="home-solution-card__index">VETEST / {String(index + 1).padStart(2, '0')}</span>
                   <span className="home-solution-card__corner" aria-hidden="true" />
                 </div>
                 <div className="home-solution-card__body">
@@ -535,7 +535,7 @@ function ProjectsSection() {
 
 function FinalCTASection() {
   return <CTASection className="home-final-cta" primaryId="home-final-demo" title="See your next testing system in action."
-    subtitle="Explore how Vtest connects your equipment, inspection workflows and reporting in one tailored demonstration."
+    subtitle="Explore how Vetest connects your equipment, inspection workflows and reporting in one tailored demonstration."
     primaryAction={{ label: 'Request a Demo', href: '/request-demo' }}
     secondaryAction={{ label: 'Contact Us', href: '/contact' }} />;
 }

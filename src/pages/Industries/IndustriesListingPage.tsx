@@ -16,8 +16,8 @@ export function IndustriesListingPage() {
   return (
     <div className="page page-industries-listing-page catalog-page">
       <SEOHead
-        title="Industries We Serve | Automotive, Government, Testing & Manufacturing | Vtest"
-        description="Vtest delivers tailored vehicle testing, inspection, and automation technology across Automotive OEMs, Periodic Technical Inspection (PTI) Centers, Transport Authorities, and Heavy Manufacturing."
+        title="Industries We Serve | Automotive, Government, Testing & Manufacturing | Vetest"
+        description="Vetest delivers tailored vehicle testing, inspection, and automation technology across Automotive OEMs, Periodic Technical Inspection (PTI) Centers, Transport Authorities, and Heavy Manufacturing."
         canonical="/industries"
       />
 
@@ -45,7 +45,7 @@ export function IndustriesListingPage() {
             </h1>
             <p className="text-lg sm:text-xl text-[var(--copy)] leading-relaxed mb-8">
               Every vertical faces distinct compliance frameworks, throughput pressures, and hardware
-              specifications. Vtest solutions are purposefully architected to meet those sector requirements.
+              specifications. Vetest solutions are purposefully architected to meet those sector requirements.
             </p>
 
             <div className="flex flex-wrap gap-4">

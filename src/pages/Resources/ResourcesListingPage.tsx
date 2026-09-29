@@ -59,7 +59,7 @@ export function ResourcesListingPage() {
   return (
     <div className="page page-resources-listing-page catalog-page">
       <SEOHead
-        title="Knowledge Center & Resources | Brochures, Datasheets, Articles | Vtest"
+        title="Knowledge Center & Resources | Brochures, Datasheets, Articles | Vetest"
         description="Access technical whitepapers, hardware datasheets, software brochures, and best practice guides for vehicle inspection and testing."
         canonical="/resources"
       />
@@ -88,7 +88,7 @@ export function ResourcesListingPage() {
             </h1>
             <p className="text-lg sm:text-xl text-[var(--copy)] leading-relaxed mb-8">
               Download complete product brochures, engineering datasheets, wiring schematics, and read
-              in-depth technical guides authored by Vtest engineers.
+              in-depth technical guides authored by Vetest engineers.
             </p>
           </div>
         </div>

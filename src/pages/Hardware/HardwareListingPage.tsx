@@ -26,8 +26,8 @@ export function HardwareListingPage() {
   return (
     <div className="page page-hardware-listing-page catalog-page">
       <SEOHead
-        title="Hardware Products | Industrial Testing Equipment & Controllers | Vtest"
-        description="Explore Vtest hardware products: precision lane controllers, sensor interfaces, machine vision inspection rigs, and industrial automation interfaces."
+        title="Hardware Products | Industrial Testing Equipment & Controllers | Vetest"
+        description="Explore Vetest hardware products: precision lane controllers, sensor interfaces, machine vision inspection rigs, and industrial automation interfaces."
         canonical="/products/hardware"
       />
 

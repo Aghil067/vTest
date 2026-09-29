@@ -21,7 +21,7 @@ export function TechnologyListingPage() {
   const layer = layers[activeLayer];
   const Icon = layer.icon;
   return <div className="page engineering-page technology-page">
-    <SEOHead title="Technology & Engineering | Vtest" description="Explore the software, hardware and integration expertise behind Vtest vehicle testing systems." canonical="/technology" />
+    <SEOHead title="Technology & Engineering | Vetest" description="Explore the software, hardware and integration expertise behind Vetest vehicle testing systems." canonical="/technology" />
     <EngineeringHero section="Technology" title="Engineering that connects the whole test lane." summary="Software, hardware and automation designed to work together. Explore the expertise behind a clearer, more connected inspection process." image={technologies?.[0]?.image} caption="SOFTWARE / HARDWARE / AUTOMATION">
       <Link to="/request-demo" className="btn-primary">Discuss your requirements <ArrowRight size={17} /></Link>
       <EngineeringLink to="/projects">See our work</EngineeringLink>
@@ -50,6 +50,6 @@ export function TechnologyListingPage() {
           </article>)}</div> : <div className="engineering-empty"><p>Engineering disciplines will appear here as they are published.</p><EngineeringLink to="/contact">Talk to our team</EngineeringLink></div>}
       </div>
     </section>
-    <CTASection title="Bring your next testing challenge to us." subtitle="Talk through equipment, software and integration requirements with the Vtest team." primaryAction={{ label: 'Contact engineering', href: '/contact' }} secondaryAction={{ label: 'Request a demo', href: '/request-demo' }} />
+    <CTASection title="Bring your next testing challenge to us." subtitle="Talk through equipment, software and integration requirements with the Vetest team." primaryAction={{ label: 'Contact engineering', href: '/contact' }} secondaryAction={{ label: 'Request a demo', href: '/request-demo' }} />
   </div>;
 }

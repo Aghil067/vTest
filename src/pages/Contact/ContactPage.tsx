@@ -14,7 +14,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Customer & Technical Support',
-    detail: '+1 (800) 555-VTEST / +49 89 123456',
+    detail: '+1 (800) 555-VETEST / +49 89 123456',
     href: 'tel:+18005558837',
   },
   {
@@ -31,12 +31,12 @@ const contactInfo = [
 
 const faqs = [
   {
-    q: 'How quickly does Vtest respond to inquiries?',
+    q: 'How quickly does Vetest respond to inquiries?',
     a: 'Our sales engineering and client support teams respond to all general inquiries within 1 business day. Mission-critical SLA subscribers have 24/7 emergency dispatch.',
   },
   {
-    q: 'Can Vtest integrate with our existing third-party test hardware?',
-    a: 'Yes. Vtest software is built around open communication standards (Modbus, CANopen, OPC-UA, REST) and integrates directly with MAHA, Bosch, and custom test benches.',
+    q: 'Can Vetest integrate with our existing third-party test hardware?',
+    a: 'Yes. Vetest software is built around open communication standards (Modbus, CANopen, OPC-UA, REST) and integrates directly with MAHA, Bosch, and custom test benches.',
   },
   {
     q: 'Do you provide on-site installation and calibration?',
@@ -48,8 +48,8 @@ export function ContactPage() {
   return (
     <div className="page page-contact-page enquiry-page bg-[var(--site-bg)] text-[var(--copy)]">
       <SEOHead
-        title="Contact Vtest | Sales, Engineering & Global Support"
-        description="Get in touch with the Vtest engineering and sales team for vehicle inspection technology, hardware quotes, software demonstrations, or technical support."
+        title="Contact Vetest | Sales, Engineering & Global Support"
+        description="Get in touch with the Vetest engineering and sales team for vehicle inspection technology, hardware quotes, software demonstrations, or technical support."
         canonical="/contact"
       />
 

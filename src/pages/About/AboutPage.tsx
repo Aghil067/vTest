@@ -16,8 +16,8 @@ export function AboutPage() {
   return (
     <div className="page page-about-page editorial-page bg-[var(--site-bg)] text-[var(--copy)]">
       <SEOHead
-        title="About Vtest | Leaders in Vehicle Inspection & Test Automation"
-        description="Learn about Vtest's history, leadership, mission, and cutting-edge software and hardware testing technology built for automotive OEMs, test lanes, and transport agencies."
+        title="About Vetest | Leaders in Vehicle Inspection & Test Automation"
+        description="Learn about Vetest's history, leadership, mission, and cutting-edge software and hardware testing technology built for automotive OEMs, test lanes, and transport agencies."
         canonical="/about"
       />
 
@@ -44,7 +44,7 @@ export function AboutPage() {
               <span className="text-[var(--accent)]">Intelligent Testing</span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-[var(--copy)] font-normal">
-              Vtest is a global technology leader providing turnkey software, hardware, and automation
+              Vetest is a global technology leader providing turnkey software, hardware, and automation
               ecosystems that power vehicle inspection stations, OEM factory test lanes, and transport
               compliance programs worldwide.
             </p>
@@ -91,7 +91,7 @@ export function AboutPage() {
               </h2>
               <div className="space-y-4 text-base leading-relaxed text-[var(--copy)]">
                 <p>
-                  At Vtest, we recognize that reliable vehicle inspection and manufacturing quality
+                  At Vetest, we recognize that reliable vehicle inspection and manufacturing quality
                   assurance cannot exist in siloes. Traditional testing setups suffer from proprietary
                   vendor lock-in, disconnected data streams, and manual human errors.
                 </p>

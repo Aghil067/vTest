@@ -250,14 +250,14 @@ export function AutomotiveHero() {
         } as CSSProperties
       }
       aria-busy={busy}
-      aria-label="Vtest Interactive Automotive Inspection"
+      aria-label="Vetest Interactive Automotive Inspection"
     >
       {/* ── Intro Header: Cleanly sits ABOVE the vehicle plane ── */}
       <div className={`veyra-intro-container ${phase !== 'overview' ? 'hide' : ''}`} aria-hidden={phase !== 'overview'}>
         <div className="veyra-intro-content">
           <div className="veyra-headline-block">
             <span className="text-[11px] font-mono tracking-widest uppercase text-[#2ECC71] block mb-2">
-              VTEST / AUTOMOTIVE TESTING &amp; INSPECTION
+              VETEST / AUTOMOTIVE TESTING &amp; INSPECTION
             </span>
             <h1 className="veyra-headline">
               Engineering Smarter<br />
@@ -318,7 +318,7 @@ export function AutomotiveHero() {
                 <img
                   className="car-image"
                   src={ROOT_IMAGE}
-                  alt="Vtest vehicle inspection study"
+                  alt="Vetest vehicle inspection study"
                   draggable={false}
                 />
                 <HoverVideo
@@ -559,7 +559,7 @@ export function AutomotiveHero() {
 
         <div className="footer-baseline">
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-white">VTEST</span>
+            <span className="font-semibold text-white">Vetest</span>
             <span>—</span>
             <span>Engineering Smarter Testing &amp; Inspection Solutions</span>
           </div>

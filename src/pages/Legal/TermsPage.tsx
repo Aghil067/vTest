@@ -6,8 +6,8 @@ export function TermsPage() {
   return (
     <div className="page page-terms-page legal-page">
       <SEOHead
-        title="Terms of Service & Use | Vtest Corporate Website"
-        description="Review the terms and conditions governing the access and use of the Vtest website, product specifications, software documentation, and enquiry portals."
+        title="Terms of Service & Use | Vetest Corporate Website"
+        description="Review the terms and conditions governing the access and use of the Vetest website, product specifications, software documentation, and enquiry portals."
         canonical="/terms"
       />
 
@@ -32,7 +32,7 @@ export function TermsPage() {
               Terms of <span className="gradient-text">Service & Use</span>
             </h1>
             <p className="text-[var(--copy)] text-sm">
-              Last updated: September 2026 &bull; Governs access to all Vtest online platforms
+              Last updated: September 2026 &bull; Governs access to all Vetest online platforms
             </p>
           </div>
         </div>
@@ -45,7 +45,7 @@ export function TermsPage() {
             <div>
               <h2 className="text-2xl font-black text-[var(--heading)] mb-4">1. Agreement to Terms</h2>
               <p className="text-base text-[var(--copy)] leading-relaxed">
-                By accessing, browsing, or utilizing the Vtest website, downloadable documentation, datasheets,
+                By accessing, browsing, or utilizing the Vetest website, downloadable documentation, datasheets,
                 or demonstration request mechanisms, you acknowledge that you have read, understood, and agree
                 to be legally bound by these Terms of Service and applicable local, national, and international laws.
               </p>
@@ -55,7 +55,7 @@ export function TermsPage() {
               <h2 className="text-2xl font-black text-[var(--heading)] mb-4">2. Intellectual Property Rights</h2>
               <p className="text-base text-[var(--copy)] leading-relaxed">
                 All contents, product designs, software architectures, user interfaces, logos, diagrams, and
-                technical datasheets displayed on this website are the proprietary intellectual property of Vtest
+                technical datasheets displayed on this website are the proprietary intellectual property of Vetest
                 and its licensors, protected by international copyright and trademark conventions. No portion of
                 this site may be reproduced or reverse engineered without explicit written authorization.
               </p>
@@ -64,7 +64,7 @@ export function TermsPage() {
             <div>
               <h2 className="text-2xl font-black text-[var(--heading)] mb-4">3. Product Specifications & Changes</h2>
               <p className="text-base text-[var(--copy)] leading-relaxed">
-                While Vtest strives to maintain accurate and up-to-date technical specifications, hardware and
+                While Vetest strives to maintain accurate and up-to-date technical specifications, hardware and
                 software features are subject to continuous engineering enhancement. Technical metrics, physical
                 dimensions, and interface protocols may be updated without prior public notification. Binding
                 specifications are established solely in formal commercial contracts and sales orders.
@@ -74,7 +74,7 @@ export function TermsPage() {
             <div>
               <h2 className="text-2xl font-black text-[var(--heading)] mb-4">4. Commercial Software & Firmware Licenses</h2>
               <p className="text-base text-[var(--copy)] leading-relaxed">
-                Use of Vtest proprietary software (such as VtestIMS, VtestLaneOS, and VtestAnalytics) and embedded
+                Use of Vetest proprietary software (such as VetestIMS, VetestLaneOS, and VetestAnalytics) and embedded
                 firmware is governed exclusively by our Master Software License Agreement (EULA) executed at the time
                 of procurement. Nothing on this website constitutes a license grant for software execution.
               </p>
@@ -83,7 +83,7 @@ export function TermsPage() {
             <div>
               <h2 className="text-2xl font-black text-[var(--heading)] mb-4">5. Limitation of Liability</h2>
               <p className="text-base text-[var(--copy)] leading-relaxed">
-                In no event shall Vtest or its officers, employees, or technical partners be liable for any indirect,
+                In no event shall Vetest or its officers, employees, or technical partners be liable for any indirect,
                 punitive, or consequential damages resulting from the use or inability to use this website or
                 reliance upon preliminary marketing or technical overviews provided herein.
               </p>
@@ -92,7 +92,7 @@ export function TermsPage() {
             <div>
               <h2 className="text-2xl font-black text-[var(--heading)] mb-4">6. Governing Law & Jurisdiction</h2>
               <p className="text-base text-[var(--copy)] leading-relaxed">
-                These terms are governed by and construed in accordance with the laws of the jurisdiction of Vtest&apos;s
+                These terms are governed by and construed in accordance with the laws of the jurisdiction of Vetest&apos;s
                 corporate headquarters, without regard to conflicts of law provisions.
               </p>
             </div>

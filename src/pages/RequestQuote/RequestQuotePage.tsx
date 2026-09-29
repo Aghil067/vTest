@@ -16,8 +16,8 @@ export function RequestQuotePage() {
   return (
     <div className="page page-request-quote-page enquiry-page">
       <SEOHead
-        title="Request a Custom Quote | Commercial Pricing & RFPs | Vtest"
-        description="Request enterprise pricing for Vtest inspection software licenses, testing hardware controllers, turnkey lane setups, or custom engineering integrations."
+        title="Request a Custom Quote | Commercial Pricing & RFPs | Vetest"
+        description="Request enterprise pricing for Vetest inspection software licenses, testing hardware controllers, turnkey lane setups, or custom engineering integrations."
         canonical="/request-quote"
       />
 

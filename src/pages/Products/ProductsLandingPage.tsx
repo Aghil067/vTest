@@ -35,8 +35,8 @@ export function ProductsLandingPage() {
   return (
     <div className="page page-products-landing-page catalog-page">
       <SEOHead
-        title="Products & Systems | Software and Hardware Testing Solutions | Vtest"
-        description="Explore the complete Vtest product line: computerized inspection management software (VtestIMS, VtestAnalytics) and precision industrial testing hardware."
+        title="Products & Systems | Software and Hardware Testing Solutions | Vetest"
+        description="Explore the complete Vetest product line: computerized inspection management software (VetestIMS, VetestAnalytics) and precision industrial testing hardware."
         canonical="/products"
       />
 
@@ -98,10 +98,10 @@ export function ProductsLandingPage() {
                 </p>
                 <ul className="product-highlight-list pt-2 text-sm text-[var(--copy)]">
                   <li>
-                    <span>Inspection Management System (VtestIMS)</span>
+                    <span>Inspection Management System (VetestIMS)</span>
                   </li>
                   <li>
-                    <span>Real-time Lane Controller (VtestLaneOS)</span>
+                    <span>Real-time Lane Controller (VetestLaneOS)</span>
                   </li>
                   <li>
                     <span>Data Telemetry & Cloud Analytics Engine</span>
@@ -133,7 +133,7 @@ export function ProductsLandingPage() {
                 </p>
                 <ul className="product-highlight-list pt-2 text-sm text-[var(--copy)]">
                   <li>
-                    <span>Industrial Lane Control Units (VtestPLC)</span>
+                    <span>Industrial Lane Control Units (VetestPLC)</span>
                   </li>
                   <li>
                     <span>High-Precision Multi-Channel Sensor Hubs</span>
@@ -260,7 +260,7 @@ export function ProductsLandingPage() {
           <Zap className="w-10 h-10 text-green-400 mx-auto mb-4" />
           <h2 className="text-3xl font-black mb-4">Interoperable & Open Protocol Architecture</h2>
           <p className="text-[var(--copy)] text-base mb-8 leading-relaxed">
-            All Vtest hardware and software interfaces are engineered using open industrial standards (Modbus,
+            All Vetest hardware and software interfaces are engineered using open industrial standards (Modbus,
             CAN bus, OPC-UA, REST, WebSocket). Integrate smoothly with your existing third-party test benches or
             OEM ERP platforms without replacing existing capital equipment.
           </p>

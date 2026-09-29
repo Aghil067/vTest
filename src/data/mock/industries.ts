@@ -8,7 +8,7 @@ export const mockIndustries: Industry[] = [
     summary:
       'Technology solutions supporting automotive manufacturers, testing facilities, and service providers.',
     description:
-      'The automotive industry demands precision, reliability, and efficiency at every stage from manufacturing to after-sales service. Vtest delivers integrated software and hardware solutions that support automotive testing, quality assurance, and operational management.',
+      'The automotive industry demands precision, reliability, and efficiency at every stage from manufacturing to after-sales service. Vetest delivers integrated software and hardware solutions that support automotive testing, quality assurance, and operational management.',
     image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=80',
     icon: 'Car',
     status: 'PUBLISHED',
@@ -49,8 +49,8 @@ export const mockIndustries: Industry[] = [
     ],
     relatedSolutionIds: ['sol-2', 'sol-4'],
     relatedProductIds: ['prod-hw-2', 'prod-sw-3'],
-    technologies: ['VtestSense Module', 'VtestConnect', 'VtestAnalytics'],
-    seoTitle: 'Automotive Industry Solutions | Vtest',
+    technologies: ['VetestSense Module', 'VetestConnect', 'VetestAnalytics'],
+    seoTitle: 'Automotive Industry Solutions | Vetest',
     seoDescription:
       'Technology solutions for automotive manufacturers and testing facilities. End-of-line testing, equipment integration, quality analytics.',
     createdAt: '2024-01-01T00:00:00Z',
@@ -63,7 +63,7 @@ export const mockIndustries: Industry[] = [
     summary:
       'Comprehensive technology for vehicle testing stations, inspection centers, and testing authorities.',
     description:
-      'Vehicle testing organizations require reliable, scalable technology to manage inspection workflows, equipment, and compliance across single and multi-site operations. Vtest provides purpose-built solutions for the unique demands of the vehicle testing sector.',
+      'Vehicle testing organizations require reliable, scalable technology to manage inspection workflows, equipment, and compliance across single and multi-site operations. Vetest provides purpose-built solutions for the unique demands of the vehicle testing sector.',
     image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1200&q=80',
     icon: 'ClipboardCheck',
     status: 'PUBLISHED',
@@ -99,8 +99,8 @@ export const mockIndustries: Industry[] = [
     ],
     relatedSolutionIds: ['sol-1', 'sol-3', 'sol-5'],
     relatedProductIds: ['prod-sw-1', 'prod-hw-1'],
-    technologies: ['VtestIMS', 'VtestLane Controller', 'VtestAnalytics'],
-    seoTitle: 'Vehicle Testing Industry Solutions | Vtest',
+    technologies: ['VetestIMS', 'VetestLane Controller', 'VetestAnalytics'],
+    seoTitle: 'Vehicle Testing Industry Solutions | Vetest',
     seoDescription:
       'Purpose-built technology for vehicle testing stations and inspection centers. Digital workflows, lane management, equipment integration, compliance reporting.',
     createdAt: '2024-01-05T00:00:00Z',
@@ -113,7 +113,7 @@ export const mockIndustries: Industry[] = [
     summary:
       'Technology platforms for government transport authorities and regulatory bodies managing vehicle compliance programs.',
     description:
-      'Government transport authorities and regulatory bodies require robust, auditable technology to manage vehicle compliance programs at scale. Vtest provides solutions designed for the accountability, security, and scalability requirements of public-sector applications.',
+      'Government transport authorities and regulatory bodies require robust, auditable technology to manage vehicle compliance programs at scale. Vetest provides solutions designed for the accountability, security, and scalability requirements of public-sector applications.',
     image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200&q=80',
     icon: 'Building2',
     status: 'PUBLISHED',
@@ -148,8 +148,8 @@ export const mockIndustries: Industry[] = [
     ],
     relatedSolutionIds: ['sol-1', 'sol-5'],
     relatedProductIds: ['prod-sw-1', 'prod-sw-2'],
-    technologies: ['VtestIMS', 'VtestAnalytics', 'Secure integration'],
-    seoTitle: 'Government & Transport Solutions | Vtest',
+    technologies: ['VetestIMS', 'VetestAnalytics', 'Secure integration'],
+    seoTitle: 'Government & Transport Solutions | Vetest',
     seoDescription:
       'Technology solutions for government transport authorities. Audit-grade compliance management, scalable inspection platforms, regulatory reporting.',
     createdAt: '2024-01-08T00:00:00Z',
@@ -162,7 +162,7 @@ export const mockIndustries: Industry[] = [
     summary:
       'Precision testing and quality assurance technology for manufacturing facilities with automated test requirements.',
     description:
-      'Manufacturing facilities require reliable automated testing to ensure product quality, traceability, and production efficiency. Vtest provides hardware and software solutions that integrate into manufacturing workflows to deliver consistent, automated quality assurance.',
+      'Manufacturing facilities require reliable automated testing to ensure product quality, traceability, and production efficiency. Vetest provides hardware and software solutions that integrate into manufacturing workflows to deliver consistent, automated quality assurance.',
     image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1200&q=80',
     icon: 'Factory',
     status: 'PUBLISHED',
@@ -198,8 +198,8 @@ export const mockIndustries: Industry[] = [
     ],
     relatedSolutionIds: ['sol-2', 'sol-4'],
     relatedProductIds: ['prod-hw-2', 'prod-sw-3'],
-    technologies: ['VtestSense Module', 'VtestConnect', 'Production integration'],
-    seoTitle: 'Manufacturing Industry Solutions | Vtest',
+    technologies: ['VetestSense Module', 'VetestConnect', 'Production integration'],
+    seoTitle: 'Manufacturing Industry Solutions | Vetest',
     seoDescription:
       'Precision testing and quality assurance technology for manufacturing. Automated test sequences, traceability, production system integration.',
     createdAt: '2024-01-10T00:00:00Z',

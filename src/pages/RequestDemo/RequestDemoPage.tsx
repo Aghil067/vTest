@@ -5,7 +5,7 @@ import { RequestDemoForm } from '@/components/forms/Forms';
 import { SEOHead } from '@/components/common/SEOHead';
 
 const demoHighlights = [
-  'Live demonstration of VtestIMS inspection workflow automation',
+  'Live demonstration of VetestIMS inspection workflow automation',
   'Real-time equipment telemetry and lane controller integration preview',
   'Automated regulatory compliance certificates & anti-fraud audit logs',
   'Multi-lane supervision and central cloud operational analytics',
@@ -16,8 +16,8 @@ export function RequestDemoPage() {
   return (
     <div className="page page-request-demo-page enquiry-page">
       <SEOHead
-        title="Schedule a Live Demo | Vehicle Inspection Platform | Vtest"
-        description="Experience Vtest's automated vehicle inspection management and testing platform firsthand. Book a guided 1-on-1 demonstration with our technical specialists."
+        title="Schedule a Live Demo | Vehicle Inspection Platform | Vetest"
+        description="Experience Vetest's automated vehicle inspection management and testing platform firsthand. Book a guided 1-on-1 demonstration with our technical specialists."
         canonical="/request-demo"
       />
 
@@ -40,7 +40,7 @@ export function RequestDemoPage() {
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight mb-4 text-[var(--heading)]">
-              See Vtest in Action with a <span className="gradient-text">Tailored Demo</span>
+              See Vetest in Action with a <span className="gradient-text">Tailored Demo</span>
             </h1>
             <p className="text-lg text-[var(--copy)] leading-relaxed">
               Discover how our integrated software and hardware platforms accelerate lane cycle times,

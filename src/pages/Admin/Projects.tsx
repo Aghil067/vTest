@@ -368,7 +368,7 @@ export const AdminProjects: React.FC = () => {
 
             <div>
               <label className="block text-xs font-bold text-[var(--admin-copy)] uppercase tracking-wider mb-1.5">
-                Vtest Solution Delivered
+                Vetest Solution Delivered
               </label>
               <textarea
                 rows={3}

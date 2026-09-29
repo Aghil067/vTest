@@ -22,7 +22,7 @@ export const AdminResources: React.FC = () => {
     type: 'WHITEPAPER',
     description: '',
     fileUrl: '',
-    author: 'Vtest Editorial Team',
+    author: 'Vetest Editorial Team',
     status: 'PUBLISHED',
   });
 
@@ -56,7 +56,7 @@ export const AdminResources: React.FC = () => {
         type: r.type || 'WHITEPAPER',
         description: r.description || '',
         fileUrl: r.fileUrl || '',
-        author: r.author || 'Vtest Editorial Team',
+        author: r.author || 'Vetest Editorial Team',
         status: r.status || 'PUBLISHED',
       });
     } else {
@@ -67,7 +67,7 @@ export const AdminResources: React.FC = () => {
         type: 'WHITEPAPER',
         description: '',
         fileUrl: '',
-        author: 'Vtest Editorial Team',
+        author: 'Vetest Editorial Team',
         status: 'PUBLISHED',
       });
     }
@@ -198,7 +198,7 @@ export const AdminResources: React.FC = () => {
                       <Badge status={r.type}>{r.type}</Badge>
                     </td>
                     <td className="py-3.5 px-4 text-[var(--admin-copy)] font-mono text-[11px]">
-                      {r.author || 'Vtest'}
+                      {r.author || 'Vetest'}
                     </td>
                     <td className="py-3.5 px-4">
                       <Badge status={r.status}>{r.status}</Badge>

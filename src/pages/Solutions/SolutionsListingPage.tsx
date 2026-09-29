@@ -17,8 +17,8 @@ export function SolutionsListingPage() {
   return (
     <div className="page page-solutions-listing-page catalog-page">
       <SEOHead
-        title="Solutions | End-to-End Testing & Inspection Architecture | Vtest"
-        description="Discover Vtest's turnkey solutions: Vehicle Inspection, End-of-Line Testing, Test Lane Management, Equipment Integration, Compliance & Analytics, and Service & Maintenance."
+        title="Solutions | End-to-End Testing & Inspection Architecture | Vetest"
+        description="Discover Vetest's turnkey solutions: Vehicle Inspection, End-of-Line Testing, Test Lane Management, Equipment Integration, Compliance & Analytics, and Service & Maintenance."
         canonical="/solutions"
       />
 
@@ -87,19 +87,19 @@ export function SolutionsListingPage() {
         </div>
       </section>
 
-      {/* The Vtest Advantage Pillars */}
+      {/* The Vetest Advantage Pillars */}
       <section className="py-20 bg-[var(--surface)] border-t border-[var(--stroke)]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-14">
             <div className="inline-flex items-center gap-2 mb-4 justify-center">
               <div className="w-6 h-px bg-green-500" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-green-400">
-                The Vtest Advantage
+                The Vetest Advantage
               </span>
               <div className="w-6 h-px bg-green-500" />
             </div>
             <h2 className="text-3xl font-black text-[var(--heading)] tracking-tight mb-4">
-              Why Global Operators Choose Vtest Solutions
+              Why Global Operators Choose Vetest Solutions
             </h2>
             <p className="text-[var(--copy)]">
               We bridge the gap between heavy physical test benches and modern cloud computing.

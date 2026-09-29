@@ -26,8 +26,8 @@ export function SoftwareListingPage() {
   return (
     <div className="page page-software-listing-page catalog-page">
       <SEOHead
-        title="Software Products | Vehicle Inspection & Test Lane Software | Vtest"
-        description="Discover Vtest's software suite: VtestIMS Inspection Management, VtestLaneOS, VtestAnalytics, and automated compliance tracking."
+        title="Software Products | Vehicle Inspection & Test Lane Software | Vetest"
+        description="Discover Vetest's software suite: VetestIMS Inspection Management, VetestLaneOS, VetestAnalytics, and automated compliance tracking."
         canonical="/products/software"
       />
 
@@ -162,7 +162,7 @@ export function SoftwareListingPage() {
 
       {/* CTA Section */}
       <CTASection
-        title="Experience Vtest Software in Action"
+        title="Experience Vetest Software in Action"
         subtitle="Schedule a 1-on-1 walkthrough with an inspection workflows specialist."
         primaryAction={{ label: 'Book Live Demo', href: '/request-demo' }}
         secondaryAction={{ label: 'Contact Sales', href: '/contact' }}

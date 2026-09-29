@@ -16,7 +16,7 @@ export const authService = {
         const user = matched || {
           _id: 'user-1',
           id: 'user-1',
-          name: 'Vtest Lead Administrator',
+          name: 'Vetest Lead Administrator',
           email: 'admin@vtest.local',
           role: 'SUPER_ADMIN',
           status: 'ACTIVE',

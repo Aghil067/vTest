@@ -17,8 +17,8 @@ export function TechnologyDetailPage() {
   if (!tech) return <div className="py-20"><NotFoundState title="Technology Discipline Not Found" message="The requested engineering discipline could not be found." actionText="View All Technology" actionHref="/technology" /></div>;
 
   return <div className="page engineering-page engineering-detail technology-page">
-    <SEOHead title={tech.seoTitle || tech.title + ' | Vtest Technology'} description={tech.seoDescription || tech.summary} canonical={'/technology/' + tech.slug} />
-    <EngineeringHero section="Technology" title={tech.title} summary={tech.summary} image={tech.image} caption="VTEST / ENGINEERING DISCIPLINE" detail>
+    <SEOHead title={tech.seoTitle || tech.title + ' | Vetest Technology'} description={tech.seoDescription || tech.summary} canonical={'/technology/' + tech.slug} />
+    <EngineeringHero section="Technology" title={tech.title} summary={tech.summary} image={tech.image} caption="VETEST / ENGINEERING DISCIPLINE" detail>
       <Link to="/request-demo" className="btn-primary">Schedule a technical review <ArrowRight size={17} /></Link><EngineeringLink to="/projects">Explore deployments</EngineeringLink>
     </EngineeringHero>
     <section className="engineering-section">

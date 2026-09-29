@@ -43,7 +43,7 @@ export function SoftwareDetailPage() {
   return (
     <div className="page page-software-detail-page detail-page">
       <SEOHead
-        title={product.seoTitle || `${product.name} | Vtest Software`}
+        title={product.seoTitle || `${product.name} | Vetest Software`}
         description={product.seoDescription || product.shortDescription}
         canonical={`/products/software/${product.slug}`}
       />

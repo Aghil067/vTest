@@ -22,7 +22,7 @@ export function EngineeringHero({ section, title, summary, image, caption, child
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: section, ...(detail ? { href: `/${section.toLowerCase()}` } : {}) }, ...(detail ? [{ label: title }] : [])]} />
       <div className="engineering-hero__layout">
         <div className="engineering-hero__copy">
-          <span className="section-kicker">VTEST / {section === 'Technology' ? 'ENGINEERING EXPERTISE' : 'IN THE FIELD'}</span>
+          <span className="section-kicker">VETEST / {section === 'Technology' ? 'ENGINEERING EXPERTISE' : 'IN THE FIELD'}</span>
           <h1>{title}</h1><p>{summary}</p>
           <div className="engineering-actions">{children}</div>
         </div>

@@ -4,7 +4,7 @@ export type AppearanceOption = { id: string; label: string; image: string; color
 
 export const appearanceOptions: Record<AppearanceMode, AppearanceOption[]> = {
   paint: [
-    { id: 'green', label: 'Vtest Green', color: '#2ECC71', image: '/media/config/electric-green.png' },
+    { id: 'green', label: 'Vetest Green', color: '#2ECC71', image: '/media/config/electric-green.png' },
     { id: 'silver', label: 'Studio Silver', color: '#c9cfd2', image: baseExterior },
     { id: 'graphite', label: 'Graphite', color: '#30363c', image: '/media/config/graphite.png' },
     { id: 'lime', label: 'Lime Green', color: '#9fdc32', image: '/media/config/lime-green.png' },

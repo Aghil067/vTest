@@ -268,13 +268,13 @@ export function RequestDemoForm() {
         <select {...register('productOfInterest')} className="form-input">
           <option value="">Select a product or solution...</option>
           <optgroup label="Software">
-            <option value="VtestIMS">VtestIMS</option>
-            <option value="VtestAnalytics">VtestAnalytics</option>
-            <option value="VtestConnect">VtestConnect</option>
+            <option value="VetestIMS">VetestIMS</option>
+            <option value="VetestAnalytics">VetestAnalytics</option>
+            <option value="VetestConnect">VetestConnect</option>
           </optgroup>
           <optgroup label="Hardware">
-            <option value="VtestLane Controller">VtestLane Controller</option>
-            <option value="VtestSense Module">VtestSense Module</option>
+            <option value="VetestLane Controller">VetestLane Controller</option>
+            <option value="VetestSense Module">VetestSense Module</option>
           </optgroup>
           <optgroup label="Solutions">
             <option value="Vehicle Inspection">Vehicle Inspection</option>
@@ -391,13 +391,13 @@ export function RequestQuoteForm() {
           <select {...register('productOfInterest')} className="form-input">
             <option value="">Select a product...</option>
             <optgroup label="Software">
-              <option value="VtestIMS">VtestIMS</option>
-              <option value="VtestAnalytics">VtestAnalytics</option>
-              <option value="VtestConnect">VtestConnect</option>
+              <option value="VetestIMS">VetestIMS</option>
+              <option value="VetestAnalytics">VetestAnalytics</option>
+              <option value="VetestConnect">VetestConnect</option>
             </optgroup>
             <optgroup label="Hardware">
-              <option value="VtestLane Controller">VtestLane Controller</option>
-              <option value="VtestSense Module">VtestSense Module</option>
+              <option value="VetestLane Controller">VetestLane Controller</option>
+              <option value="VetestSense Module">VetestSense Module</option>
             </optgroup>
             <option value="Complete Solution">Complete Integrated Solution</option>
           </select>

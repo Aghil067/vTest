@@ -74,7 +74,7 @@ export function SolutionDetailPage() {
   return (
     <div className="page page-solution-detail-page detail-page bg-[var(--site-bg)] text-[var(--copy)]">
       <SEOHead
-        title={solution.seoTitle || `${solution.title} Architecture | Vtest Turnkey Solutions`}
+        title={solution.seoTitle || `${solution.title} Architecture | Vetest Turnkey Solutions`}
         description={solution.seoDescription || solution.summary}
         canonical={`/solutions/${solution.slug}`}
       />
@@ -317,14 +317,14 @@ export function SolutionDetailPage() {
                     <div className="p-6 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] space-y-3">
                       <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--accent)]">
                         <span className="w-2 h-2 rounded-full bg-[var(--accent)]" />
-                        Vtest Engineered Resolution
+                        Vetest Engineered Resolution
                       </div>
                       <h3 className="text-lg font-bold text-[var(--heading)]">
                         Autonomous Automated Validation
                       </h3>
                       <p className="text-sm leading-relaxed text-[var(--copy)]">
                         By uniting calibrated hardware sensors, real-time edge processing, and standardized test logic,
-                        Vtest eliminates manual subjectivity, accelerates turnaround time, and ensures 100% auditable quality records.
+                        Vetest eliminates manual subjectivity, accelerates turnaround time, and ensures 100% auditable quality records.
                       </p>
                     </div>
                   </div>

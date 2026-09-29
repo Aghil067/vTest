@@ -43,7 +43,7 @@ process.on('SIGTERM', () => {
 connectDB().finally(() => {
   const server = app.listen(PORT, '0.0.0.0', () => {
     console.log(`==================================================`);
-    console.log(`🚀 Vtest Admin CMS Backend Server Running`);
+    console.log(`🚀 Vetest Admin CMS Backend Server Running`);
     console.log(`📡 URL: http://localhost:${PORT}`);
     console.log(`🟢 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`==================================================`);

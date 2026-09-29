@@ -8,14 +8,14 @@ const siteSettingSchema = new mongoose.Schema(
       unique: true
     },
     general: {
-      siteName: { type: String, default: 'Vtest Vehicle Inspection Systems' },
+      siteName: { type: String, default: 'Vetest Vehicle Inspection Systems' },
       logo: { type: String, default: '' },
       favicon: { type: String, default: '' },
       tagline: { type: String, default: 'Smart Vehicle Inspection & Compliance Platform' },
-      copyrightText: { type: String, default: '© 2026 Vtest Technologies. All rights reserved.' }
+      copyrightText: { type: String, default: '© 2026 Vetest Technologies. All rights reserved.' }
     },
     seo: {
-      defaultSeoTitle: { type: String, default: 'Vtest | Smart Vehicle Inspection & Compliance Solutions' },
+      defaultSeoTitle: { type: String, default: 'Vetest | Smart Vehicle Inspection & Compliance Solutions' },
       defaultMetaDescription: { type: String, default: 'End-to-end periodic, compliance-based, and line-end vehicle safety inspection management system.' },
       metaKeywords: { type: String, default: 'vehicle inspection, automotive testing, IoT, automation, computer vision' },
       googleAnalyticsId: { type: String, default: '' }

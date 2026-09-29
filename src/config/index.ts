@@ -26,19 +26,19 @@ export const config = {
   useMockData: import.meta.env.VITE_USE_MOCK_DATA === 'true',
 
   // Site Configuration
-  siteUrl: import.meta.env.VITE_SITE_URL || 'https://vtest.com',
-  siteName: 'Vtest',
+  siteUrl: import.meta.env.VITE_SITE_URL || 'https://vetest.com',
+  siteName: 'Vetest',
   siteTagline: 'Engineering Smarter Testing & Inspection Solutions',
   siteDescription:
-    'Vtest delivers advanced software, hardware, and integrated automation solutions for vehicle inspection, end-of-line testing, and test lane management across automotive, manufacturing, and government sectors.',
+    'Vetest delivers advanced software, hardware, and integrated automation solutions for vehicle inspection, end-of-line testing, and test lane management across automotive, manufacturing, and government sectors.',
 
   // Analytics
   gaMeasurementId: import.meta.env.VITE_GA_MEASUREMENT_ID || '',
 
-  // Contact (placeholder — replace with real Vtest details)
-  contactEmail: 'info@vtest.com',
+  // Contact (placeholder — replace with real Vetest details)
+  contactEmail: 'info@vetest.com',
   contactPhone: '+[Contact Phone]',
-  contactAddress: '[Vtest Office Address]',
+  contactAddress: '[Vetest Office Address]',
 
   // Social (placeholder)
   socialLinks: {

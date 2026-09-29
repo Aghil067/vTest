@@ -66,7 +66,7 @@ const initialUsers = [
   {
     _id: 'user-1',
     id: 'user-1',
-    name: 'Vtest Lead Administrator',
+    name: 'Vetest Lead Administrator',
     email: 'admin@vtest.local',
     role: 'SUPER_ADMIN',
     status: 'ACTIVE',
@@ -85,28 +85,28 @@ const initialUsers = [
 
 const initialSettings = {
   general: {
-    siteName: 'Vtest',
+    siteName: 'Vetest',
     logo: '',
     tagline: 'Engineering Smarter Testing & Inspection Solutions',
-    copyrightText: '© 2026 Vtest Technologies Inc. All rights reserved.',
+    copyrightText: '© 2026 Vetest Technologies Inc. All rights reserved.',
   },
   seo: {
-    defaultSeoTitle: 'Vtest | Vehicle Testing & Inspection Technology',
+    defaultSeoTitle: 'Vetest | Vehicle Testing & Inspection Technology',
     defaultMetaDescription:
       'Integrated software, hardware, and automation technology for vehicle inspection, end-of-line testing, and test lane management.',
     metaKeywords: 'vehicle inspection, automotive testing, PTI lane, brake tester, emissions testing',
   },
   contact: {
-    email: 'info@vtest.com',
+    email: 'info@vetest.com',
     phone: '+1 (800) 555-TEST',
-    address: 'Vtest Global Innovation Campus, Suite 400',
+    address: 'Vetest Global Innovation Campus, Suite 400',
     workingHours: 'Mon - Fri: 8:00 AM - 6:00 PM EST',
   },
   socialMedia: {
-    linkedin: 'https://linkedin.com/company/vtest',
-    twitter: 'https://twitter.com/vtest',
+    linkedin: 'https://linkedin.com/company/vetest',
+    twitter: 'https://twitter.com/vetest',
     facebook: '',
-    youtube: 'https://youtube.com/@vtest',
+    youtube: 'https://youtube.com/@vetest',
   },
   storage: {
     activeDriver: 'LOCAL',

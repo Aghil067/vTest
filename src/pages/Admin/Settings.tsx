@@ -28,10 +28,10 @@ export const AdminSettings: React.FC = () => {
   const toast = useToast();
 
   const [settings, setSettings] = useState<any>({
-    general: { siteName: 'Vtest', logo: '', tagline: 'Engineering Smarter Testing & Inspection Solutions', copyrightText: '© 2026 Vtest Technologies Inc.' },
-    seo: { defaultSeoTitle: 'Vtest | Vehicle Testing & Inspection Technology', defaultMetaDescription: 'Turnkey vehicle testing lanes, hardware, and inspection software.', metaKeywords: 'vehicle testing, PTI, inspection' },
-    contact: { email: 'info@vtest.com', phone: '+1 (800) 555-TEST', address: 'Vtest Global Innovation Campus', workingHours: 'Mon - Fri: 8:00 AM - 6:00 PM EST' },
-    socialMedia: { linkedin: 'https://linkedin.com/company/vtest', twitter: 'https://twitter.com/vtest', facebook: '', youtube: 'https://youtube.com/@vtest' },
+    general: { siteName: 'Vetest', logo: '', tagline: 'Engineering Smarter Testing & Inspection Solutions', copyrightText: '© 2026 Vetest Technologies Inc.' },
+    seo: { defaultSeoTitle: 'Vetest | Vehicle Testing & Inspection Technology', defaultMetaDescription: 'Turnkey vehicle testing lanes, hardware, and inspection software.', metaKeywords: 'vehicle testing, PTI, inspection' },
+    contact: { email: 'info@vetest.com', phone: '+1 (800) 555-TEST', address: 'Vetest Global Innovation Campus', workingHours: 'Mon - Fri: 8:00 AM - 6:00 PM EST' },
+    socialMedia: { linkedin: 'https://linkedin.com/company/vetest', twitter: 'https://twitter.com/vetest', facebook: '', youtube: 'https://youtube.com/@vetest' },
   });
 
   const fetchSettings = async () => {

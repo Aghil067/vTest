@@ -9,7 +9,7 @@ interface BrandLogoProps {
   alt?: string;
 }
 
-export function BrandLogo({ className = 'h-10 sm:h-11 w-auto max-w-[190px] object-contain', alt = 'Vtest' }: BrandLogoProps) {
+export function BrandLogo({ className = 'h-10 sm:h-11 w-auto max-w-[190px] object-contain', alt = 'Vetest' }: BrandLogoProps) {
   const { isDark } = useTheme();
   const { settings } = useSettings();
   const customLogo = settings?.general?.logo?.trim();

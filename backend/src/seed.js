@@ -46,7 +46,7 @@ const seedData = async () => {
     const existingAdmin = await AdminUser.findOne({ email: 'admin@vtest.local' });
     if (!existingAdmin) {
       await AdminUser.create({
-        name: 'Vtest Lead Administrator',
+        name: 'Vetest Lead Administrator',
         email: 'admin@vtest.local',
         password: 'ChangeMe123!',
         role: 'SUPER_ADMIN',
@@ -229,7 +229,7 @@ const seedData = async () => {
         type: r.type || 'WHITEPAPER',
         description: r.description,
         content: r.description,
-        author: 'Vtest Engineering Team',
+        author: 'Vetest Engineering Team',
         status: 'PUBLISHED',
         featured: true
       }))
@@ -241,19 +241,19 @@ const seedData = async () => {
     if (pageCount === 0) {
       await Page.insertMany([
         {
-          pageName: 'About Vtest Technologies',
+          pageName: 'About Vetest Technologies',
           slug: 'about-us',
           title: 'Smart Vehicle Inspection & Compliance Platform',
           subtitle: 'Leading the global transition towards intelligent, automated, and error-free vehicle safety testing.',
-          content: 'Vtest Vehicle Inspection Management System is a centralized solution that facilitates connecting to governmental vehicle licensing databases to retrieve registration information and captures all vehicle inspection details in order to manage end-to-end vehicle inspection in compliance with road transport policies.',
+          content: 'Vetest Vehicle Inspection Management System is a centralized solution that facilitates connecting to governmental vehicle licensing databases to retrieve registration information and captures all vehicle inspection details in order to manage end-to-end vehicle inspection in compliance with road transport policies.',
           status: 'PUBLISHED'
         },
         {
           pageName: 'Privacy Policy',
           slug: 'privacy-policy',
-          title: 'Vtest Data Privacy Policy',
+          title: 'Vetest Data Privacy Policy',
           subtitle: 'How we collect, protect, and process diagnostic telemetry and administrative user data.',
-          content: 'At Vtest Technologies, we take data privacy and regulatory security with utmost seriousness. All telemetry transmission is encrypted using TLS 1.3...',
+          content: 'At Vetest Technologies, we take data privacy and regulatory security with utmost seriousness. All telemetry transmission is encrypted using TLS 1.3...',
           status: 'PUBLISHED'
         }
       ]);

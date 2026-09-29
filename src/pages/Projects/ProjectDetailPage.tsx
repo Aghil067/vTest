@@ -20,13 +20,13 @@ export function ProjectDetailPage() {
   if (!project) return <div className="py-20"><NotFoundState title="Case Study Not Found" message="The requested implementation case study could not be found." actionText="View All Projects" actionHref="/projects" /></div>;
 
   return <div className="page engineering-page engineering-detail projects-page">
-    <SEOHead title={project.seoTitle || project.title + ' | Vtest Case Study'} description={project.seoDescription || project.summary} canonical={'/projects/' + project.slug} />
-    <EngineeringHero section="Projects" title={project.title} summary={project.summary} image={project.heroImage} caption={project.clientOrProjectName || 'VTEST / PROJECT IMPLEMENTATION'} detail>
+    <SEOHead title={project.seoTitle || project.title + ' | Vetest Case Study'} description={project.seoDescription || project.summary} canonical={'/projects/' + project.slug} />
+    <EngineeringHero section="Projects" title={project.title} summary={project.summary} image={project.heroImage} caption={project.clientOrProjectName || 'VETEST / PROJECT IMPLEMENTATION'} detail>
       <Link to="/request-demo" className="btn-primary">Plan a similar project <ArrowRight size={17} /></Link><EngineeringLink to="/contact">Talk to our team</EngineeringLink>
     </EngineeringHero>
     <section className="engineering-section">
       <div className="container">
-        <div className="project-facts"><div><span className="section-kicker">CLIENT / PROJECT</span><strong>{project.clientOrProjectName}</strong></div><div><span className="section-kicker">TECHNOLOGIES</span><EngineeringTags items={project.technologies} />{!project.technologies?.length && <strong>Vtest engineering</strong>}</div></div>
+        <div className="project-facts"><div><span className="section-kicker">CLIENT / PROJECT</span><strong>{project.clientOrProjectName}</strong></div><div><span className="section-kicker">TECHNOLOGIES</span><EngineeringTags items={project.technologies} />{!project.technologies?.length && <strong>Vetest engineering</strong>}</div></div>
         <div className="engineering-reading-layout">
           <nav className="engineering-outline" aria-label="On this page">
             <span className="section-kicker">THE PROJECT STORY</span>
@@ -43,7 +43,7 @@ export function ProjectDetailPage() {
             </section>
             {(project.problem || project.vtestContribution) && <section className="engineering-chapter" id="project-approach">
               <span className="section-kicker">02 / THE APPROACH</span><h2>From challenge to implementation.</h2>
-              <div className="project-approach">{project.problem && <article><span className="engineering-number">THE CHALLENGE</span><h3>Understand the starting point.</h3><p>{project.problem}</p></article>}{project.vtestContribution && <article><span className="engineering-number">THE VTEST CONTRIBUTION</span><h3>Connect the solution.</h3><p>{project.vtestContribution}</p></article>}</div>
+              <div className="project-approach">{project.problem && <article><span className="engineering-number">THE CHALLENGE</span><h3>Understand the starting point.</h3><p>{project.problem}</p></article>}{project.vtestContribution && <article><span className="engineering-number">THE VETEST CONTRIBUTION</span><h3>Connect the solution.</h3><p>{project.vtestContribution}</p></article>}</div>
             </section>}
             {!!project.capabilities?.length && <section className="engineering-chapter" id="project-delivery">
               <span className="section-kicker">03 / DELIVERED WORK</span><h2>Capabilities brought together.</h2>

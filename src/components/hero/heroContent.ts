@@ -8,7 +8,7 @@ export const systems = {
     title: 'Precision Diagnostics,\nEngineered Inside & Out.',
     short: 'Inspect powertrain & diagnostic systems',
     description:
-      'Vtest delivers comprehensive software and hardware solutions for managing vehicle inspection workflows, automated powertrain testing, emissions verification, and regulatory compliance.',
+      'Vetest delivers comprehensive software and hardware solutions for managing vehicle inspection workflows, automated powertrain testing, emissions verification, and regulatory compliance.',
     benefit: 'Configurable digital inspection sequences eliminate paper bottlenecks and maximize lane throughput.',
     image: '/media/drive-blue.png',
     anchor: { x: 25, y: 48 },
@@ -133,7 +133,7 @@ export const technicalFeatures = [
   {
     index: '03',
     title: 'Software & Analytics',
-    description: 'Real-time inspection intelligence. VtestIMS, analytics dashboards, and compliance reporting.',
+    description: 'Real-time inspection intelligence. VetestIMS, analytics dashboards, and compliance reporting.',
     target: null,
     link: '/products/software',
   },

@@ -1,4 +1,4 @@
-/* Vtest marketing: shared geometry, typography and automotive art direction. */
+/* Vetest marketing: shared geometry, typography and automotive art direction. */
 .marketing-site { --surface: #13241b; --stroke: #2b4034; --copy: #d0ddd6; --accent: #69e59b; --page-gutter: clamp(1.25rem,4vw,4rem); --section-space: clamp(3rem,6vw,5.5rem); --ease: cubic-bezier(.22,1,.36,1); --radius-panel:12px; --radius-control:8px; font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:15px; background: #090f0c; color: #f3f7f4; }
 .marketing-site .container { width: 100%; max-width: 1360px; padding-inline: var(--page-gutter); margin-inline: auto; }
 .marketing-site .container.max-w-3xl { max-width: 880px; }
@@ -30,7 +30,7 @@
 .site-header nav :is(a,button) { letter-spacing: 0; font-size: 13px; }
 .site-header + div { height: 80px; }
 .site-header #header-request-demo { border-radius: 6px !important; padding: 14px 18px; text-transform: none; font-size: 13px; letter-spacing: 0 !important; white-space: nowrap; }
-.site-header a[aria-label="Vtest — Home"] { flex-shrink: 0; }
+.site-header a[aria-label="Vetest — Home"] { flex-shrink: 0; }
 .marketing-site footer { background: #070d09 !important; }
 .marketing-site footer .container > .grid { gap: 32px; }
 .marketing-site footer a { line-height: 1.65; }

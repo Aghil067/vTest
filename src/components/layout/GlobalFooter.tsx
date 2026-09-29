@@ -9,7 +9,7 @@ const BORDER = 'var(--stroke)';
 
 function FooterLogo() {
   return (
-    <Link to="/" className="flex items-center group" aria-label="Vtest — Home">
+    <Link to="/" className="flex items-center group" aria-label="Vetest — Home">
       <BrandLogo className="h-10 sm:h-12 w-auto max-w-[190px] object-contain transition-opacity duration-200 group-hover:opacity-90" />
     </Link>
   );
@@ -56,7 +56,7 @@ export function GlobalFooter() {
 
   const contactEmail = settings?.contact?.email || config.contactEmail;
   const contactPhone = settings?.contact?.phone || '+1 (800) 555-8378';
-  const contactAddress = settings?.contact?.address || 'Vtest Technologies & Inspection Systems Inc.';
+  const contactAddress = settings?.contact?.address || 'Vetest Technologies & Inspection Systems Inc.';
   const socialLinks = {
     linkedin: settings?.social?.linkedin || config.socialLinks.linkedin,
     twitter: settings?.social?.twitter || config.socialLinks.twitter,
@@ -73,7 +73,7 @@ export function GlobalFooter() {
           <div className="lg:col-span-2 space-y-6">
             <FooterLogo />
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: 'var(--copy)' }}>
-              Vtest delivers integrated software, hardware, and automation technology for vehicle
+              Vetest delivers integrated software, hardware, and automation technology for vehicle
               inspection, end-of-line testing, and test lane management.
             </p>
 
@@ -147,7 +147,7 @@ export function GlobalFooter() {
           <FooterLinkGroup
             title="Company"
             links={[
-              { label: 'About Vtest', href: '/about' },
+              { label: 'About Vetest', href: '/about' },
               { label: 'Products', href: '/products' },
               { label: 'Solutions', href: '/solutions' },
               { label: 'Industries', href: '/industries' },
@@ -163,11 +163,11 @@ export function GlobalFooter() {
             links={[
               { label: 'Software Products', href: '/products/software' },
               { label: 'Hardware Products', href: '/products/hardware' },
-              { label: 'VtestIMS', href: '/products/software/vtestims' },
-              { label: 'VtestAnalytics', href: '/products/software/vtestanalytics' },
-              { label: 'VtestConnect', href: '/products/software/vtestconnect' },
-              { label: 'VtestLane Controller', href: '/products/hardware/vtestlane-controller' },
-              { label: 'VtestSense Module', href: '/products/hardware/vtestsense-module' },
+              { label: 'VetestIMS', href: '/products/software/vtestims' },
+              { label: 'VetestAnalytics', href: '/products/software/vtestanalytics' },
+              { label: 'VetestConnect', href: '/products/software/vtestconnect' },
+              { label: 'VetestLane Controller', href: '/products/hardware/vtestlane-controller' },
+              { label: 'VetestSense Module', href: '/products/hardware/vtestsense-module' },
             ]}
           />
 
@@ -220,7 +220,7 @@ export function GlobalFooter() {
       <div className="border-t border-[var(--stroke)]">
         <div className="container mx-auto px-6 lg:px-12 py-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs" style={{ color: 'var(--muted)' }}>
-            <p>© {year} Vtest. All rights reserved.</p>
+            <p>© {year} Vetest. All rights reserved.</p>
             <div className="flex items-center gap-4">
               <Link
                 to="/privacy-policy"

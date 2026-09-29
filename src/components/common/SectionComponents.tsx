@@ -101,7 +101,7 @@ export function CTASection({
         </div>
         <figure className="conversion-visual photo-surface" data-reveal="card">
           <img src="/automobile-testing-product.jpg" width="1376" height="768" alt="Automobile testing and diagnostic workstation product" loading="lazy" decoding="async" />
-          <figcaption><span>VTEST / TESTING PRODUCT SUITE</span><ArrowUpRight size={24} aria-hidden="true" /></figcaption>
+          <figcaption><span>VETEST / TESTING PRODUCT SUITE</span><ArrowUpRight size={24} aria-hidden="true" /></figcaption>
         </figure>
       </div>
     </section>

@@ -44,7 +44,7 @@ export function ResourceDetailPage() {
   return (
     <div className="page page-resource-detail-page detail-page">
       <SEOHead
-        title={resource.seoTitle || `${resource.title} | Vtest Resources`}
+        title={resource.seoTitle || `${resource.title} | Vetest Resources`}
         description={resource.seoDescription || resource.summary}
         canonical={`/resources/${resource.slug}`}
       />

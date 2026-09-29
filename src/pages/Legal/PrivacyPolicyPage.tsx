@@ -6,8 +6,8 @@ export function PrivacyPolicyPage() {
   return (
     <div className="page page-privacy-policy-page legal-page">
       <SEOHead
-        title="Privacy Policy | Vtest Data Protection & Governance"
-        description="Learn how Vtest collects, protects, processes, and respects enterprise and individual personal data across our websites, cloud services, and testing platforms."
+        title="Privacy Policy | Vetest Data Protection & Governance"
+        description="Learn how Vetest collects, protects, processes, and respects enterprise and individual personal data across our websites, cloud services, and testing platforms."
         canonical="/privacy-policy"
       />
 
@@ -45,11 +45,11 @@ export function PrivacyPolicyPage() {
             <div>
               <h2 className="text-2xl font-black text-[var(--heading)] mb-4">1. Introduction & Scope</h2>
               <p className="text-base text-[var(--copy)] leading-relaxed">
-                Vtest (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting the privacy and security of
+                Vetest (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting the privacy and security of
                 personal data and vehicle test telemetry. This Privacy Policy details our practices concerning
                 the collection, use, retention, and disclosure of information gathered through our public website,
-                marketing communications, demo request portals, and commercial software services (including VtestIMS
-                Cloud and VtestAnalytics).
+                marketing communications, demo request portals, and commercial software services (including VetestIMS
+                Cloud and VetestAnalytics).
               </p>
             </div>
 
@@ -91,7 +91,7 @@ export function PrivacyPolicyPage() {
             <div>
               <h2 className="text-2xl font-black text-[var(--heading)] mb-4">4. Data Security & Storage</h2>
               <p className="text-base text-[var(--copy)] leading-relaxed">
-                Vtest employs industry-standard encryption protocols (TLS 1.3 in transit, AES-256 at rest) across
+                Vetest employs industry-standard encryption protocols (TLS 1.3 in transit, AES-256 at rest) across
                 all data repositories. Access to lead inquiries and operational records is strictly restricted to
                 authorized technical personnel under signed non-disclosure agreements.
               </p>
@@ -112,8 +112,8 @@ export function PrivacyPolicyPage() {
                 Depending on your jurisdiction (such as the European Union under GDPR), you have the right to access,
                 rectify, erase, or restrict processing of your personal information. To submit a data inquiry, please
                 reach out directly to our Data Protection Officer at{' '}
-                <a href="mailto:privacy@vtest.com" className="text-green-400 font-bold underline">
-                  privacy@vtest.com
+                <a href="mailto:privacy@vetest.com" className="text-green-400 font-bold underline">
+                  privacy@vetest.com
                 </a>.
               </p>
             </div>

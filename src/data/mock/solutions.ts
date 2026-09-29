@@ -8,7 +8,7 @@ export const mockSolutions: Solution[] = [
     summary:
       'End-to-end software and hardware solutions for managing vehicle inspection workflows, compliance, and reporting.',
     description:
-      'Vtest provides integrated technology solutions for vehicle inspection stations, combining inspection management software, hardware integration, and analytics to digitize and streamline the entire inspection process.',
+      'Vetest provides integrated technology solutions for vehicle inspection stations, combining inspection management software, hardware integration, and analytics to digitize and streamline the entire inspection process.',
     image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&q=80',
     icon: 'ClipboardCheck',
     status: 'PUBLISHED',
@@ -22,7 +22,7 @@ export const mockSolutions: Solution[] = [
       'Real-time operational dashboards',
       'Document and certificate management',
     ],
-    technologies: ['VtestIMS', 'VtestConnect', 'VtestLane Controller', 'IoT integration'],
+    technologies: ['VetestIMS', 'VetestConnect', 'VetestLane Controller', 'IoT integration'],
     benefits: [
       'Digitize and automate inspection workflows',
       'Improve lane throughput and operational efficiency',
@@ -37,7 +37,7 @@ export const mockSolutions: Solution[] = [
     ],
     relatedProductIds: ['prod-sw-1', 'prod-hw-1'],
     relatedProjectIds: ['proj-1', 'proj-2'],
-    seoTitle: 'Vehicle Inspection Solutions | Vtest',
+    seoTitle: 'Vehicle Inspection Solutions | Vetest',
     seoDescription:
       'Integrated vehicle inspection solutions combining management software, hardware integration, and analytics for efficient, compliant testing operations.',
     createdAt: '2024-01-01T00:00:00Z',
@@ -50,7 +50,7 @@ export const mockSolutions: Solution[] = [
     summary:
       'Automated end-of-line testing solutions for manufacturing facilities requiring precision measurement and data capture.',
     description:
-      'Vtest delivers end-of-line testing technology for automotive and manufacturing environments. Our solutions integrate precision measurement hardware, automated test sequences, and real-time data capture to ensure product quality at the end of the production line.',
+      'Vetest delivers end-of-line testing technology for automotive and manufacturing environments. Our solutions integrate precision measurement hardware, automated test sequences, and real-time data capture to ensure product quality at the end of the production line.',
     image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1200&q=80',
     icon: 'Gauge',
     status: 'PUBLISHED',
@@ -63,7 +63,7 @@ export const mockSolutions: Solution[] = [
       'Integration with production MES/ERP systems',
       'Traceability and quality documentation',
     ],
-    technologies: ['VtestSense Module', 'VtestConnect', 'VtestAnalytics'],
+    technologies: ['VetestSense Module', 'VetestConnect', 'VetestAnalytics'],
     benefits: [
       'Consistent, automated quality assurance',
       'High-speed testing without compromising accuracy',
@@ -77,7 +77,7 @@ export const mockSolutions: Solution[] = [
     ],
     relatedProductIds: ['prod-hw-2', 'prod-sw-3'],
     relatedProjectIds: [],
-    seoTitle: 'End-of-Line Testing Solutions | Vtest',
+    seoTitle: 'End-of-Line Testing Solutions | Vetest',
     seoDescription:
       'Automated end-of-line testing technology for automotive and manufacturing. Precision measurement, automated test sequences, and quality traceability.',
     createdAt: '2024-01-05T00:00:00Z',
@@ -90,7 +90,7 @@ export const mockSolutions: Solution[] = [
     summary:
       'Comprehensive test lane management combining hardware control, software orchestration, and real-time monitoring.',
     description:
-      'Vtest provides an integrated approach to test lane management that combines industrial hardware control with intelligent software orchestration. Our solutions enable centralized control, monitoring, and optimization of single or multi-lane testing facilities.',
+      'Vetest provides an integrated approach to test lane management that combines industrial hardware control with intelligent software orchestration. Our solutions enable centralized control, monitoring, and optimization of single or multi-lane testing facilities.',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
     icon: 'LayoutGrid',
     status: 'PUBLISHED',
@@ -104,7 +104,7 @@ export const mockSolutions: Solution[] = [
       'Equipment status monitoring',
       'Operator interface and guidance',
     ],
-    technologies: ['VtestLane Controller', 'VtestIMS', 'VtestConnect'],
+    technologies: ['VetestLane Controller', 'VetestIMS', 'VetestConnect'],
     benefits: [
       'Centralized control of all lane operations',
       'Improved lane throughput and utilization',
@@ -118,7 +118,7 @@ export const mockSolutions: Solution[] = [
     ],
     relatedProductIds: ['prod-hw-1', 'prod-sw-1'],
     relatedProjectIds: ['proj-1'],
-    seoTitle: 'Test Lane Management Solutions | Vtest',
+    seoTitle: 'Test Lane Management Solutions | Vetest',
     seoDescription:
       'Integrated test lane management combining hardware control, software orchestration, and real-time monitoring for efficient multi-lane testing operations.',
     createdAt: '2024-01-08T00:00:00Z',
@@ -131,7 +131,7 @@ export const mockSolutions: Solution[] = [
     summary:
       'Protocol-based integration of diverse test equipment from multiple manufacturers into unified inspection systems.',
     description:
-      'Vtest specializes in integrating heterogeneous test equipment from leading manufacturers into cohesive inspection and management systems. Our equipment integration solutions eliminate data silos and enable centralized management of diverse equipment fleets.',
+      'Vetest specializes in integrating heterogeneous test equipment from leading manufacturers into cohesive inspection and management systems. Our equipment integration solutions eliminate data silos and enable centralized management of diverse equipment fleets.',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80',
     icon: 'Cpu',
     status: 'PUBLISHED',
@@ -144,7 +144,7 @@ export const mockSolutions: Solution[] = [
       'Custom driver and protocol development',
       'Legacy equipment modernization',
     ],
-    technologies: ['VtestConnect', 'VtestLane Controller', 'OPC-UA', 'Modbus', 'IoT'],
+    technologies: ['VetestConnect', 'VetestLane Controller', 'OPC-UA', 'Modbus', 'IoT'],
     benefits: [
       'Unified view of all equipment regardless of manufacturer',
       'Reduced integration complexity and cost',
@@ -158,7 +158,7 @@ export const mockSolutions: Solution[] = [
     ],
     relatedProductIds: ['prod-sw-3', 'prod-hw-1'],
     relatedProjectIds: ['proj-1', 'proj-2'],
-    seoTitle: 'Equipment Integration Solutions | Vtest',
+    seoTitle: 'Equipment Integration Solutions | Vetest',
     seoDescription:
       'Connect and integrate diverse test equipment from multiple manufacturers. Multi-protocol support, unified data, real-time monitoring.',
     createdAt: '2024-01-10T00:00:00Z',
@@ -171,7 +171,7 @@ export const mockSolutions: Solution[] = [
     summary:
       'Data-driven compliance management and operational analytics for vehicle testing and inspection operations.',
     description:
-      'Vtest delivers compliance management and analytics capabilities that transform inspection data into operational intelligence. Our solutions support regulatory reporting, trend analysis, and performance management for testing organizations.',
+      'Vetest delivers compliance management and analytics capabilities that transform inspection data into operational intelligence. Our solutions support regulatory reporting, trend analysis, and performance management for testing organizations.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80',
     icon: 'BarChart3',
     status: 'PUBLISHED',
@@ -185,7 +185,7 @@ export const mockSolutions: Solution[] = [
       'Configurable report templates',
       'Data export and integration',
     ],
-    technologies: ['VtestAnalytics', 'VtestIMS', 'BI integration'],
+    technologies: ['VetestAnalytics', 'VetestIMS', 'BI integration'],
     benefits: [
       'Automated compliance reporting reduces manual effort',
       'Real-time visibility enables proactive management',
@@ -199,7 +199,7 @@ export const mockSolutions: Solution[] = [
     ],
     relatedProductIds: ['prod-sw-2', 'prod-sw-1'],
     relatedProjectIds: [],
-    seoTitle: 'Compliance & Analytics Solutions | Vtest',
+    seoTitle: 'Compliance & Analytics Solutions | Vetest',
     seoDescription:
       'Data-driven compliance management and operational analytics for vehicle inspection and testing. Automated reporting, KPI dashboards, audit trails.',
     createdAt: '2024-01-12T00:00:00Z',
@@ -210,9 +210,9 @@ export const mockSolutions: Solution[] = [
     title: 'Service & Maintenance',
     slug: 'service-maintenance',
     summary:
-      'Professional support, maintenance, and managed services for Vtest hardware and software deployments.',
+      'Professional support, maintenance, and managed services for Vetest hardware and software deployments.',
     description:
-      'Vtest provides professional service and maintenance support for all deployed hardware and software solutions. Our service capabilities ensure operational continuity, system performance, and long-term value from technology investments.',
+      'Vetest provides professional service and maintenance support for all deployed hardware and software solutions. Our service capabilities ensure operational continuity, system performance, and long-term value from technology investments.',
     image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&q=80',
     icon: 'Wrench',
     status: 'PUBLISHED',
@@ -232,15 +232,15 @@ export const mockSolutions: Solution[] = [
       'Planned maintenance reduces unplanned downtime',
     ],
     applications: [
-      'All Vtest software deployments',
-      'All Vtest hardware installations',
+      'All Vetest software deployments',
+      'All Vetest hardware installations',
       'Multi-site managed services',
     ],
     relatedProductIds: ['prod-sw-1', 'prod-hw-1'],
     relatedProjectIds: [],
-    seoTitle: 'Service & Maintenance | Vtest',
+    seoTitle: 'Service & Maintenance | Vetest',
     seoDescription:
-      'Professional service and maintenance for Vtest hardware and software. Preventive maintenance, remote monitoring, technical support, and managed services.',
+      'Professional service and maintenance for Vetest hardware and software. Preventive maintenance, remote monitoring, technical support, and managed services.',
     createdAt: '2024-01-14T00:00:00Z',
     updatedAt: '2024-06-14T00:00:00Z',
   },

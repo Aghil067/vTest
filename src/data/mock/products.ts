@@ -35,18 +35,18 @@ export const mockProducts: Product[] = [
   // ---- SOFTWARE PRODUCTS ----
   {
     id: 'prod-sw-1',
-    name: 'VtestIMS',
+    name: 'VetestIMS',
     type: 'SOFTWARE',
     categoryId: 'cat-1',
     slug: 'vtestims',
     shortDescription:
       'A comprehensive Inspection Management System for streamlining vehicle testing workflows, compliance tracking, and operational reporting.',
     description:
-      'VtestIMS is a robust, enterprise-grade Inspection Management System designed to centralize and digitize vehicle inspection operations. It provides configurable workflow automation, real-time status tracking, multi-lane management, and powerful compliance reporting for testing stations of all sizes.',
+      'VetestIMS is a robust, enterprise-grade Inspection Management System designed to centralize and digitize vehicle inspection operations. It provides configurable workflow automation, real-time status tracking, multi-lane management, and powerful compliance reporting for testing stations of all sizes.',
     heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
     status: 'PUBLISHED',
     featured: true,
-    seoTitle: 'VtestIMS — Vehicle Inspection Management System | Vtest',
+    seoTitle: 'VetestIMS — Vehicle Inspection Management System | Vetest',
     seoDescription:
       'Enterprise inspection management system for vehicle testing stations. Streamline workflows, ensure compliance, and gain real-time operational insights.',
     features: [
@@ -162,18 +162,18 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'prod-sw-2',
-    name: 'VtestAnalytics',
+    name: 'VetestAnalytics',
     type: 'SOFTWARE',
     categoryId: 'cat-2',
     slug: 'vtestanalytics',
     shortDescription:
       'Advanced analytics and business intelligence platform for vehicle inspection and testing operations data.',
     description:
-      'VtestAnalytics transforms raw inspection and testing data into actionable insights. It provides configurable dashboards, trend analysis, equipment performance monitoring, and executive-level reporting to support data-driven decision-making across testing operations.',
+      'VetestAnalytics transforms raw inspection and testing data into actionable insights. It provides configurable dashboards, trend analysis, equipment performance monitoring, and executive-level reporting to support data-driven decision-making across testing operations.',
     heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80',
     status: 'PUBLISHED',
     featured: true,
-    seoTitle: 'VtestAnalytics — Inspection Operations Analytics | Vtest',
+    seoTitle: 'VetestAnalytics — Inspection Operations Analytics | Vetest',
     seoDescription:
       'Turn inspection data into business intelligence. Configurable dashboards, trend analysis, and operational reporting for testing facilities.',
     features: [
@@ -223,7 +223,7 @@ export const mockProducts: Product[] = [
       'Executive-level visibility into testing performance',
     ],
     integrations: [
-      'VtestIMS (native integration)',
+      'VetestIMS (native integration)',
       'RESTful API for external BI tools',
       'Export to PDF, Excel, CSV',
     ],
@@ -234,20 +234,20 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'prod-sw-3',
-    name: 'VtestConnect',
+    name: 'VetestConnect',
     type: 'SOFTWARE',
     categoryId: 'cat-1',
     slug: 'vtestconnect',
     shortDescription:
       'IoT-enabled equipment integration platform for connecting diverse test equipment to inspection management systems.',
     description:
-      'VtestConnect is a purpose-built integration middleware that enables seamless communication between heterogeneous test equipment, sensors, and inspection management software. It supports multiple industrial protocols and provides a unified data model for inspection results.',
+      'VetestConnect is a purpose-built integration middleware that enables seamless communication between heterogeneous test equipment, sensors, and inspection management software. It supports multiple industrial protocols and provides a unified data model for inspection results.',
     heroImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80',
     status: 'PUBLISHED',
     featured: false,
-    seoTitle: 'VtestConnect — Equipment Integration Platform | Vtest',
+    seoTitle: 'VetestConnect — Equipment Integration Platform | Vetest',
     seoDescription:
-      'Connect diverse test equipment to your inspection management system with VtestConnect. Multi-protocol support, real-time data, unified integration.',
+      'Connect diverse test equipment to your inspection management system with VetestConnect. Multi-protocol support, real-time data, unified integration.',
     features: [
       {
         id: 'f-11',
@@ -296,18 +296,18 @@ export const mockProducts: Product[] = [
   // ---- HARDWARE PRODUCTS ----
   {
     id: 'prod-hw-1',
-    name: 'VtestLane Controller',
+    name: 'VetestLane Controller',
     type: 'HARDWARE',
     categoryId: 'cat-3',
     slug: 'vtestlane-controller',
     shortDescription:
       'Industrial-grade lane control unit designed for reliable operation in demanding vehicle testing environments.',
     description:
-      'The VtestLane Controller is a ruggedized industrial computing and I/O control unit purpose-built for test lane automation. It provides real-time control of lane equipment, traffic signals, barriers, and measurement devices while communicating seamlessly with inspection management software.',
+      'The VetestLane Controller is a ruggedized industrial computing and I/O control unit purpose-built for test lane automation. It provides real-time control of lane equipment, traffic signals, barriers, and measurement devices while communicating seamlessly with inspection management software.',
     heroImage: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&q=80',
     status: 'PUBLISHED',
     featured: true,
-    seoTitle: 'VtestLane Controller — Industrial Lane Control Unit | Vtest',
+    seoTitle: 'VetestLane Controller — Industrial Lane Control Unit | Vetest',
     seoDescription:
       'Ruggedized lane control hardware for vehicle test lanes. Real-time I/O control, multi-protocol communication, industrial-grade reliability.',
     features: [
@@ -395,8 +395,8 @@ export const mockProducts: Product[] = [
       'Simplified cabling with centralized control',
     ],
     integrations: [
-      'VtestIMS via OPC-UA',
-      'VtestConnect integration platform',
+      'VetestIMS via OPC-UA',
+      'VetestConnect integration platform',
       'MAHA and Navitsa equipment',
     ],
     relatedProductIds: ['prod-hw-2', 'prod-sw-1'],
@@ -406,18 +406,18 @@ export const mockProducts: Product[] = [
   },
   {
     id: 'prod-hw-2',
-    name: 'VtestSense Module',
+    name: 'VetestSense Module',
     type: 'HARDWARE',
     categoryId: 'cat-4',
     slug: 'vtestsense-module',
     shortDescription:
       'Precision sensing and measurement module for real-time data acquisition in vehicle testing applications.',
     description:
-      'The VtestSense Module is a compact, high-precision sensing and data acquisition unit for vehicle testing applications. It captures measurement data from various transducers and sensors and delivers it in real-time to connected inspection and analytics systems.',
+      'The VetestSense Module is a compact, high-precision sensing and data acquisition unit for vehicle testing applications. It captures measurement data from various transducers and sensors and delivers it in real-time to connected inspection and analytics systems.',
     heroImage: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?w=1200&q=80',
     status: 'PUBLISHED',
     featured: false,
-    seoTitle: 'VtestSense Module — Precision Sensing for Vehicle Testing | Vtest',
+    seoTitle: 'VetestSense Module — Precision Sensing for Vehicle Testing | Vetest',
     seoDescription:
       'High-precision sensing and data acquisition module for vehicle test lane measurements. Real-time data, multi-sensor support, compact industrial design.',
     features: [
@@ -491,8 +491,8 @@ export const mockProducts: Product[] = [
       'Weatherproof for demanding environments',
     ],
     integrations: [
-      'VtestLane Controller',
-      'VtestConnect integration platform',
+      'VetestLane Controller',
+      'VetestConnect integration platform',
       'Third-party DAQ systems via Ethernet',
     ],
     relatedProductIds: ['prod-hw-1', 'prod-sw-3'],

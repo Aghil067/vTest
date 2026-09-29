@@ -8,7 +8,7 @@ export const mockTechnologies: Technology[] = [
     summary:
       'Custom enterprise software development for inspection management, workflow automation, and operational systems.',
     description:
-      'Vtest develops purpose-built software solutions for vehicle testing and inspection operations. Our software engineering capabilities span from web-based management platforms to embedded system software, designed for reliability, scalability, and long-term maintainability.',
+      'Vetest develops purpose-built software solutions for vehicle testing and inspection operations. Our software engineering capabilities span from web-based management platforms to embedded system software, designed for reliability, scalability, and long-term maintainability.',
     image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80',
     icon: 'Code2',
     status: 'PUBLISHED',
@@ -50,7 +50,7 @@ export const mockTechnologies: Technology[] = [
     ],
     relatedSolutionIds: ['sol-1', 'sol-3'],
     relatedProjectIds: ['proj-1', 'proj-2'],
-    seoTitle: 'Software Development Capabilities | Vtest',
+    seoTitle: 'Software Development Capabilities | Vetest',
     seoDescription:
       'Enterprise software development for vehicle inspection and testing. Web applications, APIs, embedded software, and database design.',
     createdAt: '2024-01-01T00:00:00Z',
@@ -63,12 +63,12 @@ export const mockTechnologies: Technology[] = [
     summary:
       'Industrial IoT integration connecting test equipment, sensors, and management systems for real-time operational visibility.',
     description:
-      'Vtest applies Industrial IoT principles to connect physical test equipment, sensors, and control systems with digital management platforms. Our IoT capabilities enable real-time data capture, remote monitoring, and intelligent automation across testing facilities.',
+      'Vetest applies Industrial IoT principles to connect physical test equipment, sensors, and control systems with digital management platforms. Our IoT capabilities enable real-time data capture, remote monitoring, and intelligent automation across testing facilities.',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
     icon: 'Wifi',
     status: 'PUBLISHED',
     overview:
-      'Industrial IoT is central to Vtest\'s approach to connecting the physical and digital dimensions of testing operations.',
+      'Industrial IoT is central to Vetest\'s approach to connecting the physical and digital dimensions of testing operations.',
     capabilities: [
       {
         title: 'Protocol Integration',
@@ -106,7 +106,7 @@ export const mockTechnologies: Technology[] = [
     ],
     relatedSolutionIds: ['sol-4', 'sol-3'],
     relatedProjectIds: ['proj-1'],
-    seoTitle: 'IoT Technology | Vtest',
+    seoTitle: 'IoT Technology | Vetest',
     seoDescription:
       'Industrial IoT integration for vehicle testing and inspection. Multi-protocol equipment connectivity, edge computing, real-time monitoring.',
     createdAt: '2024-01-05T00:00:00Z',
@@ -119,12 +119,12 @@ export const mockTechnologies: Technology[] = [
     summary:
       'Data analytics and AI-assisted capabilities for operational insights, trend detection, and performance management.',
     description:
-      'Vtest integrates analytics and AI-assisted capabilities into inspection and testing operations to transform raw data into actionable intelligence. Our analytics capabilities support operational performance management, compliance reporting, and continuous improvement.',
+      'Vetest integrates analytics and AI-assisted capabilities into inspection and testing operations to transform raw data into actionable intelligence. Our analytics capabilities support operational performance management, compliance reporting, and continuous improvement.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
     icon: 'Brain',
     status: 'PUBLISHED',
     overview:
-      'Analytics is a core component of the Vtest technology stack, enabling organizations to extract maximum value from inspection and testing data.',
+      'Analytics is a core component of the Vetest technology stack, enabling organizations to extract maximum value from inspection and testing data.',
     capabilities: [
       {
         title: 'Operational Analytics',
@@ -161,7 +161,7 @@ export const mockTechnologies: Technology[] = [
     ],
     relatedSolutionIds: ['sol-5', 'sol-1'],
     relatedProjectIds: [],
-    seoTitle: 'AI & Analytics Technology | Vtest',
+    seoTitle: 'AI & Analytics Technology | Vetest',
     seoDescription:
       'Analytics and AI-assisted capabilities for inspection and testing operations. Operational dashboards, trend analysis, compliance reporting.',
     createdAt: '2024-01-08T00:00:00Z',
@@ -174,12 +174,12 @@ export const mockTechnologies: Technology[] = [
     summary:
       'Design, integration, and deployment of industrial hardware systems for vehicle testing and inspection environments.',
     description:
-      'Vtest\'s hardware integration capabilities encompass the selection, design, integration, and deployment of industrial computing and control hardware for testing environments. We bridge the gap between physical equipment and digital management systems.',
+      'Vetest\'s hardware integration capabilities encompass the selection, design, integration, and deployment of industrial computing and control hardware for testing environments. We bridge the gap between physical equipment and digital management systems.',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80',
     icon: 'HardDrive',
     status: 'PUBLISHED',
     overview:
-      'Hardware integration is a core Vtest capability that enables the creation of complete, end-to-end testing solutions.',
+      'Hardware integration is a core Vetest capability that enables the creation of complete, end-to-end testing solutions.',
     capabilities: [
       {
         title: 'Industrial System Design',
@@ -217,7 +217,7 @@ export const mockTechnologies: Technology[] = [
     ],
     relatedSolutionIds: ['sol-4', 'sol-3'],
     relatedProjectIds: ['proj-1', 'proj-2'],
-    seoTitle: 'Hardware Integration Technology | Vtest',
+    seoTitle: 'Hardware Integration Technology | Vetest',
     seoDescription:
       'Industrial hardware integration for vehicle testing. System design, equipment commissioning, protocol development, and system validation.',
     createdAt: '2024-01-10T00:00:00Z',
@@ -230,12 +230,12 @@ export const mockTechnologies: Technology[] = [
     summary:
       'Test process automation combining hardware control, software orchestration, and intelligent workflow management.',
     description:
-      'Automation is at the core of what Vtest delivers — combining hardware control, software logic, and workflow intelligence to reduce manual intervention, improve consistency, and increase throughput in testing and inspection operations.',
+      'Automation is at the core of what Vetest delivers — combining hardware control, software logic, and workflow intelligence to reduce manual intervention, improve consistency, and increase throughput in testing and inspection operations.',
     image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=80',
     icon: 'Zap',
     status: 'PUBLISHED',
     overview:
-      'Vtest\'s automation capabilities span from individual test step automation to end-to-end test lane orchestration.',
+      'Vetest\'s automation capabilities span from individual test step automation to end-to-end test lane orchestration.',
     capabilities: [
       {
         title: 'Test Sequence Automation',
@@ -273,7 +273,7 @@ export const mockTechnologies: Technology[] = [
     ],
     relatedSolutionIds: ['sol-2', 'sol-3'],
     relatedProjectIds: ['proj-1'],
-    seoTitle: 'Automation Technology | Vtest',
+    seoTitle: 'Automation Technology | Vetest',
     seoDescription:
       'Test and inspection process automation. Test sequence automation, equipment control, workflow orchestration, and event-driven processing.',
     createdAt: '2024-01-12T00:00:00Z',

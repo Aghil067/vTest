@@ -47,7 +47,7 @@ export function VehicleScene() {
       <div className="vehicle-stage__scan" />
       <div className="vehicle-stage__reticle vehicle-stage__reticle--front"><i /><span>Precision measurement</span></div>
       <div className="vehicle-stage__reticle vehicle-stage__reticle--rear"><i /><span>Connected intelligence</span></div>
-      <div className="vehicle-stage__caption"><span /> VEHICLE INSPECTION TECHNOLOGY <b>01 / VTEST</b></div>
+      <div className="vehicle-stage__caption"><span /> VEHICLE INSPECTION TECHNOLOGY <b>01 / VETEST</b></div>
     </div>
   );
 }
