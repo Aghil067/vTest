@@ -35,6 +35,10 @@ const resourceSchema = new mongoose.Schema(
       type: String,
       default: ''
     },
+    fileUrl: {
+      type: String,
+      default: ''
+    },
     author: {
       type: String,
       default: 'Vtest Editorial Team'

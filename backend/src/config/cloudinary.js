@@ -6,15 +6,25 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET || '71LmRN1RuZt9IUpxKOk27iYojdw'
 });
 
-const uploadStreamToCloudinary = (fileBuffer, folder = 'vtest_cms', resourceType = 'auto') => {
+const path = require('path');
+
+const uploadStreamToCloudinary = (fileBuffer, folder = 'vtest_cms', resourceType = 'auto', originalName = '') => {
   return new Promise((resolve, reject) => {
+    const uploadOptions = {
+      folder,
+      resource_type: resourceType,
+      use_filename: true,
+      unique_filename: true,
+    };
+
+    if (originalName) {
+      const ext = path.extname(originalName);
+      const nameWithoutExt = path.basename(originalName, ext).replace(/[^a-zA-Z0-9_-]/g, '_');
+      uploadOptions.public_id = `${nameWithoutExt}_${Date.now()}${ext}`;
+    }
+
     const uploadStream = cloudinary.uploader.upload_stream(
-      {
-        folder,
-        resource_type: resourceType,
-        use_filename: true,
-        unique_filename: true
-      },
+      uploadOptions,
       (error, result) => {
         if (error) return reject(error);
         resolve(result);

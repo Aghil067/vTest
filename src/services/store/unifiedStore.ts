@@ -543,10 +543,13 @@ class UnifiedStore {
 
   saveResource(data: any): any {
     const list = this.getItems<any>(STORAGE_KEYS.resources);
+    const docUrl = data.fileUrl || data.file || '';
     const item = {
       ...data,
       _id: data._id || data.id || `res-${Date.now()}`,
       id: data.id || data._id || `res-${Date.now()}`,
+      fileUrl: docUrl,
+      file: docUrl,
     };
     const index = list.findIndex((r) => r._id === item._id || r.id === item.id);
     if (index >= 0) list[index] = { ...list[index], ...item };

@@ -39,95 +39,114 @@ export function ResourceDetailPage() {
     );
   }
 
-  const handleDownloadPDF = (e: React.MouseEvent) => {
+  const isArticle = resource.type === 'ARTICLE';
+
+  const targetUrl = resource?.fileUrl || resource?.file;
+
+  const isWordDoc =
+    Boolean(
+      targetUrl &&
+      (targetUrl.toLowerCase().includes('.doc') ||
+        targetUrl.toLowerCase().includes('.docx') ||
+        targetUrl.toLowerCase().includes('msword') ||
+        targetUrl.toLowerCase().includes('wordprocessingml'))
+    );
+
+  const docTypeLabel = isWordDoc ? 'Word Document' : 'Document';
+
+  const handleDownload = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const targetUrl = resource.fileUrl || (resource as any).url || (resource as any).pdfUrl;
+    if (!targetUrl) {
+      alert('No document file has been uploaded for this resource. Please upload a file in Admin > Resources.');
+      return;
+    }
 
-    if (targetUrl && targetUrl.trim() !== '' && targetUrl !== '#') {
-      const fileName = `${resource.slug || 'vetest-document'}.pdf`;
+    let baseFileName = resource?.slug || 'publication-document';
 
-      if (targetUrl.startsWith('data:')) {
-        const a = document.createElement('a');
-        a.href = targetUrl;
-        a.download = fileName;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      } else {
-        const finalUrl = targetUrl.startsWith('http') || targetUrl.startsWith('/')
-          ? targetUrl
-          : `/${targetUrl}`;
+    const resolveExtension = (mimeOrUrl: string) => {
+      const target = mimeOrUrl.toLowerCase();
+      if (target.includes('pdf')) return '.pdf';
+      if (target.includes('wordprocessingml') || target.includes('.docx')) return '.docx';
+      if (target.includes('msword') || target.includes('.doc')) return '.doc';
+      if (target.includes('.png')) return '.png';
+      if (target.includes('.jpg') || target.includes('.jpeg')) return '.jpeg';
+      return '.pdf';
+    };
 
-        const a = document.createElement('a');
-        a.href = finalUrl;
-        a.download = fileName;
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+    // 1. Handle Cloudinary Raw File URLs (Add fl_attachment flag so Cloudinary forces Content-Disposition header with filename & extension)
+    if (targetUrl.includes('res.cloudinary.com') && targetUrl.includes('/raw/upload/')) {
+      const ext = resolveExtension(targetUrl);
+      const fileName = baseFileName.toLowerCase().endsWith(ext) ? baseFileName : `${baseFileName}${ext}`;
+      let downloadUrl = targetUrl;
+      if (!downloadUrl.includes('/fl_attachment')) {
+        downloadUrl = downloadUrl.replace('/raw/upload/', `/raw/upload/fl_attachment:${encodeURIComponent(baseFileName)}/`);
       }
-    } else {
-      const cleanTitle = (resource.title || 'Vetest Document').replace(/[()]/g, '');
-      const cleanSummary = (resource.summary || (resource as any).description || 'Official Vetest Publication Document').replace(/[()]/g, '');
-      
-      const pdfContent = `%PDF-1.4
-1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
-endobj
-2 0 obj
-<< /Type /Pages /Kids [3 0 R] /Count 1 >>
-endobj
-3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
-endobj
-4 0 obj
-<< /Length 250 >>
-stream
-BT
-/F1 18 Tf
-50 720 Td
-(${cleanTitle}) Tj
-/F1 12 Tf
-0 -30 Td
-(Vetest Technical Publication - ${resource.type || 'DOCUMENT'}) Tj
-0 -20 Td
-(Author: ${resource.authorName || 'Vetest Engineering Team'}) Tj
-0 -40 Td
-(${cleanSummary.substring(0, 90)}) Tj
-ET
-endstream
-endobj
-5 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
-endobj
-xref
-0 6
-0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000263 00000 n 
-0000000565 00000 n 
-trailer
-<< /Size 6 /Root 1 0 R >>
-startxref
-636
-%%EOF`;
+      if (!downloadUrl.toLowerCase().endsWith(ext)) {
+        downloadUrl = `${downloadUrl}${ext}`;
+      }
 
-      const blob = new Blob([pdfContent], { type: 'application/pdf' });
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = fileName;
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      return;
+    }
+
+    // 2. Handle Data URLs (Base64 file upload from admin local store)
+    if (targetUrl.startsWith('data:')) {
+      try {
+        const parts = targetUrl.split(',');
+        const mimeMatch = parts[0].match(/:(.*?);/);
+        const mime = mimeMatch ? mimeMatch[1] : 'application/pdf';
+        const ext = resolveExtension(mime);
+        const fileName = baseFileName.toLowerCase().endsWith(ext) ? baseFileName : `${baseFileName}${ext}`;
+
+        const bstr = atob(parts[1]);
+        let n = bstr.length;
+        const u8arr = new Uint8Array(n);
+        while (n--) {
+          u8arr[n] = bstr.charCodeAt(n);
+        }
+        const blob = new Blob([u8arr], { type: mime });
+        const blobUrl = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
+      } catch {
+        window.open(targetUrl, '_blank');
+      }
+      return;
+    }
+
+    // 3. Handle standard HTTP/HTTPS or local /uploads/ URLs via Blob Fetch
+    try {
+      const response = await fetch(targetUrl);
+      if (!response.ok) throw new Error('Fetch failed');
+
+      const contentType = response.headers.get('content-type') || '';
+      const ext = resolveExtension(contentType || targetUrl);
+      const fileName = baseFileName.toLowerCase().endsWith(ext) ? baseFileName : `${baseFileName}${ext}`;
+
+      const blob = await response.blob();
       const blobUrl = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = blobUrl;
-      a.download = `${resource.slug || 'vetest-document'}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
+    } catch {
+      window.open(targetUrl, '_blank');
     }
   };
-
-  const isArticle = resource.type === 'ARTICLE';
 
   return (
     <div className="page page-resource-detail-page detail-page">
@@ -225,14 +244,14 @@ startxref
               </div>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button
-                  type="button"
-                  onClick={handleDownloadPDF}
+                <a
+                  href={resource.fileUrl || '#'}
+                  onClick={handleDownload}
                   className="btn-primary w-full sm:w-auto cursor-pointer"
                 >
                   <Download className="w-4 h-4" />
-                  Download PDF Document
-                </button>
+                  Download {docTypeLabel}
+                </a>
                 <Link to="/contact" className="btn-secondary w-full sm:w-auto">
                   Request Hard Copy
                 </Link>

@@ -36,12 +36,14 @@ exports.getResourceById = async (req, res, next) => {
 
 exports.createResource = async (req, res, next) => {
   try {
-    let { title, slug, type, description, content, thumbnail, file, author, publishDate, status, featured, seoTitle, metaDescription } = req.body;
+    let { title, slug, type, description, content, thumbnail, file, fileUrl, author, publishDate, status, featured, seoTitle, metaDescription } = req.body;
     if (!title) return res.status(400).json({ success: false, message: 'Resource title is required' });
 
     slug = makeSlug(slug || title);
     const existing = await Resource.findOne({ slug });
     if (existing) slug = `${slug}-${Date.now()}`;
+
+    const documentUrl = fileUrl || file || '';
 
     const resource = await Resource.create({
       title,
@@ -50,7 +52,8 @@ exports.createResource = async (req, res, next) => {
       description,
       content,
       thumbnail,
-      file,
+      file: documentUrl,
+      fileUrl: documentUrl,
       author: author || 'Vtest Editorial',
       publishDate: publishDate || new Date(),
       status: status || 'PUBLISHED',
@@ -73,6 +76,12 @@ exports.updateResource = async (req, res, next) => {
 
     if (req.body.title && !req.body.slug) req.body.slug = makeSlug(req.body.title);
     else if (req.body.slug) req.body.slug = makeSlug(req.body.slug);
+
+    const documentUrl = req.body.fileUrl || req.body.file || resource.fileUrl || resource.file || '';
+    if (documentUrl) {
+      req.body.file = documentUrl;
+      req.body.fileUrl = documentUrl;
+    }
 
     resource = await Resource.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
     await logActivity(req.user._id, 'UPDATE', 'RESOURCE', `Updated resource: ${resource.title}`, req.ip);

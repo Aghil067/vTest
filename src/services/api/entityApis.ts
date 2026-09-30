@@ -128,12 +128,15 @@ function normalizeProject(p: any): Project {
 
 function normalizeResource(r: any): Resource {
   if (!r) return r;
+  const docUrl = r.fileUrl || r.file || '';
   return {
     ...r,
     id: r.id || r._id || r.slug,
     title: r.title || 'Resource',
     summary: r.summary || r.description || '',
     description: r.description || r.summary || '',
+    fileUrl: docUrl,
+    file: docUrl,
     status: r.status || 'PUBLISHED',
   };
 }

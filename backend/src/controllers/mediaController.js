@@ -78,8 +78,13 @@ exports.uploadMedia = async (req, res, next) => {
       const isImage = file.mimetype.startsWith('image/');
       const resourceType = isImage ? 'image' : 'raw';
 
-      // Upload memory buffer directly to Cloudinary
-      const cloudinaryResult = await uploadStreamToCloudinary(file.buffer, 'vtest_cms', resourceType);
+      // Upload memory buffer directly to Cloudinary preserving original filename and extension
+      const cloudinaryResult = await uploadStreamToCloudinary(
+        file.buffer,
+        'vtest_cms',
+        resourceType,
+        file.originalname
+      );
 
       const asset = await MediaAsset.create({
         filename: cloudinaryResult.public_id,

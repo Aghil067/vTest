@@ -25,41 +25,51 @@ export const mediaService = {
       if (file) {
         let dataUrl = '';
         try {
-          dataUrl = await new Promise<string>((resolve) => {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-              const img = new Image();
-              img.onload = () => {
-                const maxDim = 800;
-                let w = img.width;
-                let h = img.height;
-                if (w > maxDim || h > maxDim) {
-                  if (w > h) {
-                    h = Math.round((h * maxDim) / w);
-                    w = maxDim;
-                  } else {
-                    w = Math.round((w * maxDim) / h);
-                    h = maxDim;
+          if (file.type.startsWith('image/')) {
+            dataUrl = await new Promise<string>((resolve) => {
+              const reader = new FileReader();
+              reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                  const maxDim = 800;
+                  let w = img.width;
+                  let h = img.height;
+                  if (w > maxDim || h > maxDim) {
+                    if (w > h) {
+                      h = Math.round((h * maxDim) / w);
+                      w = maxDim;
+                    } else {
+                      w = Math.round((w * maxDim) / h);
+                      h = maxDim;
+                    }
                   }
-                }
-                const canvas = document.createElement('canvas');
-                canvas.width = w;
-                canvas.height = h;
-                const ctx = canvas.getContext('2d');
-                if (ctx) {
-                  ctx.drawImage(img, 0, 0, w, h);
-                  resolve(canvas.toDataURL('image/jpeg', 0.8));
-                  return;
-                }
-                resolve(e.target?.result as string || '');
+                  const canvas = document.createElement('canvas');
+                  canvas.width = w;
+                  canvas.height = h;
+                  const ctx = canvas.getContext('2d');
+                  if (ctx) {
+                    ctx.drawImage(img, 0, 0, w, h);
+                    resolve(canvas.toDataURL('image/jpeg', 0.8));
+                    return;
+                  }
+                  resolve((e.target?.result as string) || '');
+                };
+                img.onerror = () => resolve((e.target?.result as string) || '');
+                img.src = (e.target?.result as string) || '';
               };
-              img.onerror = () => resolve(e.target?.result as string || '');
-              img.src = e.target?.result as string;
-            };
-            reader.readAsDataURL(file);
-          });
+              reader.readAsDataURL(file);
+            });
+          } else {
+            // PDF, DOC, DOCX or other documents: read directly
+            dataUrl = await new Promise<string>((resolve, reject) => {
+              const reader = new FileReader();
+              reader.onload = (e) => resolve((e.target?.result as string) || '');
+              reader.onerror = (err) => reject(err);
+              reader.readAsDataURL(file);
+            });
+          }
         } catch {
-          dataUrl = '/automotive-studio.jpg';
+          dataUrl = '';
         }
 
         const asset = {

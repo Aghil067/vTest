@@ -1,5 +1,7 @@
 import type { Resource } from '@/types';
 
+const SAMPLE_PDF_URL = 'data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsOfCjEgMCBvYmoKPDwvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFI+PgplbmRvYmoKMiAwIG9iaiA8PC9UeXBlIC9QYWdlcyAvQ291bnQgMSAvS2lkcyBbMyAwIFJdPj4gZW5kb2JqCjMgMCBvYmogPDwvVHlwZSAvUGFnZSAvUGFyZW50IDIgMCBSIC9NZWRpYUJveCBbMCAwIDYxMiA3OTJdIC9Db250ZW50cyA0IDAgUiAvUmVzb3VyY2VzIDw8L0ZvbnQgPDwvRjEgNSAwIFI+Pj4+PgplbmRvYmoKNCAwIG9iaiA8PC9MZW5ndGggNzg+PnN0cmVhbQpCVCAvRjEgMjQgVGYgMTAwIDcwMCBUZCAoVmV0ZXN0IE9mZmljaWFsIFRlY2huaWNhbCBEb2N1bWVudCkgVGogRVQKZW5kc3RyZWFtCmVuZG9iago1IDAgb2JqIDw8L1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhPj4gZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAxOSAwMDAwMCBuIAowMDAwMDAwMDY4IDAwMDAwIG4gCjAwMDAwMDAxMjUgMDAwMDAgbiAKMDAwMDAwMDI0NCAwMDAwMCBuIAowMDAwMDAwMzcyIDAwMDAwIG4gCnRyYWlsZXIgPDwvU2l6ZSA2IC9Sb290IDEgMCBSPj4Kc3RhcnR4cmVmCjQ0MQolJUVPRg==';
+
 export const mockResources: Resource[] = [
   {
     id: 'res-1',
@@ -9,6 +11,7 @@ export const mockResources: Resource[] = [
     summary:
       'Overview brochure for the VetestIMS Inspection Management System covering key capabilities, deployment options, and integration features.',
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
+    fileUrl: SAMPLE_PDF_URL,
     status: 'PUBLISHED',
     publishedAt: '2024-03-01T00:00:00Z',
     seoTitle: 'VetestIMS Brochure — Inspection Management System | Vetest',
@@ -25,6 +28,7 @@ export const mockResources: Resource[] = [
     summary:
       'Technical datasheet for the VetestLane Controller including specifications, interfaces, environmental ratings, and installation requirements.',
     image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80',
+    fileUrl: SAMPLE_PDF_URL,
     status: 'PUBLISHED',
     publishedAt: '2024-03-15T00:00:00Z',
     seoTitle: 'VetestLane Controller Datasheet | Vetest',
@@ -41,6 +45,7 @@ export const mockResources: Resource[] = [
     summary:
       'Technical datasheet for the VetestSense precision sensing module including measurement specifications, channel configurations, and connectivity options.',
     image: 'https://images.unsplash.com/photo-1563770660941-20978e870e26?w=800&q=80',
+    fileUrl: SAMPLE_PDF_URL,
     status: 'PUBLISHED',
     publishedAt: '2024-04-01T00:00:00Z',
     seoTitle: 'VetestSense Module Datasheet | Vetest',
@@ -167,6 +172,7 @@ A typical IIoT architecture for a test lane includes:
     summary:
       'Company overview brochure covering Vetest\'s complete range of software, hardware, and integration solutions for vehicle testing and inspection.',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+    fileUrl: SAMPLE_PDF_URL,
     status: 'PUBLISHED',
     publishedAt: '2024-02-01T00:00:00Z',
     seoTitle: 'Vetest Solutions Overview Brochure',

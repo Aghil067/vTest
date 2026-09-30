@@ -58,13 +58,26 @@ const FileUpload: React.FC<FileUploadProps> = ({
     }
   };
 
-  const isImage =
-    value &&
-    (value.match(/\.(jpeg|jpg|gif|png|webp|svg)/i) ||
-      value.startsWith('data:image/') ||
-      (value.includes('http') && !value.toLowerCase().endsWith('.pdf')));
+  const isDoc =
+    Boolean(
+      value &&
+        (value.toLowerCase().includes('.pdf') ||
+          value.toLowerCase().includes('.doc') ||
+          value.toLowerCase().includes('.docx') ||
+          value.startsWith('data:application/pdf') ||
+          value.startsWith('data:application/msword') ||
+          value.startsWith('data:application/vnd.openxmlformats') ||
+          value.includes('/raw/upload/'))
+    );
 
-  const isPdf = value && value.toLowerCase().includes('.pdf');
+  const isImage =
+    Boolean(
+      value &&
+        !isDoc &&
+        (value.match(/\.(jpeg|jpg|gif|png|webp|svg)/i) ||
+          value.startsWith('data:image/') ||
+          value.includes('/image/upload/'))
+    );
 
   return (
     <div className="space-y-2">
@@ -97,8 +110,8 @@ const FileUpload: React.FC<FileUploadProps> = ({
                 >
                   <img src={value} alt="Uploaded asset" className="w-full h-full object-contain" />
                 </div>
-              ) : isPdf ? (
-                <div className="w-12 h-12 rounded-lg bg-red-950/20 border border-red-500/30 flex items-center justify-center shrink-0 text-red-500 font-bold text-xs">
+              ) : isDoc ? (
+                <div className="w-12 h-12 rounded-lg bg-[#2ECC71]/15 border border-[#2ECC71]/30 flex items-center justify-center shrink-0 text-[#2ECC71] font-bold text-xs">
                   <FileText className="w-6 h-6" />
                 </div>
               ) : (
@@ -109,7 +122,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
                       : 'bg-emerald-50 border-emerald-200 text-emerald-700'
                   }`}
                 >
-                  <ImageIcon className="w-6 h-6" />
+                  <FileText className="w-6 h-6" />
                 </div>
               )}
 

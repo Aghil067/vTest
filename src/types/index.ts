@@ -207,6 +207,7 @@ export interface Resource {
   content?: string;
   image?: string;
   fileUrl?: string;
+  file?: string;
   authorName?: string;
   status: PublishStatus;
   publishedAt?: string;
