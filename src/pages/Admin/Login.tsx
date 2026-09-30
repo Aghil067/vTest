@@ -7,7 +7,7 @@ import { useSettings } from '@/contexts/SettingsContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
 import { BrandLogo } from '@/components/common/BrandLogo';
-import { Lock, Mail, Eye, EyeOff, Loader2, ArrowLeft, ShieldCheck } from 'lucide-react';
+import { Lock, Mail, Eye, EyeOff, Loader2, ArrowLeft } from 'lucide-react';
 
 export const AdminLogin: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -50,12 +50,6 @@ export const AdminLogin: React.FC = () => {
     }
   };
 
-  const handleDevFill = () => {
-    setEmail('admin@vtest.local');
-    setPassword('ChangeMe123!');
-    setError('');
-  };
-
   return (
     <div
       className={`admin-login min-h-screen flex items-center justify-center p-4 relative overflow-hidden transition-colors ${
@@ -88,7 +82,7 @@ export const AdminLogin: React.FC = () => {
             <BrandLogo className="h-12 sm:h-14 w-auto max-w-[220px] object-contain" />
           </Link>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2ECC71]/10 border border-[#2ECC71]/25 text-[#2ECC71] text-xs font-mono font-semibold uppercase tracking-wider mb-2">
-            Admin CMS Portal
+            Admin Portal
           </div>
           <p className="text-xs text-[var(--admin-muted)] font-mono uppercase tracking-wider">
             {settings?.general?.tagline || 'Automotive Inspection & Compliance Control Engine'}
@@ -105,9 +99,6 @@ export const AdminLogin: React.FC = () => {
         >
           <div className="mb-6 pb-4 border-b border-[#1E3325]/40 flex items-center justify-between">
             <h2 className="text-base font-bold tracking-tight">Administrator Authentication</h2>
-            <span className="flex items-center gap-1 text-[11px] font-mono text-[#2ECC71] bg-[#2ECC71]/10 px-2 py-0.5 rounded border border-[#2ECC71]/20">
-              <ShieldCheck className="w-3 h-3" /> Secure Access
-            </span>
           </div>
 
           {error && (
@@ -180,21 +171,10 @@ export const AdminLogin: React.FC = () => {
                   <Loader2 className="w-4 h-4 animate-spin" /> Verifying Credentials...
                 </>
               ) : (
-                'Sign In to CMS'
+                'Sign In'
               )}
             </button>
           </form>
-
-          {/* Quick Dev Fill helper */}
-          <div className="mt-6 pt-5 border-t border-[#1E3325]/40 text-center">
-            <button
-              type="button"
-              onClick={handleDevFill}
-              className="text-xs text-[var(--admin-muted)] hover:text-[#2ECC71] transition-colors underline underline-offset-4 cursor-pointer"
-            >
-              Fill Default Admin Credentials (admin@vtest.local / ChangeMe123!)
-            </button>
-          </div>
         </div>
       </div>
     </div>

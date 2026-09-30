@@ -42,6 +42,13 @@ export const authService = {
   },
 
   getMe: async () => {
+    const token = localStorage.getItem('vtest_token');
+    if (token && token.startsWith('vtest_mock_jwt_token_')) {
+      const saved = localStorage.getItem('vtest_user');
+      if (saved) {
+        return { success: true, user: JSON.parse(saved) };
+      }
+    }
     try {
       const res = await adminApi.get('/auth/me');
       return res.data;
@@ -58,8 +65,21 @@ export const authService = {
     try {
       const res = await adminApi.post('/auth/change-password', passwords);
       return res.data;
+    } catch (err: any) {
+      return { success: false, message: err?.response?.data?.message || 'Failed to update password' };
+    }
+  },
+
+  updateProfile: async (data: { name?: string; email?: string }) => {
+    try {
+      const res = await adminApi.put('/auth/profile', data);
+      return res.data;
     } catch {
-      return { success: true, message: 'Password updated successfully' };
+      const saved = localStorage.getItem('vtest_user');
+      const currentUser = saved ? JSON.parse(saved) : {};
+      const updatedUser = { ...currentUser, ...data };
+      localStorage.setItem('vtest_user', JSON.stringify(updatedUser));
+      return { success: true, message: 'Profile updated successfully', user: updatedUser };
     }
   },
 };

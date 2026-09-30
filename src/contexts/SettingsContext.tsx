@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { settingService } from '@/services/admin/settingService';
-import defaultLogoAsset from '@/assets/logo.jpeg';
+import defaultLogoAsset from '@/assets/logo.png';
 
 interface SettingsContextType {
   settings: any;

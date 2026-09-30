@@ -27,6 +27,8 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 
+import ProfileModal from '@/components/admin/ProfileModal';
+
 export const AdminLayout: React.FC = () => {
   const { user, logout } = useAuth();
   const { logoUrl, settings } = useSettings();
@@ -34,6 +36,7 @@ export const AdminLayout: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [profileModalOpen, setProfileModalOpen] = useState(false);
 
   const handleLogout = async () => {
     await logout();
@@ -94,9 +97,6 @@ export const AdminLayout: React.FC = () => {
         >
           <Link to="/admin/dashboard" className="flex items-center gap-3">
             <BrandLogo className="h-9 w-auto max-w-[130px] object-contain" />
-            <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#2ECC71]/15 text-[#2ECC71] border border-[#2ECC71]/30">
-              CMS
-            </span>
           </Link>
           <button
             onClick={() => setSidebarOpen(false)}
@@ -138,21 +138,7 @@ export const AdminLayout: React.FC = () => {
             );
           })}
 
-          <div className="pt-4 mt-4 border-t border-dashed border-[#1E3325]/50">
-            <Link
-              to="/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
-                isDark
-                  ? 'text-[var(--admin-muted)] hover:text-[#2ECC71] hover:bg-white/5'
-                  : 'text-slate-500 hover:text-emerald-700 hover:bg-slate-100'
-              }`}
-            >
-              <ExternalLink className="w-4 h-4 shrink-0" />
-              <span>View Public Website</span>
-            </Link>
-          </div>
+
         </nav>
 
         {/* User Info Footer */}
@@ -162,19 +148,30 @@ export const AdminLayout: React.FC = () => {
           }`}
         >
           <div
-            className={`flex items-center gap-3 p-2 rounded-xl border ${
-              isDark ? 'bg-[#0F1812] border-[#1E3325]' : 'bg-white border-slate-200 shadow-xs'
+            className={`flex items-center gap-3 p-2 rounded-xl border transition-all ${
+              isDark
+                ? 'bg-[#0F1812] border-[#1E3325] hover:border-[#2ECC71]/40 hover:bg-[#2ECC71]/5'
+                : 'bg-white border-slate-200 shadow-xs hover:border-emerald-300 hover:bg-emerald-50/50'
             }`}
           >
-            <div className="w-9 h-9 rounded-lg bg-[#2ECC71]/20 border border-[#2ECC71]/40 flex items-center justify-center font-bold text-[#2ECC71] text-sm">
-              {user?.name ? user.name.charAt(0).toUpperCase() : 'A'}
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-xs font-bold truncate">{user?.name || 'Administrator'}</p>
-              <div className="mt-0.5">
-                <Badge status={user?.role || 'ADMIN'}>{user?.role || 'SUPER_ADMIN'}</Badge>
+            <div
+              onClick={() => setProfileModalOpen(true)}
+              title="Click to view profile & settings"
+              className="flex items-center gap-3 flex-1 min-w-0 cursor-pointer group"
+            >
+              <div className="w-9 h-9 rounded-lg bg-[#2ECC71]/20 border border-[#2ECC71]/40 flex items-center justify-center font-bold text-[#2ECC71] text-sm group-hover:scale-105 transition-transform">
+                {user?.name ? user.name.charAt(0).toUpperCase() : 'A'}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-bold truncate group-hover:text-[#2ECC71] transition-colors">
+                  {user?.name || 'Administrator'}
+                </p>
+                <div className="mt-0.5">
+                  <Badge status={user?.role || 'ADMIN'}>{user?.role || 'SUPER_ADMIN'}</Badge>
+                </div>
               </div>
             </div>
+
             <button
               onClick={handleLogout}
               title="Logout"
@@ -254,6 +251,9 @@ export const AdminLayout: React.FC = () => {
           <Outlet />
         </main>
       </div>
+
+      {/* Admin Profile & Security Settings Modal */}
+      <ProfileModal isOpen={profileModalOpen} onClose={() => setProfileModalOpen(false)} />
     </div>
   );
 };

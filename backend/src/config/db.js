@@ -20,6 +20,25 @@ const connectDB = async () => {
       serverSelectionTimeoutMS: 5000,
     });
     console.log(`[MongoDB Connected] Host: ${conn.connection.host}`);
+
+    // Auto-seed default admin user if not existing
+    try {
+      const AdminUser = require('../models/AdminUser');
+      const adminCount = await AdminUser.countDocuments();
+      if (adminCount === 0) {
+        await AdminUser.create({
+          name: 'Vetest Lead Administrator',
+          email: 'admin@vtest.local',
+          password: 'ChangeMe123!',
+          role: 'SUPER_ADMIN',
+          status: 'ACTIVE'
+        });
+        console.log('✓ Default admin user seeded: admin@vtest.local / ChangeMe123!');
+      }
+    } catch (seedErr) {
+      console.warn('Auto-seed admin check:', seedErr.message);
+    }
+
     return conn;
   } catch (error) {
     console.error(`[MongoDB Connection Error] ${error.message}`);

@@ -42,10 +42,15 @@ adminApi.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
-      localStorage.removeItem('vtest_token');
-      localStorage.removeItem('vtest_user');
-      if (typeof window !== 'undefined' && window.location.pathname.startsWith('/admin') && window.location.pathname !== '/admin/login') {
-        window.location.href = '/admin/login';
+      const url = error.config?.url || '';
+      const isAuthCheck = url.includes('/auth/change-password') || url.includes('/auth/login') || url.includes('/auth/me');
+      
+      if (!isAuthCheck) {
+        localStorage.removeItem('vtest_token');
+        localStorage.removeItem('vtest_user');
+        if (typeof window !== 'undefined' && window.location.pathname.startsWith('/admin') && window.location.pathname !== '/admin/login') {
+          window.location.href = '/admin/login';
+        }
       }
     }
     return Promise.reject(error);

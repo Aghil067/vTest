@@ -1,5 +1,6 @@
 const Enquiry = require('../models/Enquiry');
 const { logActivity } = require('../utils/logger');
+const { sendEnquiryEmailToAdmin } = require('../utils/emailService');
 
 // @desc    Submit public enquiry
 // @route   POST /api/enquiries
@@ -22,6 +23,11 @@ exports.createEnquiry = async (req, res, next) => {
       message,
       source: source || 'Website Contact Form',
       status: 'NEW'
+    });
+
+    // Send email notification to Admin asynchronously
+    sendEnquiryEmailToAdmin(enquiry).catch((err) => {
+      console.error('Background Email Dispatch Error:', err.message);
     });
 
     res.status(201).json({

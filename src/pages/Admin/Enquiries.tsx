@@ -6,7 +6,7 @@ import Badge from '@/components/admin/Badge';
 import Modal from '@/components/admin/Modal';
 import Pagination from '@/components/admin/Pagination';
 import Skeleton from '@/components/admin/Skeleton';
-import { MessageSquare, Search, Eye, Trash2, Loader2, Phone, Mail, Building, Clock } from 'lucide-react';
+import { MessageSquare, Search, Eye, Trash2, Phone, Mail, Building, Clock } from 'lucide-react';
 
 export const AdminEnquiries: React.FC = () => {
   const [enquiries, setEnquiries] = useState<any[]>([]);
@@ -18,10 +18,6 @@ export const AdminEnquiries: React.FC = () => {
   const { isDark } = useTheme();
 
   const [selectedEnquiry, setSelectedEnquiry] = useState<any>(null);
-  const [statusInput, setStatusInput] = useState('NEW');
-  const [notesInput, setNotesInput] = useState('');
-  const [updating, setUpdating] = useState(false);
-
   const toast = useToast();
 
   const fetchEnquiries = async () => {
@@ -48,28 +44,6 @@ export const AdminEnquiries: React.FC = () => {
 
   const handleOpenDetails = (enq: any) => {
     setSelectedEnquiry(enq);
-    setStatusInput(enq.status || 'NEW');
-    setNotesInput(enq.internalNotes || '');
-  };
-
-  const handleUpdateStatus = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!selectedEnquiry) return;
-
-    try {
-      setUpdating(true);
-      await enquiryService.updateEnquiry(selectedEnquiry._id || selectedEnquiry.id, {
-        status: statusInput,
-        internalNotes: notesInput,
-      });
-      toast.success('Enquiry updated successfully!');
-      setSelectedEnquiry(null);
-      fetchEnquiries();
-    } catch {
-      toast.error('Failed to update enquiry status');
-    } finally {
-      setUpdating(false);
-    }
   };
 
   const handleDelete = async (id: string) => {
@@ -287,61 +261,15 @@ export const AdminEnquiries: React.FC = () => {
               </div>
             </div>
 
-            <form onSubmit={handleUpdateStatus} className="space-y-4 pt-3 border-t border-[#1E3325]">
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[var(--admin-copy)] mb-1.5">
-                  Update Lead Status
-                </label>
-                <select
-                  value={statusInput}
-                  onChange={(e) => setStatusInput(e.target.value)}
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-xs focus:outline-none ${
-                    isDark
-                      ? 'bg-[#0A0F0C] border-[#1E3325] text-white'
-                      : 'bg-slate-50 border-slate-200 text-slate-900'
-                  }`}
-                >
-                  <option value="NEW">NEW - Unprocessed</option>
-                  <option value="IN_REVIEW">IN_REVIEW - Engineering review</option>
-                  <option value="CONTACTED">CONTACTED - Reached out to prospect</option>
-                  <option value="CLOSED">CLOSED - Completed / Contracted</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[var(--admin-copy)] mb-1.5">
-                  Internal Engineering & Commercial Notes
-                </label>
-                <textarea
-                  rows={3}
-                  value={notesInput}
-                  onChange={(e) => setNotesInput(e.target.value)}
-                  placeholder="Record commercial progress, assigned engineer, quote reference #..."
-                  className={`w-full px-3.5 py-2.5 rounded-xl border text-xs focus:outline-none ${
-                    isDark
-                      ? 'bg-[#0A0F0C] border-[#1E3325] text-white'
-                      : 'bg-slate-50 border-slate-200 text-slate-900'
-                  }`}
-                />
-              </div>
-
-              <div className="flex items-center justify-end gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={() => setSelectedEnquiry(null)}
-                  className="px-4 py-2 bg-[var(--admin-surface)] border border-[var(--admin-border)] text-[var(--admin-heading)] rounded-xl text-xs font-semibold cursor-pointer"
-                >
-                  Close
-                </button>
-                <button
-                  type="submit"
-                  disabled={updating}
-                  className="px-5 py-2 bg-[#2ECC71] hover:bg-[#27ae60] text-[#050A07] rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-2 cursor-pointer disabled:opacity-50"
-                >
-                  {updating ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : 'Save Lead Status'}
-                </button>
-              </div>
-            </form>
+            <div className="flex items-center justify-end pt-4 border-t border-[#1E3325]">
+              <button
+                type="button"
+                onClick={() => setSelectedEnquiry(null)}
+                className="px-5 py-2.5 bg-[#2ECC71] hover:bg-[#27ae60] text-[#050A07] rounded-xl text-xs font-bold transition-all cursor-pointer shadow-md"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </Modal>
       )}

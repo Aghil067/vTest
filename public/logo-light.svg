@@ -1,5 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" fill="none">
-  <path d="M6 24L22 44M14 44L44 8" stroke="#20A95B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="56" y="40" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="36" letter-spacing="-1" fill="#142219">Vtest</text>
-  <rect x="185" y="12" width="8" height="8" rx="1.5" fill="#20A95B"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 52" fill="none">
+  <defs>
+    <linearGradient id="vt_check_grad_light" x1="6" y1="24" x2="44" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#15803D" />
+      <stop offset="50%" stop-color="#16A34A" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+  </defs>
+
+  <!-- Green checkmark icon ('V') -->
+  <path
+    d="M 8 26 L 22 42 L 44 10"
+    stroke="url(#vt_check_grad_light)"
+    stroke-width="9"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- 'etest' Wordmark — Dark charcoal for light mode, baseline aligned with V fold -->
+  <text
+    x="41"
+    y="42"
+    font-family="Inter, system-ui, -apple-system, sans-serif"
+    font-weight="800"
+    font-size="35"
+    letter-spacing="-0.04em"
+    fill="#0F172A"
+  >etest</text>
 </svg>

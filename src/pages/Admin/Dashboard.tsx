@@ -11,7 +11,6 @@ import {
   Lightbulb,
   Building2,
   Briefcase,
-  Image as ImageIcon,
   MessageSquare,
   CheckCircle2,
   ArrowUpRight,
@@ -115,13 +114,6 @@ export const AdminDashboard: React.FC = () => {
       sub: `${stats?.openEnquiries || 0} active leads`,
       icon: MessageSquare,
       link: '/admin/enquiries',
-    },
-    {
-      label: 'Media Assets',
-      count: stats?.totalMediaAssets || 0,
-      sub: 'Uploaded assets',
-      icon: ImageIcon,
-      link: '/admin/products',
     },
   ];
 

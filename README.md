@@ -1,4 +1,4 @@
-# Vtest website
+# Vetest website
 
 ## Local development
 

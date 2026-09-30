@@ -1,17 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <title>Vtest</title>
+  <title>Vetest</title>
   <defs>
-    <linearGradient id="rise" x1="25" y1="57" x2="48" y2="5" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#07564C"/>
-      <stop offset=".55" stop-color="#078D4D"/>
-      <stop offset="1" stop-color="#16BC62"/>
+    <linearGradient id="fav_grad" x1="8" y1="32" x2="56" y2="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#16A34A" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#2ECC71" />
     </linearGradient>
-    <linearGradient id="fold" x1="8" y1="26" x2="27" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1CD477"/>
-      <stop offset="1" stop-color="#07564C"/>
-    </linearGradient>
+    <filter id="fav_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#10B981" flood-opacity="0.4" />
+    </filter>
   </defs>
-  <path d="M18 43 40 10C45 3 53 2 61 6L31 58H19Z" fill="url(#rise)"/>
-  <path d="M9 25C4 27 2 31 3 36L10 51C12 56 16 58 21 58H31C26 56 23 52 20 46Z" fill="url(#fold)"/>
-  <path d="M20 46C23 52 26 56 31 58C25 55 21 48 18 43L17 45Z" fill="#32D785"/>
+
+  <g filter="url(#fav_glow)">
+    <path
+      d="M 10 32 L 26 50 L 54 14"
+      stroke="url(#fav_grad)"
+      stroke-width="11"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
 </svg>
