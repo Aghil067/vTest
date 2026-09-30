@@ -39,6 +39,94 @@ export function ResourceDetailPage() {
     );
   }
 
+  const handleDownloadPDF = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const targetUrl = resource.fileUrl || (resource as any).url || (resource as any).pdfUrl;
+
+    if (targetUrl && targetUrl.trim() !== '' && targetUrl !== '#') {
+      const fileName = `${resource.slug || 'vetest-document'}.pdf`;
+
+      if (targetUrl.startsWith('data:')) {
+        const a = document.createElement('a');
+        a.href = targetUrl;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } else {
+        const finalUrl = targetUrl.startsWith('http') || targetUrl.startsWith('/')
+          ? targetUrl
+          : `/${targetUrl}`;
+
+        const a = document.createElement('a');
+        a.href = finalUrl;
+        a.download = fileName;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    } else {
+      const cleanTitle = (resource.title || 'Vetest Document').replace(/[()]/g, '');
+      const cleanSummary = (resource.summary || (resource as any).description || 'Official Vetest Publication Document').replace(/[()]/g, '');
+      
+      const pdfContent = `%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 250 >>
+stream
+BT
+/F1 18 Tf
+50 720 Td
+(${cleanTitle}) Tj
+/F1 12 Tf
+0 -30 Td
+(Vetest Technical Publication - ${resource.type || 'DOCUMENT'}) Tj
+0 -20 Td
+(Author: ${resource.authorName || 'Vetest Engineering Team'}) Tj
+0 -40 Td
+(${cleanSummary.substring(0, 90)}) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000263 00000 n 
+0000000565 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+636
+%%EOF`;
+
+      const blob = new Blob([pdfContent], { type: 'application/pdf' });
+      const blobUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = `${resource.slug || 'vetest-document'}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+    }
+  };
+
   const isArticle = resource.type === 'ARTICLE';
 
   return (
@@ -137,20 +225,14 @@ export function ResourceDetailPage() {
               </div>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href={resource.fileUrl || '#'}
-                  download
-                  onClick={(e) => {
-                    if (!resource.fileUrl) {
-                      e.preventDefault();
-                      alert('Document download initiated. The sample PDF is being prepared.');
-                    }
-                  }}
-                  className="btn-primary w-full sm:w-auto"
+                <button
+                  type="button"
+                  onClick={handleDownloadPDF}
+                  className="btn-primary w-full sm:w-auto cursor-pointer"
                 >
                   <Download className="w-4 h-4" />
                   Download PDF Document
-                </a>
+                </button>
                 <Link to="/contact" className="btn-secondary w-full sm:w-auto">
                   Request Hard Copy
                 </Link>
